@@ -24,7 +24,14 @@ import { renderIntroductionHtml } from '@utils/introduction.pure.ts';
 import type { Navigation } from '@utils/navigation';
 import { mergeRel } from '@utils/social.pure.ts';
 import { getTags } from '@utils/tags.ts';
-import { UPTIME_UNITS } from '@utils/uptime.pure.ts';
+import {
+  ageVersion,
+  dayClock,
+  formatDayCount,
+  formatDayMilestone,
+  nextDayMilestone,
+  UPTIME_UNITS,
+} from '@utils/uptime.pure.ts';
 
 export interface Props {}
 
@@ -41,7 +48,33 @@ const promptRule = '-'.repeat(promptUser.length);
 const posts = getPostsSortedByDraft(await getCollection('blog'));
 const postCount = posts.length;
 
-// The uptime counter starts at the first published post.
+// Patrick's own uptime: age as a kernel version, the boot time in the zone
+// he was born in, and the day count with its next round thousand. These are
+// correct at build time; the client script keeps them current.
+const born = new Date(setup.author.born);
+const builtAt = new Date();
+const bornVersion = ageVersion(born, builtAt);
+const bornLabel = new Intl.DateTimeFormat('en-GB', {
+  dateStyle: 'long',
+  timeStyle: 'short',
+  timeZone: setup.author.bornTimezone,
+})
+  .format(born)
+  .replace(' at ', ', ');
+const bornZone =
+  new Intl.DateTimeFormat('en-GB', {
+    timeZone: setup.author.bornTimezone,
+    timeZoneName: 'short',
+  })
+    .formatToParts(born)
+    .find((part) => part.type === 'timeZoneName')?.value ?? '';
+const bornClock = dayClock(born, builtAt);
+const bornMilestone = formatDayMilestone(
+  nextDayMilestone(born, builtAt),
+  setup.timezone,
+);
+
+// The "online" counter starts at the first published post.
 const firstPostDate = posts.reduce<Date | undefined>((earliest, post) => {
   const date = new Date(post.data.date);
   return !earliest || date < earliest ? date : earliest;
@@ -131,7 +164,7 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
                 ></span>
                 <span class="footer-muted">{setup.timezone}</span>
               </dd>
-              <dt>uptime</dt>
+              <dt>online</dt>
               <dd>
                 <span data-uptime-since>since {firstPostLabel}</span>
                 {firstPostDate && (
@@ -186,6 +219,52 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
     </div>
 
     <div class="flex flex-col gap-12 xl:col-span-5">
+      <section aria-labelledby="footer-uptime">
+        <h3
+          id="footer-uptime"
+          class="footer-prompt"
+        >
+          <span
+            class="footer-prompt-user"
+            aria-hidden="true">{promptUser}:~$</span
+          >
+          uname -r &amp;&amp; uptime<span class="sr-only">: Patrick's age</span>
+        </h3>
+        <dl
+          class="footer-fetch-facts"
+          data-footer-age
+          data-born={born.toISOString()}
+          data-timezone={setup.timezone}
+        >
+          <dt>kernel</dt>
+          <dd><span data-age-version>{bornVersion}</span>-samui</dd>
+          <dt>boot</dt>
+          <dd>
+            <time datetime={setup.author.born}>{bornLabel} {bornZone}</time>
+          </dd>
+          <dt>uptime</dt>
+          <dd>
+            <span data-age-days>{formatDayCount(bornClock.days)} days</span>
+            <span
+              class="footer-uptime"
+              data-age-counter
+              aria-hidden="true"
+              hidden
+            >
+              {/* Same no-wrap units as the "online" counter; the line can break after the comma. */}
+              <span class="footer-uptime-unit"><span data-age-value="days"></span> days,</span>
+              <span class="footer-uptime-unit"><span data-age-value="time"></span></span>
+            </span>
+            <span
+              class="footer-muted block"
+              data-age-milestone
+            >
+              # {bornMilestone}
+            </span>
+          </dd>
+        </dl>
+      </section>
+
       <nav aria-labelledby="footer-ls">
         <h3
           id="footer-ls"
@@ -281,11 +360,13 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
     >
       <p>
         &copy; {siteSince}&ndash;<span id={footerYearId}>{currentYear}</span>
-        <a href={getHomepageUrl()}>{setup.title}</a><span
+        <a href={getHomepageUrl()}>{setup.title}</a
+        ><span
           id="site-version"
           aria-live="polite"
           aria-atomic="true"
-        ></span>. All rights reserved.
+        ></span
+        >. All rights reserved.
       </p>
       <p>
         Another production by
@@ -331,7 +412,8 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
 
       <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span id="webring-mention">
-          A member of the <a href="https://static.quest">Static.Quest</a> web ring!
+          A member of the <a href="https://static.quest">Static.Quest</a> web
+          ring!
         </span>
         <span class="flex items-center gap-2">
           <IconLink
@@ -405,7 +487,13 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       pickGreeting,
     } from '@utils/greeting.pure.ts';
     import {
+      ageVersion,
+      dayClock,
+      formatDayClockTime,
+      formatDayCount,
+      formatDayMilestone,
       formatUptimeValue,
+      nextDayMilestone,
       UPTIME_UNITS,
       uptimeParts,
       uptimeUnitLabel,
@@ -495,7 +583,7 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
 
     /**
      * Fill the greeting slot (visitor's local hour), and run the Koh Samui
-     * clock and the uptime counter on one timer aligned to whole seconds.
+     * clock and both uptime counters on one timer aligned to whole seconds.
      * Runs on every page load, including ClientRouter navigations, because
      * the footer is swapped with the rest of the page.
      */
@@ -521,34 +609,49 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
       const clock = footer.querySelector<HTMLElement>('[data-footer-clock]');
       const timeZone = clock?.dataset['timezone'];
 
+      // Counters roll their digits only while they are on screen.
+      const visible = new Set<Element>();
+      uptimeObserver = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        }
+      });
+
       const uptime = footer.querySelector<HTMLElement>('[data-footer-uptime]');
       const start = new Date(uptime?.dataset['start'] ?? '');
       const hasUptime = !!uptime && !Number.isNaN(start.getTime());
-      let inView = false;
       if (uptime && hasUptime) {
         uptime.hidden = false;
         // Screen readers keep the calm "since <date>" text instead of a
         // counter that changes every second.
-        footer
-          .querySelector('[data-uptime-since]')
-          ?.classList.add('sr-only');
-        uptimeObserver = new IntersectionObserver((entries) => {
-          inView = entries.some((entry) => entry.isIntersecting);
-        });
+        footer.querySelector('[data-uptime-since]')?.classList.add('sr-only');
         uptimeObserver.observe(uptime);
       }
 
-      if (!(clock && timeZone) && !hasUptime) return;
+      // Patrick's age: kernel version, day count, and the next round day.
+      const age = footer.querySelector<HTMLElement>('[data-footer-age]');
+      const born = new Date(age?.dataset['born'] ?? '');
+      const ageZone = age?.dataset['timezone'];
+      const ageCounter = age?.querySelector<HTMLElement>('[data-age-counter]');
+      const hasAge = !!ageCounter && !Number.isNaN(born.getTime());
+      if (age && ageCounter && hasAge) {
+        ageCounter.hidden = false;
+        // Screen readers keep the day count, set once per page load.
+        const days = age.querySelector<HTMLElement>('[data-age-days]');
+        if (days) {
+          days.textContent = `${formatDayCount(dayClock(born, new Date()).days)} days`;
+          days.classList.add('sr-only');
+        }
+        uptimeObserver.observe(ageCounter);
+      }
+
+      if (!(clock && timeZone) && !hasUptime && !hasAge) return;
       const reduceMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)',
       );
 
-      const tick = (animate: boolean): void => {
-        const now = new Date();
-        if (clock && timeZone) {
-          const time = formatZoneTime(now, timeZone);
-          if (clock.textContent !== time) clock.textContent = time;
-        }
+      const tickUptime = (now: Date, animate: boolean): void => {
         if (!uptime || !hasUptime) return;
         const parts = uptimeParts(start, now);
         for (const unit of UPTIME_UNITS) {
@@ -568,12 +671,46 @@ const moreNetworks = footerNetworks.filter((n) => !n.show.connect);
         }
       };
 
-      // Animate only when the counter is on screen and motion is allowed;
+      const setText = (el: Element | null | undefined, text: string): void => {
+        if (el && el.textContent !== text) el.textContent = text;
+      };
+
+      const tickAge = (now: Date, animate: boolean): void => {
+        if (!age || !ageCounter || !hasAge) return;
+        const clockParts = dayClock(born, now);
+        const days = ageCounter.querySelector<HTMLElement>(
+          '[data-age-value="days"]',
+        );
+        const time = ageCounter.querySelector<HTMLElement>(
+          '[data-age-value="time"]',
+        );
+        if (days) renderValue(days, formatDayCount(clockParts.days), animate);
+        if (time) renderValue(time, formatDayClockTime(clockParts), animate);
+        setText(age.querySelector('[data-age-version]'), ageVersion(born, now));
+        if (ageZone) {
+          setText(
+            age.querySelector('[data-age-milestone]'),
+            `# ${formatDayMilestone(nextDayMilestone(born, now), ageZone)}`,
+          );
+        }
+      };
+
+      // Animate only when a counter is on screen and motion is allowed;
       // otherwise the digits are swapped without animation.
+      const tick = (motion: boolean): void => {
+        const now = new Date();
+        if (clock && timeZone) {
+          const time = formatZoneTime(now, timeZone);
+          if (clock.textContent !== time) clock.textContent = time;
+        }
+        tickUptime(now, motion && !!uptime && visible.has(uptime));
+        tickAge(now, motion && !!ageCounter && visible.has(ageCounter));
+      };
+
       const schedule = (): void => {
         tickTimer = window.setTimeout(
           () => {
-            tick(inView && !reduceMotion.matches);
+            tick(!reduceMotion.matches);
             schedule();
           },
           1000 - (Date.now() % 1000),

@@ -1,5 +1,7 @@
 {
   "author": {
+    "born": "1975-07-05T05:25:00+01:00",
+    "bornTimezone": "Europe/Berlin",
     "name": "Patrick Kollitsch",
     "url": "https://kollitsch.dev/"
   },

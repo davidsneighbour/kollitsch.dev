@@ -2,17 +2,17 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-11-13T00:00:00+07:00
+updated: 2026-11-13T20:20:00+07:00
 ---
 
-Renders the site-wide footer as a terminal session: a neofetch-style `whoami` block, the introduction, the footer navigation, ranked social profiles, and one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
+Renders the site-wide footer as a terminal session: a neofetch-style `whoami` block, the introduction, the author's own uptime, the footer navigation, ranked social profiles, and one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
 
 ## File locations
 
 | Field | Value |
 | --- | --- |
 | Component | `src/components/layout/footer/Footer.astro` |
-| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author`, `introduction`, `greetings`, `timezone`, and the `social` section) |
+| Data | [`src/data/footernavigation.json`](../../../../src/data/footernavigation.json) (navigation links), [`src/data/setup.json`](../../../../src/data/setup.json) (`title`, `author` including `born` and `bornTimezone`, `introduction`, `greetings`, `timezone`, and the `social` section) |
 | Tests | [`src/components/layout/footer/Footer.test.ts`](../../../../src/components/layout/footer/Footer.test.ts), [`src/utils/greeting.pure.test.ts`](../../../../src/utils/greeting.pure.test.ts), [`src/utils/uptime.pure.test.ts`](../../../../src/utils/uptime.pure.test.ts), [`src/utils/introduction.pure.test.ts`](../../../../src/utils/introduction.pure.test.ts) |
 
 ## Props
@@ -32,14 +32,16 @@ import Footer from '@components/layout/footer/Footer.astro';
 ## Behaviour
 
 - Every section starts with a prompt line (`patrick@dnb:~$ <command>`) set in JetBrains Mono. Each prompt is an `h3`; the `user@host` part is `aria-hidden`, and a screen-reader-only suffix gives the plain section name (for example `whoami: about Patrick Kollitsch`). Each section is labelled by its prompt through `aria-labelledby`.
-- Below `xl` the sections stack in one column; from `xl` they split into two columns (7/5).
-- `whoami` shows the author avatar (linked to `/connect/`, breaking out of the column to the left by one third of its width from 64rem up) beside a key-value table: name, alias, role, host, local time, uptime, stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
+- Below `xl` the sections stack in one column; from `xl` they split into two columns (7/5). The left column holds `whoami` and `cat about.md`; the right column holds `uname -r && uptime`, `ls ~/`, and `ls ~/elsewhere`, so both columns end at about the same height.
+- `whoami` shows the author avatar (linked to `/connect/`, breaking out of the column to the left by one third of its width from 64rem up) beside a key-value table: name, alias, role, host, local time, online, stack, and garden (post count from the `blog` collection without drafts, tag count from `getTags()`). If the tag count fails, the tag link is left out.
 - The local time is the current time in `setup.timezone`, written into `[data-footer-clock]` by the client script and updated every 15 seconds. Without JavaScript only the time zone name shows.
 - `cat about.md` renders `setup.introduction` on the server with `renderIntroductionHtml()` (`src/utils/introduction.pure.ts`), so blank lines become separate paragraphs. The `{$greeting}` placeholder becomes an empty `<span data-greeting-slot>`. The client script fills it with a greeting from `setup.greetings`, chosen by the visitor's local hour with `pickGreeting()` (`src/utils/greeting.pure.ts`): 05-11 morning, 12-16 afternoon, 17-20 evening, 21-04 night.
 - The client script runs on `astro:page-load`, so the greeting and clock also work after `ClientRouter` navigations. It reads the greetings from the footer's `data-greetings` attribute and does not bundle `setup.json` or `markdown-it`.
 - `ls ~/` lists the top-level entries of `footernavigation.json` as lowercase directory names (`home/`, `posts/`, and so on). Child entries are not rendered.
 - `ls ~/elsewhere` lists the networks with `show.footer`. Networks that also have `show.connect` are featured, one row each with icon, network id, and handle. The other networks render as icon-only links with the network label as `aria-label` and `profile.title` as `title`. They wrap with `text-wrap: balance`, so no icon is left alone on the last line. All links use `social.defaults.target` and `social.defaults.rel` merged with the network's `profile.rel`.
-- The uptime row counts from the first published post (the earliest `date` in the `blog` collection, without drafts) in years, months, days, hours, minutes, and seconds, computed with `uptimeParts()` (`src/utils/uptime.pure.ts`) on the UTC calendar. The server renders `since <date>` (for example "since 21 October 2021"). The client script hides that text visually, keeps it for screen readers, and shows the `aria-hidden` counter. One timer, aligned to whole seconds, updates the counter and the clock. Changed digits roll in with the Web Animations API, only while the counter is on screen (`IntersectionObserver`) and the visitor allows motion.
+- The `online` row counts from the first published post (the earliest `date` in the `blog` collection, without drafts) in years, months, days, hours, minutes, and seconds, computed with `uptimeParts()` (`src/utils/uptime.pure.ts`) on the UTC calendar. The server renders `since <date>` (for example "since 21 October 2021"). The client script hides that text visually, keeps it for screen readers, and shows the `aria-hidden` counter. One timer, aligned to whole seconds, updates the counter and the clock. Changed digits roll in with the Web Animations API, only while the counter is on screen (`IntersectionObserver`) and the visitor allows motion.
+- `uname -r && uptime` shows the author's age from `setup.author.born` (`1975-07-05T05:25:00+01:00`) with three rows. `kernel` is the age as a version number (years.months.days, for example `51.4.8-samui`, from `ageVersion()`). `boot` is the birth date and time in `setup.author.bornTimezone`, with the zone abbreviation (`5 July 1975, 05:25 CET`). `uptime` counts whole days and the time of the current day (`18,759 days, 08:49:39`, from `dayClock()`), and a muted comment line names the next multiple of 1,000 days in `setup.timezone` (`# next: day 19,000, 12 July 2027`, or `# today: day 19,000` on the day, from `nextDayMilestone()` and `formatDayMilestone()`). The day count follows the author's decimal birthdays from the 2022 post "Just another New Year". The server renders all values at build time. The client script corrects the kernel version and the comment line every second, shows the `aria-hidden` rolling counter, and keeps a plain `<n> days` text for screen readers that it sets once per page load.
+- Both counters share the timer, the `IntersectionObserver`, and the digit roll. Each counter rolls only while it is on screen.
 - An `aria-hidden` final prompt ends with a blinking green bar cursor, aligned with the prompt text. The blink runs only under `prefers-reduced-motion: no-preference`.
 - The colophon strip shows the copyright line with the current year, the version link, "Another production by" with the `Wordmark`, privacy and security policy links, RSS/Atom/JSON feed links, the `Static.Quest` web ring widget (previous, members, next, random), and the [People's Pledge](https://people.pledge.party/) badge (`PeoplePledgeBadge` at 40 px).
 - The year is set on the server and corrected by an inline script to avoid stale build-time years. The same inline script fetches `/api/siteinfo.json` and, when a `version` and `releasePage` are present, appends a version link (`៚ vX.Y.Z`) after the site title. Failures are ignored.

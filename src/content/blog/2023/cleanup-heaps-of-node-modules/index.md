@@ -14,7 +14,7 @@ tags:
   - 100-days-to-offload
 cover:
   src: postimages/postimage-for-cleanup-heaps-of-node-modules.jpg
-  title: "Heaps of garbage"
+  title: "Heaps of rubbish"
   type: image
 publisher: rework
 ---

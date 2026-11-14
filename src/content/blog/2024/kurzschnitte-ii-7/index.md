@@ -43,7 +43,7 @@ Welcome to the seventh iteration of Kurzschnitte II. The number 7 is, in mathema
 
 ## Auditing
 
-* [ObsoHTML](https://github.com/j9t/obsohtml) is a tool designed for detecting obsolete and proprietary HTML elements and attributes in various file types like HTML, PHP, and JavaScript. It's particularly useful for ensuring web standards are met in your projects. This Node.js script offers functionalities to run checks either globally or in specified directories, providing a detailed output of detected issues for easy updating. The project is open-source under the CC-BY-SA-4.0 license.
+* [ObsoHTML](https://github.com/j9t/obsohtml) is a tool designed for detecting obsolete and proprietary HTML elements and attributes in various file types like HTML, PHP, and JavaScript. It's particularly useful for ensuring web standards are met in your projects. This Node.js script offers functionalities to run checks either globally or in specified directories, providing a detailed output of detected issues for easy updating. The project is open-source under the CC-BY-SA-4.0 licence.
 
 ## Food for thought
 

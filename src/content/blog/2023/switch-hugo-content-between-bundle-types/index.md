@@ -2,7 +2,7 @@
 fmContentType: blog
 title: 'Switching content types in Hugo: A step-by-step guide'
 description: >-
-  Optimize your content organisation in Hugo with page bundles and learn how to
+  Optimise your content organisation in Hugo with page bundles and learn how to
   switch between leaf and branch bundles for optimal SEO and site structure.
 summary: ''
 date: 2023-06-19T19:45:19+07:00

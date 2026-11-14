@@ -43,7 +43,7 @@ I am trying this new "thing" of "reporting" what I was up to in a certain time p
 
   > Have you understood my irritation coming from me spending 10 hours of my vacation time to implement basic return support in partials, yet you expect me to spend 100 hours to get it in line with your expectations?
 
-  People that spend their vacation time on improving open source projects without any merit are prone to ending up as people who in a fit of rage or anger take out "that one package, that everyone is using". Hobbyists need to be more than that.
+  People that spend their holiday time on improving open source projects without any merit are prone to ending up as people who in a fit of rage or anger take out "that one package, that everyone is using". Hobbyists need to be more than that.
 
   I am not going to wait for this soon to be expected meltdown, I am also not complaining. I don't think complaining will help GoHugo forward. I tried many times over the past years. I think the only thing that would help it become a stable usable open source program that is adaptable by the "well-versed Go nerd" as well as the "noob" would be a proper Project Management and Community Management, and both won't come into existence any time soon.
 

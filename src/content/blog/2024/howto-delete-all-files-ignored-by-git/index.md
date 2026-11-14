@@ -19,7 +19,7 @@ publisher: rework
 
 The `.gitignore` file in a Git repository serves as a configuration file that specifies files and directories that Git should --- as the name implies --- ignore. When Git encounters a file or directory listed in .gitignore, it automatically excludes them from being tracked, preventing them from showing up in commands like git status and git add.
 
-This is useful to exclude files generated during the build process, temporary files, log files, and other artifacts that do not belong in version control. I for instance have all my scratch files (back in the analogue times these were the post-it notes with todo's and other useful info that had to be saved from being forgotten) hidden from Git with the following line in my global `.gitignore`:
+This is useful to exclude files generated during the build process, temporary files, log files, and other artefacts that do not belong in version control. I for instance have all my scratch files (back in the analogue times these were the post-it notes with todo's and other useful info that had to be saved from being forgotten) hidden from Git with the following line in my global `.gitignore`:
 
 ```ini
 scratch*

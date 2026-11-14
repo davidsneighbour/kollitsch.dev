@@ -116,7 +116,7 @@ Assuming you've identified that you're hedging more than you'd like (I certainly
    Both promote concise, direct, confident writing.  
    For automation, use the [Vale linter](https://vale.sh) to flag hedging words automatically.
 
-7. **Practice and Get Feedback:** Rewrite a paragraph twice - once hedged, once direct - and ask others which version they find clearer. You'll often be surprised that the direct one works better.
+7. **Practise and Get Feedback:** Rewrite a paragraph twice - once hedged, once direct - and ask others which version they find clearer. You'll often be surprised that the direct one works better.
 
 ## Final thoughts
 

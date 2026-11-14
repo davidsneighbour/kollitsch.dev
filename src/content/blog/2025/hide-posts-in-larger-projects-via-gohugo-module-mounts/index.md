@@ -2,7 +2,7 @@
 fmContentType: blog
 title: 'Hugo Quick Tip: Hide posts in larger projects via GoHugo Module Mounts'
 description: >-
-  Optimize Hugo development by excluding old posts with module mounts. This
+  Optimise Hugo development by excluding old posts with module mounts. This
   guide shows how to speed up testing on large websites by focusing on recent
   content.
 summary: >-

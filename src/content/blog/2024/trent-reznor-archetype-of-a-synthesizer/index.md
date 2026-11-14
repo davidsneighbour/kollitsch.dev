@@ -2,19 +2,19 @@
 fmContentType: blog
 title: Trent Reznor - Archetype of a synthesizer
 description: >-
-  Trent Reznor discusses the significance of the Voyager synthesizer in his
+  Trent Reznor discusses the significance of the Voyager synthesiser in his
   music career, highlighting its emotional expressiveness and unique sound.
 summary: >-
-  Trent Reznor discusses the significance of the Voyager synthesizer in his
+  Trent Reznor discusses the significance of the Voyager synthesiser in his
   music career, highlighting its emotional expressiveness and unique sound. He
   reflects on his journey from rural Pennsylvania to becoming a prominent
-  musician, emphasising the importance of synthesizers in his creative process
+  musician, emphasising the importance of synthesisers in his creative process
   and the evolution of music technology.
 date: 2024-10-30T17:56:14+07:00
 tags:
   - trent-reznor
   - nine-inch-nails
-  - synthesizer
+  - synthesiser
   - 100-days-to-offload
 publisher: rework
 cover:
@@ -26,4 +26,4 @@ maintenance:
   brokenLinksReviewed: 2026-09-14
 ---
 
-Trent Reznor discusses the significance of the [Moog Voyager synthesizer](https://en.wikipedia.org/wiki/Minimoog_Voyager) in his music career, highlighting its emotional expressiveness and unique sound. He reflects on his journey from rural Pennsylvania to becoming a prominent musician, emphasising the importance of synthesizers in his creative process and the evolution of music technology.
+Trent Reznor discusses the significance of the [Moog Voyager synthesiser](https://en.wikipedia.org/wiki/Minimoog_Voyager) in his music career, highlighting its emotional expressiveness and unique sound. He reflects on his journey from rural Pennsylvania to becoming a prominent musician, emphasising the importance of synthesisers in his creative process and the evolution of music technology.

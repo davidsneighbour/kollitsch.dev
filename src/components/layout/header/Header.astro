@@ -73,7 +73,9 @@ if (!activeItem && import.meta.env.DEV) {
             name="lucide:house"
             class="place-self-center"
           />
-          {setup.title}
+          <span class="min-w-0">{setup.title.split('.').map((part, index) => (
+            <>{index > 0 && <><wbr />.</>}{part}</>
+          ))}</span>
         </a>
       </span>
     </Fragment>
@@ -83,7 +85,7 @@ if (!activeItem && import.meta.env.DEV) {
         id="navigation-and-theme-select"
         class="hidden md:flex md:items-center"
       >
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" data-nav-search-nav>
           <ul class="flex flex-col md:flex-row md:items-center md:gap-6">
             {typedNavData
               .filter((item) => import.meta.env.DEV || !item.devOnly)
@@ -205,10 +207,12 @@ if (!activeItem && import.meta.env.DEV) {
 
     const currentScript = document.currentScript;
 
-    const closeIcon = document.querySelector('.close-icon');
-    const openIcon = document.querySelector('.open-icon');
+    const controller = new AbortController();
+    const { signal } = controller;
+    document.addEventListener('astro:before-swap', () => controller.abort(), { once: true });
     const navSection = document.querySelector('#navigation-and-theme-select');
     let pendingOpenFrame = 0;
+    let closeTimer;
     const placeholderId = currentScript?.getAttribute('data-site-title-id');
     const placeholder = placeholderId
       ? document.querySelector(`#${placeholderId}`)
@@ -219,9 +223,22 @@ if (!activeItem && import.meta.env.DEV) {
     /**
      * @returns {void}
      */
+    function isWideLayout() {
+      const toggle = document.querySelector('#hamburger-and-close');
+      return toggle instanceof HTMLElement && getComputedStyle(toggle).display === 'none';
+    }
+
     function toggleIcons() {
-      closeIcon?.classList.toggle('hidden', !window.kdev.mobileOpen);
-      openIcon?.classList.toggle('hidden', window.kdev.mobileOpen);
+      const toggle = document.querySelector('#hamburger-and-close');
+      toggle?.setAttribute('aria-expanded', String(window.kdev.mobileOpen));
+      for (const [selector, visible] of [
+        ['.close-icon', window.kdev.mobileOpen],
+        ['.open-icon', !window.kdev.mobileOpen],
+      ]) {
+        const icon = toggle?.querySelector(selector);
+        icon?.classList.toggle('hidden', !visible);
+        icon?.classList.toggle('inline-flex', visible);
+      }
     }
 
     /**
@@ -230,11 +247,14 @@ if (!activeItem && import.meta.env.DEV) {
      * @returns {void}
      */
     function toggleNavVisibility() {
-      const isMdUp = window.matchMedia('(min-width: 768px)').matches;
+      const isMdUp = isWideLayout();
+      document.querySelector('#site-header')?.toggleAttribute('data-compact', !isMdUp);
       const shouldShow = isMdUp || window.kdev.mobileOpen;
       navSection?.classList.toggle('hidden', !shouldShow);
       navSection?.classList.toggle('flex', shouldShow);
       navSection?.classList.toggle('is-open', shouldShow);
+      navSection?.toggleAttribute('inert', !shouldShow);
+      navSection?.setAttribute('aria-hidden', String(!shouldShow));
     }
 
     /**
@@ -248,6 +268,9 @@ if (!activeItem && import.meta.env.DEV) {
         return;
       }
 
+      window.clearTimeout(closeTimer);
+      navSection.removeAttribute('inert');
+      navSection.setAttribute('aria-hidden', 'false');
       navSection.classList.remove('hidden');
       navSection.classList.add('flex');
       pendingOpenFrame = requestAnimationFrame(() => {
@@ -272,17 +295,31 @@ if (!activeItem && import.meta.env.DEV) {
         pendingOpenFrame = 0;
       }
 
+      navSection.setAttribute('inert', '');
+      navSection.setAttribute('aria-hidden', 'true');
       navSection.classList.remove('is-open');
-      navSection.addEventListener(
-        'transitionend',
-        () => {
-          if (!window.kdev.mobileOpen) {
-            navSection.classList.add('hidden');
-            navSection.classList.remove('flex');
-          }
-        },
-        { once: true },
-      );
+      const finish = () => {
+        window.clearTimeout(closeTimer);
+        navSection.removeEventListener('transitionend', finish);
+        if (!window.kdev.mobileOpen && !isWideLayout()) {
+          navSection.classList.add('hidden');
+          navSection.classList.remove('flex');
+        }
+      };
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        finish();
+      } else {
+        navSection.addEventListener('transitionend', finish, { once: true, signal });
+        closeTimer = window.setTimeout(finish, 200);
+      }
+    }
+
+    function dismissMobileMenu(restoreFocus = false) {
+      if (!window.kdev.mobileOpen) return;
+      window.kdev.mobileOpen = false;
+      toggleIcons();
+      closeMobileNav();
+      if (restoreFocus) document.querySelector('#hamburger-and-close')?.focus();
     }
 
     /**
@@ -313,7 +350,7 @@ if (!activeItem && import.meta.env.DEV) {
         } else {
           closeMobileNav();
         }
-      });
+      }, { signal });
     }
 
     /**
@@ -355,6 +392,7 @@ if (!activeItem && import.meta.env.DEV) {
       );
 
       observer.observe(placeholder);
+      signal.addEventListener('abort', () => observer.disconnect(), { once: true });
 
       const rect = placeholder.getBoundingClientRect();
       const isIntersecting = rect.top >= 0 && rect.bottom > 0;
@@ -388,8 +426,22 @@ if (!activeItem && import.meta.env.DEV) {
       themeToggle.addEventListener('blur', () => setHover(false));
     }
 
-    window.addEventListener('resize', toggleNavVisibility);
-    document.addEventListener('astro:after-swap', initMobileMenu);
+    window.addEventListener('resize', toggleNavVisibility, { signal });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && window.kdev.mobileOpen) {
+        event.preventDefault();
+        dismissMobileMenu(true);
+      }
+    }, { signal });
+    document.addEventListener('nav-search:layout', toggleNavVisibility, { signal });
+    document.addEventListener('nav-search:toggle', (event) => {
+      if (event.detail.open) dismissMobileMenu();
+    }, { signal });
+    signal.addEventListener('abort', () => {
+      cancelAnimationFrame(pendingOpenFrame);
+      window.clearTimeout(closeTimer);
+    }, { once: true });
+    document.addEventListener('astro:after-swap', initMobileMenu, { signal });
 
     initMobileMenu();
     initStickyBrandObserver();
@@ -398,6 +450,14 @@ if (!activeItem && import.meta.env.DEV) {
 </script>
 
 <style is:global>
+  #site-header {
+    container: site-header / inline-size;
+  }
+
+  #site-header[data-compact] ~ .theme-corner {
+    display: none;
+  }
+
   /* Brand name: slide in from the left as the site title scrolls away */
   #navbar-brand {
     transform: translateX(-6px);
@@ -563,11 +623,56 @@ if (!activeItem && import.meta.env.DEV) {
     pointer-events: none;
   }
 
-  /* Mobile nav dropdown */
-  @media (max-width: 767px) {
+  /* Compact navigation follows available space at the current text size. */
+  @container site-header (width < 48rem) {
+    #hamburger-and-close,
+    .nav-theme-toggle {
+      display: inline-flex;
+    }
+
+    [data-nav-search-outer] {
+      flex-wrap: wrap;
+      gap: 0 min(1rem, 16px);
+      padding-inline: min(1rem, 16px);
+    }
+
+    #site-header:not([data-scrolled]) [data-nav-search-region-left] {
+      display: none;
+    }
+
+    [data-nav-search-region-left] {
+      max-width: 100%;
+    }
+
+    #navbar-sitetitle,
+    #navbar-brand {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+
+    [data-nav-search-region-center] {
+      display: contents;
+    }
+
+    [data-nav-search-region-right] {
+      gap: min(1rem, 8px);
+      margin-inline-start: auto;
+      padding-inline-end: 0;
+    }
+
+    [data-nav-search-panel] {
+      top: var(--nav-search-actions-top, 0px);
+    }
+
+    #navigation-and-theme-select.hidden {
+      display: none;
+    }
+
     #navigation-and-theme-select {
       position: fixed;
-      top: 3.5rem;
+      top: var(--nav-search-height, 3.5rem);
+      max-height: calc(100dvh - var(--nav-search-height, 3.5rem));
+      overflow-y: auto;
       left: 0;
       right: 0;
       z-index: 49;

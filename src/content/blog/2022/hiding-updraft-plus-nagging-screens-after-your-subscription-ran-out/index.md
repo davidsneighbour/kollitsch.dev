@@ -20,7 +20,7 @@ Nagscreens. You know them. Very annoying. Long story short: I recently stopped u
 
 I did not renew it and disabled the nag screens the following ways:
 
-**Hide license expiration notifications** in the WordPress dashboard - because, well, you know they are expired:
+**Hide licence expiration notifications** in the WordPress dashboard - because, well, you know they are expired:
 
 Add the following custom CSS function to your `functions.php`.
 
@@ -40,7 +40,7 @@ add_action('admin_head', 'dnb_remote_updraft_license_notifications');
 
 This solution is only half-baked, because it does not fully disable these notifications. It just hides them. But it works.
 
-**Hide plugin update notifications** that would result in failed update attempts (because you have no license):
+**Hide plugin update notifications** that would result in failed update attempts (because you have no licence):
 
 Add the following to your `functions.php`
 

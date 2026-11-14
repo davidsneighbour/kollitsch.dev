@@ -41,7 +41,7 @@ The image is visible only through the glyph shapes of the title text. Every char
 Three things happen simultaneously:
 
 1. A full-bleed copy of the same image expands outward from the text region to cover the entire header.
-2. The text characters cycle through a three-stop colour animation: transparent image-fill → solid orange → gray.
+2. The text characters cycle through a three-stop colour animation: transparent image-fill → solid orange → grey.
 3. The link fades out, so the greying characters dissolve into the expanding image.
 
 On mouse-out, everything reverses: the image contracts, the colour transitions back to transparent, and the full opacity returns.
@@ -58,7 +58,7 @@ gantt
     opacity fades in                            :100, 450
     section Text colour (three-stop keyframe)
     transparent → orange                        :0, 360
-    orange → gray                               :360, 900
+    orange → grey                               :360, 900
     section Text opacity
     fades out                                   :200, 700
 ```
@@ -66,10 +66,10 @@ gantt
 Three things overlap deliberately:
 
 * The image starts expanding immediately, so the full-bleed image is already growing while the text is still readable.
-* The text colour moves through orange first (the brand colour), giving the characters a brief vivid state before they cool into gray.
-* The text starts to fade out at 200 ms, so by the time the colour reaches gray at ~900 ms, the opacity has already carried the characters most of the way to invisible. The gray phase is subtle, a cooler tone that eases the transition rather than a hard cut to nothing.
+* The text colour moves through orange first (the brand colour), giving the characters a brief vivid state before they cool into grey.
+* The text starts to fade out at 200 ms, so by the time the colour reaches grey at ~900 ms, the opacity has already carried the characters most of the way to invisible. The grey phase is subtle, a cooler tone that eases the transition rather than a hard cut to nothing.
 
-On hover-out the `@keyframes` animation is removed, and a `transition: color 0.4s ease` on the element carries the colour back from whatever gray it reached to transparent. The image contracts and fades simultaneously.
+On hover-out the `@keyframes` animation is removed, and a `transition: color 0.4s ease` on the element carries the colour back from whatever grey it reached to transparent. The image contracts and fades simultaneously.
 
 ## The components involved
 
@@ -210,7 +210,7 @@ Separate `transition` declarations are used on the default state and the `:hover
 
 ## The colour morph: Three-stop `@keyframes`
 
-The text colour needs to pass through three stops: transparent (image visible), orange (brand colour), gray (cool fade). A CSS `transition` can only interpolate between two values. A `@keyframes` animation handles multiple stops:
+The text colour needs to pass through three stops: transparent (image visible), orange (brand colour), grey (cool fade). A CSS `transition` can only interpolate between two values. A `@keyframes` animation handles multiple stops:
 
 ```css
 @keyframes text-colour-morph {
@@ -239,7 +239,7 @@ This animation is triggered by the hover state:
 
 The `:global()` wrapper is Astro-specific syntax that escapes the component's scoped style boundary so the rule reaches the child component's element. The `stylelint-disable-next-line` comment suppresses the linter warning about an unknown pseudo-class, since generic CSS linters do not understand Astro syntax.
 
-`forwards` fill means the animation freezes at its final keyframe (gray) after it completes. On mouse-out, the animation is removed, and the element's base `transition: color 0.4s ease` carries the colour smoothly from gray back to transparent:
+`forwards` fill means the animation freezes at its final keyframe (grey) after it completes. On mouse-out, the animation is removed, and the element's base `transition: color 0.4s ease` carries the colour smoothly from grey back to transparent:
 
 ```css
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
@@ -252,7 +252,7 @@ CSS animations take priority over transitions on the same property. During the h
 
 ### Why `@keyframes` rather than a transition
 
-An earlier version set `--text-fill-active-color: var(--color-orange-500)` on the parent on hover, and the child read it through CSS custom property inheritance. That single-stop approach works for one colour but cannot produce the orange-then-gray sequence without registered `@property` declarations. `@keyframes` is cleaner for multi-stop colour sequences.
+An earlier version set `--text-fill-active-color: var(--color-orange-500)` on the parent on hover, and the child read it through CSS custom property inheritance. That single-stop approach works for one colour but cannot produce the orange-then-grey sequence without registered `@property` declarations. `@keyframes` is cleaner for multi-stop colour sequences.
 
 ## Accessibility
 
@@ -497,6 +497,6 @@ const siteTitleSize = "clamp(50px, 13vw, 250px)";
 
 **Alignment requires matching reference frames.** `background-size: cover` is relative to each element individually. For two elements of different sizes to show the same image at the same scale, they need to use the same reference—in this case a fixed absolute width (`100vw`) combined with the mathematical coincidence that centring a child in a full-width parent makes both `background-position: center` calculations resolve to the same origin.
 
-**Multi-stop colour animations need `@keyframes`.** A CSS `transition` only interpolates between two values. For three stops (transparent, orange, gray), use `@keyframes`. The hover-out direction is handled separately by a `transition` that takes over once the animation is removed.
+**Multi-stop colour animations need `@keyframes`.** A CSS `transition` only interpolates between two values. For three stops (transparent, orange, grey), use `@keyframes`. The hover-out direction is handled separately by a `transition` that takes over once the animation is removed.
 
 **Scroll-driven animations create stacking contexts.** `animation-timeline: view()` makes an element behave as if it has `will-change: transform`, which breaks `background-attachment: fixed` on descendants. Always verify that browser features you rely on still work inside animated ancestors.

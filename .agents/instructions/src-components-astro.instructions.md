@@ -59,3 +59,13 @@ When using `define:vars` on a `<script>` tag, add `is:inline` explicitly to sile
 ```astro
 <script is:inline define:vars={{ foo, bar }}>
 ```
+
+## Cascade layers in component styles
+
+A component stylesheet can load before `src/styles/theme.css`. The first stylesheet that names a cascade layer fixes its position, so a component that opens `@layer components` first would place `components` below `base`, and base rules would override it. When a component `<style>` block uses `@layer`, declare the full order before any layer block:
+
+```css
+@layer properties, theme, base, components, utilities;
+```
+
+See `src/components/features/search/Search.astro` and GitHub issue #2032.

@@ -35,14 +35,23 @@ test.describe('Accessibility (WCAG 2.1 AA)', () => {
         // with data-dnb-design-exception="decorative-low-contrast" for tools
         // like this one to exclude explicitly (#1835).
         .exclude('[data-dnb-design-exception="decorative-low-contrast"]')
-        // axe-core misreads this element's ::placeholder colour-contrast - a
-        // proven false positive, not a real issue. See
-        // documentation/development/known-false-positives.md for the
-        // evidence. Blocked on an axe-core fix upstream - tracked in
-        // #2032, don't remove this until that issue says it's safe to.
-        .exclude('.pagefind-ui__search-input')
         .analyze();
       expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
     });
   }
+
+  // The page scan above sees an empty search field. Typed text, the Clear
+  // button, and the result buttons only exist after a query (#2032).
+  test('/find/ with a query has no automatically detectable accessibility violations', async ({
+    page,
+    makeAxeBuilder,
+  }) => {
+    await page.goto('/find/');
+    await page.locator('.pagefind-ui__search-input').fill('astro');
+    await expect(page.locator('.pagefind-ui__result').first()).toBeVisible();
+    const results = await makeAxeBuilder()
+      .exclude('[data-dnb-design-exception="decorative-low-contrast"]')
+      .analyze();
+    expect(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  });
 });

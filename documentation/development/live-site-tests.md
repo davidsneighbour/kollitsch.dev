@@ -46,9 +46,8 @@ it would send a real email.
 
 ## Known accessibility exclusions
 
-`accessibility.spec.ts` excludes two elements from axe's scan, both tracked by [#1835](https://github.com/davidsneighbour/kollitsch.dev/issues/1835):
+`accessibility.spec.ts` excludes only elements marked `data-dnb-design-exception="decorative-low-contrast"` from axe's scan: the footer sticker and the footer colophon watermark. Both are intentionally decorative, low-contrast, and `aria-hidden`; see `DESIGN.md`'s footer sections.
 
-- the footer colophon watermark (`data-dnb-design-exception="decorative-low-contrast"`)—intentionally decorative, low-contrast, and `aria-hidden`; see `DESIGN.md`'s "Footer Colophon Watermark" section.
-- the `/find/` page's Pagefind search input—a documented axe-core false positive on `::placeholder` colour-contrast, not a real issue; see `documentation/development/known-false-positives.md` for the evidence, and [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032) for the blocked follow-up to remove this exclusion once axe-core fixes the underlying bug.
+The spec also scans `/find/` after it types a query, because typed text, the Clear button, and the result buttons do not exist on the empty page. An earlier exclusion of the Pagefind search input was removed in [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032): it was a real contrast bug (light text on a white field in dark mode), caused by the cascade-layer order on `/find/`, not an axe-core false positive.
 
 Everything else axe originally flagged under #1835 (the About-section inline links, the RSS/Atom/JSON footer links, the blog post `link-name` gap) has been fixed in the page itself, not excluded.

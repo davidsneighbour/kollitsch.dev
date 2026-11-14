@@ -505,6 +505,8 @@ On blog post breadcrumbs, the year segment and the post (last) segment each expa
 
 Text inputs and textareas use the canonical shadcn/ui `Input`/`Textarea` recipes (`src/components/forms/input.tsx`, `textarea.tsx`, installed via the `shadcn` CLI, not hand-written): `border-input bg-transparent dark:bg-input/30`, `focus-visible:border-ring focus-visible:ring-ring/50`, `placeholder:text-muted-foreground`. This is applied even to plain native `<input>`/`<textarea>` elements driven by vanilla `<script>` (the tags-filter box, the contact form), so these shadcn `.tsx` components exist as the canonical source of the class recipe, and that same literal class string is copied onto native elements rather than hydrating them as React components.
 
+The Pagefind search field on `/find/` (`Search.astro`) is styled through Pagefind's own class names instead of the shadcn recipe: a white field with `gray-900` text and a `gray-600` placeholder in light mode, `bg-white/5` with `text-white` and a `gray-400` placeholder in dark mode, and `primary-700` text on `primary-50` for the "Load more results" button in light mode (AA contrast).
+
 Do not rely on `@tailwindcss/forms`' class-strategy names (for example
 `form-input`). This project runs the plugin with `strategy: "base"` (see
 `src/styles/theme.css`), which restyles raw `input`/`select`/`textarea`

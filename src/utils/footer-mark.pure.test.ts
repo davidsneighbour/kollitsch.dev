@@ -1,5 +1,9 @@
+// @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { footerMarkInitialState } from './footer-mark.pure.ts';
+import {
+  footerMarkInitialState,
+  footerMarkRootMargin,
+} from './footer-mark.pure.ts';
 
 const below = {
   canObserve: true,
@@ -31,5 +35,26 @@ describe('footerMarkInitialState', () => {
     expect(footerMarkInitialState({ ...below, canObserve: false })).toBe(
       'shown',
     );
+  });
+});
+
+describe('footerMarkRootMargin', () => {
+  it('keeps the entrance below the sticky header when scrolling up', () => {
+    // 57px header + 15% of 900px.
+    expect(footerMarkRootMargin(57, 900)).toBe('-192px 0px -15% 0px');
+  });
+
+  it('uses only the 15% inset without a header', () => {
+    expect(footerMarkRootMargin(0, 900)).toBe('-135px 0px -15% 0px');
+    expect(footerMarkRootMargin(Number.NaN, 900)).toBe('-135px 0px -15% 0px');
+  });
+
+  it('keeps a quarter of a short viewport observable', () => {
+    // A tall header on a 400px viewport would leave no observable area.
+    expect(footerMarkRootMargin(300, 400)).toBe('-240px 0px -15% 0px');
+  });
+
+  it('falls back to no top inset without a usable viewport height', () => {
+    expect(footerMarkRootMargin(57, 0)).toBe('0px 0px -15% 0px');
   });
 });

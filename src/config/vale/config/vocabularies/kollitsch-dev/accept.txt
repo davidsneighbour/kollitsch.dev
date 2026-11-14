@@ -20,6 +20,7 @@
 [Pp]ushkarev's
 [Rr][Ee][Aa][Dd][Mm][Ee]
 [Rr]ammstein's
+[Ss]tandalone
 [Ss]tanko's
 [Tt][Oo][Dd][Oo]
 AAArdvark

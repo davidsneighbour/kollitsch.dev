@@ -32,3 +32,30 @@ export function footerMarkInitialState(
   }
   return context.targetTop < context.viewportHeight ? 'shown' : 'pending';
 }
+
+/** Share of the viewport the note must enter before its entrance runs. */
+const ENTRY_INSET = 0.15;
+/** Share of the viewport that always stays observable. */
+const MIN_OBSERVED = 0.25;
+
+/**
+ * Build the `rootMargin` for the footer mark observer. The bottom inset
+ * delays the entrance until the note is 15% into the viewport when
+ * scrolling down. The top inset covers the sticky site header plus the
+ * same 15%, so a return from below starts under the header instead of
+ * behind it. The top inset is capped so at least a quarter of the
+ * viewport stays observable; otherwise the note could never intersect
+ * and would stay hidden.
+ */
+export function footerMarkRootMargin(
+  headerHeight: number,
+  viewportHeight: number,
+): string {
+  const viewport =
+    Number.isFinite(viewportHeight) && viewportHeight > 0 ? viewportHeight : 0;
+  const header =
+    Number.isFinite(headerHeight) && headerHeight > 0 ? headerHeight : 0;
+  const maxTop = viewport * (1 - ENTRY_INSET - MIN_OBSERVED);
+  const top = Math.round(Math.min(header + viewport * ENTRY_INSET, maxTop));
+  return `${top > 0 ? -top : 0}px 0px -${ENTRY_INSET * 100}% 0px`;
+}

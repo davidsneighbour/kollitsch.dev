@@ -648,7 +648,10 @@ const networkColourStyle = (fill: string): string | undefined => {
   </script>
 
   <script>
-    import { footerMarkInitialState } from '@utils/footer-mark.pure.ts';
+    import {
+      footerMarkInitialState,
+      footerMarkRootMargin,
+    } from '@utils/footer-mark.pure.ts';
     import {
       formatZoneTime,
       type Greetings,
@@ -957,7 +960,13 @@ const networkColourStyle = (fill: string): string | undefined => {
             }
           }
         },
-        { rootMargin: '0px 0px -15% 0px' },
+        {
+          rootMargin: footerMarkRootMargin(
+            document.querySelector('#site-header')?.getBoundingClientRect()
+              .height ?? 0,
+            window.innerHeight,
+          ),
+        },
       );
       markObserver.observe(mark);
     }

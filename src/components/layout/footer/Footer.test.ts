@@ -271,7 +271,7 @@ describe("Footer component (author's uptime)", () => {
 describe('Footer marker scroll replay', () => {
   it('rearms on exit and replays on return without looping while visible', async () => {
     const { transpile } = await import('typescript');
-    const { footerMarkInitialState } = await import(
+    const { footerMarkInitialState, footerMarkRootMargin } = await import(
       '../../../utils/footer-mark.pure.ts'
     );
     const src = await fs.readFile(
@@ -291,9 +291,11 @@ describe('Footer marker scroll replay', () => {
       throw new Error('Observer has not been initialised');
     };
     let observed: unknown;
+    let options: { rootMargin?: string } | undefined;
     class Observer {
-      constructor(next: typeof callback) {
+      constructor(next: typeof callback, init?: { rootMargin?: string }) {
         callback = next;
+        options = init;
       }
       observe(target: unknown) {
         observed = target;
@@ -307,10 +309,16 @@ describe('Footer marker scroll replay', () => {
       'window',
       'IntersectionObserver',
       'footerMarkInitialState',
+      'footerMarkRootMargin',
       transpile(`let markObserver; ${src.slice(start, end)} initFooterMark();`),
     );
     initialise(
-      { querySelector: () => mark },
+      {
+        querySelector: (selector: string) =>
+          selector === '#site-header'
+            ? { getBoundingClientRect: () => ({ height: 57 }) }
+            : mark,
+      },
       {
         IntersectionObserver: Observer,
         innerHeight: 900,
@@ -318,8 +326,11 @@ describe('Footer marker scroll replay', () => {
       },
       Observer,
       footerMarkInitialState,
+      footerMarkRootMargin,
     );
     expect(observed).toBe(mark);
+    // The top inset keeps a return from below out from under the sticky header.
+    expect(options?.rootMargin).toBe('-192px 0px -15% 0px');
     expect(mark.dataset.footerMark).toBe('pending');
     callback([{ isIntersecting: true }]);
     expect(mark.dataset.footerBurst).toBe('true');

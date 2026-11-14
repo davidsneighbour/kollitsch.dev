@@ -60,11 +60,23 @@ Remove the line again before you commit.
 
 Vale reports an alert only once when two rules give the same message at the same position. When you turn off one rule of a duplicate pair, the count of the other rule can go up.
 
+## Commit hook
+
+The commit hook (`.lintstagedrc.ts`) runs Vale with `--minAlertLevel=error` on each staged `.md` and `.markdown` file. If Vale finds an error, the commit stops. Warnings and suggestions are shown in the editor and in the report, but the hook does not show them and they do not block the commit.
+
+* The hook checks only the staged files. It does not check the full content base.
+* It does not check `CHANGELOG` files, the generated agent definitions under `.claude/agents/`, or `.mdx` files.
+* Files with errors from before the hook started to block commits must pass Vale when you next stage them.
+
+To check a file before you commit it, run:
+
+```shell
+npm run lint:vale:file -- --minAlertLevel=error path/to/file.md
+```
+
 ## Baseline
 
-The commit hook (`.lintstagedrc.ts`) runs Vale on staged `.md` files with `--minAlertLevel=error --no-exit`. It shows errors but does not block the commit. It does not check `.mdx` files.
-
-The accepted baseline is: no errors except the exceptions below. Warnings and suggestions are review aids, not a gate.
+The accepted baseline is: no errors except the exceptions below. Warnings and suggestions are review aids, not a gate. The `.md` files in this list fail the commit hook when they are staged: fix the error when you next change the file.
 
 On 14 November 2026, a full run against `src/content/blog` reported 10,174 alerts in 191 files: 27 errors, 8,516 warnings, and 1,631 suggestions. The highest-volume rules are `DNB.Hedging`, `DNB.AgenticCommunal`, `Microsoft.Contractions`, `DNB.OpenlySentenceLength`, and `DNB.OpenlyFutureTense`. They stay active as warnings or suggestions on purpose: they point to passages to review, and not every hit needs a change.
 

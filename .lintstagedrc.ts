@@ -44,8 +44,11 @@ export default {
 
   '!(CHANGELOG)**/*.{md,markdown}': [
     markdownCommand('markdownlint-cli2 --config "src/config/.markdownlint.jsonc"'),
+    // Vale errors block the commit. Only the staged files are checked;
+    // warnings and suggestions are review aids and do not block.
+    // See documentation/content/vale.md.
     markdownCommand(
-      'vale --config src/config/.vale.ini --no-exit --minAlertLevel=error --output=line',
+      'vale --config src/config/.vale.ini --minAlertLevel=error --output=line',
     ),
     lychee,
     markdownCommand('typos --config src/config/typos.toml'),

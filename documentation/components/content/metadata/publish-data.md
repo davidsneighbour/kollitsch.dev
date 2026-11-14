@@ -2,7 +2,7 @@
 title: PublishData
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-11-14T16:00:00+07:00
 ---
 
 Renders a post's publish date, an optional last-modified date, and (development only) a link to open the post's source file in VS Code.
@@ -33,4 +33,4 @@ import PublishData from '@components/content/metadata/PublishData.astro';
 
 ## Behaviour
 
-This component has no client-side behaviour. It formats `post.data.date` with `formatDate()` for display, and also emits a machine-readable `data-pagefind-meta="date:YYYY-MM-DD"` attribute on the wrapper so Pagefind can index and filter by publish date. `post.data.lastModified`, when present, is shown alongside the publish date. In `import.meta.env.DEV`, an [`IconLink`](../../shared/links/icon-link.md) pointing at `getVSCodeUrlById(post.id)` is appended, letting the author jump straight to the source file; this link is omitted in production builds.
+This component has no client-side behaviour. It formats `post.data.date` with `formatDate()` for display, and also emits a machine-readable `data-pagefind-meta="date:YYYY-MM-DD"` attribute on the wrapper so Pagefind can index and filter by publish date. `post.data.lastModified`, when present, is shown alongside the publish date. In `import.meta.env.DEV`, an [`IconLink`](../../shared/links/icon-link.md) pointing at `getVSCodeUrlById(post.id)` is appended, letting the author jump straight to the source file; the icon-only link has the accessible name "Edit post in VS Code" and is omitted in production builds.

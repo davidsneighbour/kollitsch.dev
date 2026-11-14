@@ -5,10 +5,12 @@ import { describe, expect, it } from 'vitest';
 
 import {
   computeOrphans,
+  findUnmatchedFiles,
   idFromFile,
   isImageStale,
   parseArgs,
   shouldGenerateDefault,
+  stripSurroundingQuotes,
 } from './build-og-images.ts';
 
 describe('parseArgs', () => {
@@ -43,6 +45,25 @@ describe('parseArgs', () => {
     ]);
   });
 
+  it('strips quotes that a shell-less caller left inside --file="<path>"', () => {
+    const result = parseArgs([
+      '--file="src/content/blog/2026/foo/index.md"',
+      "--file='src/content/blog/2026/bar/index.mdx'",
+      '--file=src/content/blog/2026/baz/index.md',
+    ]);
+    expect(result.files).toEqual([
+      path.resolve(process.cwd(), 'src/content/blog/2026/foo/index.md'),
+      path.resolve(process.cwd(), 'src/content/blog/2026/bar/index.mdx'),
+      path.resolve(process.cwd(), 'src/content/blog/2026/baz/index.md'),
+    ]);
+  });
+
+  it('keeps absolute paths with spaces intact', () => {
+    const file = '/tmp/blog dir/2026/foo/index.md';
+    expect(parseArgs([`--file="${file}"`]).files).toEqual([file]);
+    expect(parseArgs([`--file=${file}`]).files).toEqual([file]);
+  });
+
   it('combines --force with --file', () => {
     const result = parseArgs([
       '--force',
@@ -50,6 +71,35 @@ describe('parseArgs', () => {
     ]);
     expect(result.force).toBe(true);
     expect(result.files).toHaveLength(1);
+  });
+});
+
+describe('stripSurroundingQuotes', () => {
+  it('removes one pair of matching double or single quotes', () => {
+    expect(stripSurroundingQuotes('"a.md"')).toBe('a.md');
+    expect(stripSurroundingQuotes("'a.md'")).toBe('a.md');
+  });
+
+  it('leaves unquoted, unbalanced, and mismatched values unchanged', () => {
+    expect(stripSurroundingQuotes('a.md')).toBe('a.md');
+    expect(stripSurroundingQuotes('"a.md')).toBe('"a.md');
+    expect(stripSurroundingQuotes('"a.md\'')).toBe('"a.md\'');
+  });
+
+  it('removes only the outermost pair', () => {
+    expect(stripSurroundingQuotes('""a.md""')).toBe('"a.md"');
+  });
+});
+
+describe('findUnmatchedFiles', () => {
+  it('returns requested paths that match no post', () => {
+    expect(
+      findUnmatchedFiles(['/c/a.md', '/c/"b.md"'], ['/c/a.md', '/c/b.md']),
+    ).toEqual(['/c/"b.md"']);
+  });
+
+  it('returns an empty list when every path matches', () => {
+    expect(findUnmatchedFiles(['/c/a.md'], ['/c/a.md'])).toEqual([]);
   });
 });
 

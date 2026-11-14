@@ -61,11 +61,16 @@ export default {
   // the image always ships in the same commit as the content change. See
   // src/scripts/build/build-og-images.ts and
   // scratch/og-image-generation.plan.md.
+  //
+  // lint-staged runs commands without a shell and splits them with
+  // `string-argv`, which strips quotes only when they wrap a whole token.
+  // Quote the complete `--file=<path>` token, never only the path, or the
+  // quote characters reach the script and no post matches. Refs #2108.
   'src/content/blog/**/*.{md,mdx}': (files) => [
     'node src/scripts/content/fetch-youtube-thumbnails.ts',
     [
       'node src/scripts/build/build-og-images.ts',
-      ...files.map((file) => `--file=${shellQuote(file)}`),
+      ...files.map((file) => shellQuote(`--file=${file}`)),
     ].join(' '),
     'git add public/images/social',
   ],

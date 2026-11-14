@@ -66,13 +66,37 @@ interface CliOptions {
   files: string[] | null; // null = full scan
 }
 
+/**
+ * Remove one pair of matching surrounding quotes. Callers that run without
+ * a shell (lint-staged splits commands with `string-argv`) can leave quotes
+ * inside a `--file="<path>"` token; see #2108.
+ */
+export function stripSurroundingQuotes(value: string): string {
+  const match = /^(["'])(.*)\1$/s.exec(value);
+  return match ? (match[2] ?? '') : value;
+}
+
 export function parseArgs(argv: string[]): CliOptions {
   const force = argv.includes('--force');
   const check = argv.includes('--check');
   const files = argv
     .filter((a) => a.startsWith('--file='))
-    .map((a) => path.resolve(process.cwd(), a.slice('--file='.length)));
+    .map((a) => stripSurroundingQuotes(a.slice('--file='.length)))
+    .map((file) => path.resolve(process.cwd(), file));
   return { check, files: files.length > 0 ? files : null, force };
+}
+
+/**
+ * `--file` paths that match no loaded post. A path can fail to match when it
+ * is outside the blog collection, when its frontmatter is invalid, or when
+ * quoting went wrong. Report these so a mismatch cannot go unnoticed.
+ */
+export function findUnmatchedFiles(
+  requested: readonly string[],
+  postFiles: readonly string[],
+): string[] {
+  const known = new Set(postFiles);
+  return requested.filter((file) => !known.has(file));
 }
 
 // ---------- Frontmatter parsing (Vite-independent) ----------
@@ -415,6 +439,16 @@ async function main(): Promise<void> {
     !opts.check && opts.files
       ? allPosts.filter((p) => opts.files!.includes(p.file))
       : allPosts;
+
+  if (!opts.check && opts.files) {
+    const unmatched = findUnmatchedFiles(
+      opts.files,
+      allPosts.map((p) => p.file),
+    );
+    for (const file of unmatched) {
+      console.warn(`⚠ --file matches no blog post, skipped: ${file}`);
+    }
+  }
 
   const results: ProcessResult[] = [];
   for (const post of targetPosts) {

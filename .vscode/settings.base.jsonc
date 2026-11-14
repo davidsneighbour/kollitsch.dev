@@ -2,7 +2,6 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "accessibility.openChatEditedFiles": true,
   // astro specific settings
   "astro.content-intellisense": true,
   "astro.updateImportsOnFileMove.enabled": true,
@@ -10,12 +9,6 @@
   // @see "editor.codeActionsOnSave"
   "biome.configurationPath": "biome.jsonc",
   "biome.requireConfiguration": true,
-  "chat.instructionsFilesLocations": {
-    "ai/instructions": true
-  },
-  "chat.tools.terminal.autoApprove": {
-    "npx astro": true
-  },
   "cSpell.words": [
     "wireit"
   ],

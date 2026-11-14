@@ -2,7 +2,7 @@
 title: Footer
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-11-13T22:30:00+07:00
+updated: 2026-11-14T15:00:00+07:00
 ---
 
 Renders the site-wide footer as a terminal window, announced by a "we have a footer" sticker note. The window holds a terminal session: a neofetch-style `whoami` block, the introduction, the author's own uptime, the footer navigation, ranked social profiles, and below the window one colophon strip, followed by the [`Colophon`](colophon.md) watermark.
@@ -30,6 +30,8 @@ import Footer from '@components/layout/footer/Footer.astro';
 ```
 
 ## Behaviour
+
+Copyright-strip paragraph links, including the client-inserted version link, stay underlined. Hover animates the existing underline offset; reduced motion removes the transition. The sticker and its effects carry the decorative low-contrast exception and remain non-interactive. Accessibility scans exclude only the marked decorative subtree; blog cards remain covered after finite entrance animations finish.
 
 - The existing portrait has independent cursor-following pupil sprites. The original image remains the accessible, static fallback. A blank-eye overlay and original pupil crops appear only while the portrait is visible and reduced motion is off. Movement is bounded to each eye, scales with the image, and uses event-driven animation frames. Touch follows while pressed without blocking scrolling and resets on release. Pointer exit, cancellation, window blur, and visibility changes reset the gaze. Listeners and observers are released before Astro page swaps and initialised again on page load. Geometry is tested in `src/components/layout/footer/FooterEyes.test.ts`.
 

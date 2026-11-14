@@ -134,6 +134,7 @@ const networkColourStyle = (fill: string): string | undefined => {
       class="footer-mark"
       aria-hidden="true"
       data-footer-mark="shown"
+      data-dnb-design-exception="decorative-low-contrast"
     >
       <span class="footer-mark-copy">
         {'Hey look, we have a footer!!!!111One'
@@ -1393,11 +1394,20 @@ const networkColourStyle = (fill: string): string | undefined => {
      * here, rather than changing the site-wide hover-only convention, since
      * these are the places links sit inline in running text.
      */
+    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+    .footer-strip p :global(a),
     .footer-fetch-facts dd a,
     /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
     #about-introduction :global(a),
     #webring-mention a {
       text-decoration-line: underline;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+      .footer-strip p :global(a) {
+        transition: none;
+      }
     }
   </style>
 </footer>

@@ -55,3 +55,7 @@ Date: 14 November 2026. Decision: Show a full-width contribution calendar below 
 On 14 November 2026, an 8px inline calendar gutter was added to contain hover scaling and keyboard focus outlines without creating a desktop scrollbar (issue #2226). Preserve scrolling when the calendar is wider than its container.
 
 On 14 November 2026, the calendar adopted the footer prompt pattern with `gh api graphql`, a plain accessible name, and monospace output (issue #2227). Keep its typography and muted output aligned with the other terminal sections.
+
+## Footer accessibility exceptions
+
+Date: 14 November 2026. Decision: Copyright-strip paragraph links have permanent underlines with the existing prose-link hover motion, disabled under reduced motion. The non-interactive footer sticker and its effects use the decorative low-contrast exception (issue #2222). Reason: Keep functional links identifiable without colour while preserving the approved decorative entrance. Change rule: Keep the sticker free of controls and essential information; do not extend the exception to blog cards or other functional content.

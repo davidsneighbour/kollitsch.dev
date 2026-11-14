@@ -332,3 +332,20 @@ describe('Footer marker scroll replay', () => {
     expect(mark.dataset.footerMark).toBe('shown');
   });
 });
+
+describe('Footer decorative accessibility boundary', () => {
+  it('marks only the non-interactive sticker as a decorative exception', async () => {
+    const src = await fs.readFile(
+      new URL('./Footer.astro', import.meta.url),
+      'utf8',
+    );
+    const marker = src.match(/<p\s+class="footer-mark"[\s\S]*?<\/p>/)?.[0];
+    expect(marker).toContain('aria-hidden="true"');
+    expect(marker).toContain(
+      'data-dnb-design-exception="decorative-low-contrast"',
+    );
+    expect(marker).not.toMatch(
+      /<(?:a|button|input|select|textarea)\b|tabindex=/,
+    );
+  });
+});

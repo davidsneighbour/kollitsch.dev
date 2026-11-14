@@ -1,4 +1,8 @@
 ---
+import { getSocialNetwork } from '@data/social';
+
+const githubProfileUrl = getSocialNetwork('github').profile.url;
+
 export interface Props {
   endpoint?: string;
   cacheHours?: number;
@@ -36,11 +40,18 @@ const {
       Loading GitHub activity...
     </p>
   </div>
-  <div
-    class="overflow-x-auto py-4"
-    data-calendar
-    aria-hidden="true"
-  ></div>
+  <div class="github-contributions__visual">
+    <div
+      class="overflow-x-auto py-4"
+      data-calendar
+      aria-hidden="true"
+    ></div>
+    <p class="github-contributions__fallback" data-fallback hidden>
+      <a href={githubProfileUrl} class="inline-flex min-h-11 items-center underline">
+        View GitHub activity
+      </a>
+    </p>
+  </div>
   <noscript
     ><p>Enable JavaScript to view the contribution calendar.</p></noscript
   >
@@ -51,6 +62,7 @@ const {
   async function render(root: HTMLElement): Promise<void> {
     const summary = root.querySelector<HTMLElement>('[data-summary]');
     const calendar = root.querySelector<HTMLElement>('[data-calendar]');
+    const fallback = root.querySelector<HTMLElement>('[data-fallback]');
     if (!summary || !calendar) return;
     try {
       let storage: Storage | undefined;
@@ -101,6 +113,7 @@ const {
     } catch {
       summary.textContent =
         'GitHub activity is unavailable. Please try again later.';
+      if (fallback) fallback.hidden = false;
     } finally {
       root.setAttribute('aria-busy', 'false');
     }
@@ -155,6 +168,7 @@ const {
   }
 
   .github-contributions__summary,
+  .github-contributions__visual,
   .github-contributions [data-calendar] {
     display: grid;
   }
@@ -162,6 +176,17 @@ const {
   .github-contributions__summary-reserve,
   .github-contributions [data-summary] {
     grid-area: 1 / 1;
+  }
+
+  .github-contributions__visual > [data-calendar],
+  .github-contributions__fallback {
+    grid-area: 1 / 1;
+    min-width: 0;
+  }
+
+  .github-contributions__fallback {
+    align-self: center;
+    justify-self: start;
   }
 
   .github-contributions__summary-reserve {

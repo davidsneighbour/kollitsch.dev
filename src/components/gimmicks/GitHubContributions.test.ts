@@ -166,3 +166,16 @@ describe('calendar loading reservation', () => {
     expect(html).toContain('Loading GitHub activity...');
   });
 });
+
+describe('contribution failure destination', () => {
+  it('renders a hidden, accessible profile link outside the decorative grid', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(GitHubContributions);
+    expect(html).toMatch(
+      /data-calendar[^>]*aria-hidden="true"[^>]*><\/div>\s*<p[^>]*data-fallback[^>]*hidden/,
+    );
+    expect(html).toMatch(
+      /href="https:\/\/github.com\/davidsneighbour"[^>]*>\s*View GitHub activity/,
+    );
+  });
+});

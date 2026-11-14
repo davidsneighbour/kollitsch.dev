@@ -288,6 +288,10 @@ const searchInputId = `${componentId}-search-input`;
       return;
     }
 
+    const controller = new AbortController();
+    const { signal } = controller;
+    document.addEventListener('astro:before-swap', () => controller.abort(), { once: true });
+
     const outer = root.querySelector('[data-nav-search-outer]');
     const nav = root.querySelector('[data-nav-search-nav]');
     const panel = root.querySelector('[data-nav-search-panel]');
@@ -335,6 +339,9 @@ const searchInputId = `${componentId}-search-input`;
     let isOpen = root.dataset.searchInitiallyOpen === 'true';
     let pendingOpenFrame = 0;
     let lastFocusedElement = null;
+    signal.addEventListener('abort', () => {
+      cancelAnimationFrame(pendingOpenFrame);
+    }, { once: true });
 
     /**
      * Updates the CSS variable on the search panel with the width of the outer wrapper.
@@ -342,6 +349,21 @@ const searchInputId = `${componentId}-search-input`;
     const updateOuterWidth = () => {
       const width = outer.getBoundingClientRect().width;
       panel.style.setProperty(searchOuterWidthVarName, `${width}px`);
+      const box = outer.getBoundingClientRect();
+      const actions = root.querySelector('[data-nav-search-region-right]');
+      const actionsTop = actions instanceof HTMLElement
+        ? Math.max(0, actions.getBoundingClientRect().top - box.top)
+        : 0;
+      root.style.setProperty('--nav-search-height', `${box.height}px`);
+      root.style.setProperty('--nav-search-actions-top', `${actionsTop}px`);
+      root.dispatchEvent(new CustomEvent('nav-search:layout', { bubbles: true }));
+      const left = root.querySelector('[data-nav-search-region-left]');
+      if (left instanceof HTMLElement) {
+        const covered = isOpen && (!(actions instanceof HTMLElement)
+          || left.getBoundingClientRect().bottom > actions.getBoundingClientRect().top + 1);
+        left.classList.toggle('invisible', covered);
+        left.toggleAttribute('inert', covered);
+      }
     };
 
     /**
@@ -378,6 +400,11 @@ const searchInputId = `${componentId}-search-input`;
       }
 
       panel.setAttribute('aria-hidden', String(!isOpen));
+      panel.toggleAttribute('inert', !isOpen);
+      root.dispatchEvent(new CustomEvent('nav-search:toggle', {
+        bubbles: true,
+        detail: { open: isOpen },
+      }));
       updateOuterWidth();
     };
 
@@ -417,7 +444,7 @@ const searchInputId = `${componentId}-search-input`;
             panel.hidden = true;
           }
         },
-        { once: true },
+        { once: true, signal },
       );
     };
 
@@ -487,18 +514,11 @@ const searchInputId = `${componentId}-search-input`;
 
     toggle.addEventListener('click', () => {
       toggleSearch();
-    });
+    }, { signal });
 
-    document.addEventListener('keydown', (event) => {
-      if (!(event instanceof KeyboardEvent)) {
-        return;
-      }
-
-      if (event.key === 'Escape' && isOpen) {
-        event.preventDefault();
-        closeSearch();
-      }
-    });
+    root.addEventListener('nav-search:escape', () => {
+      closeSearch();
+    }, { signal });
 
     document.addEventListener('click', (event) => {
       if (!isOpen) {
@@ -519,7 +539,7 @@ const searchInputId = `${componentId}-search-input`;
       }
     });
 
-    window.addEventListener('resize', updateOuterWidth);
+    window.addEventListener('resize', updateOuterWidth, { signal });
 
     if ('ResizeObserver' in window) {
       const resizeObserver = new ResizeObserver(() => {
@@ -527,8 +547,34 @@ const searchInputId = `${componentId}-search-input`;
       });
 
       resizeObserver.observe(outer);
+      signal.addEventListener('abort', () => resizeObserver.disconnect(), { once: true });
     }
 
     render();
   })();
+</script>
+
+<script>
+  import { tinykeys } from 'tinykeys';
+
+  const NAV_DISMISS_KEY = 'Escape';
+  let unsubscribe: (() => void) | undefined;
+  document.addEventListener('astro:page-load', () => {
+    unsubscribe?.();
+    unsubscribe = tinykeys(window, {
+      [NAV_DISMISS_KEY]: (event) => {
+        const root = document.querySelector('[data-nav-search-root]');
+        if (!root?.querySelector('[data-nav-search-toggle][aria-expanded="true"], #hamburger-and-close[aria-expanded="true"]')) return;
+        event.preventDefault();
+        root.dispatchEvent(new CustomEvent('nav-search:escape', { bubbles: true }));
+      },
+    }, {
+      // Escape must also dismiss search while its input has focus.
+      ignore: () => false,
+    });
+  });
+  document.addEventListener('astro:before-swap', () => {
+    unsubscribe?.();
+    unsubscribe = undefined;
+  });
 </script>

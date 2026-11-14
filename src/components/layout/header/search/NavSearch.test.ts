@@ -261,3 +261,70 @@ describe('NavSearch.astro', () => {
     expect(source).not.toContain('will-change');
   });
 });
+
+describe('NavSearch Escape lifecycle', () => {
+  it('dismisses from an input and unregisters before a page swap', async () => {
+    const { readFile } = await import('node:fs/promises');
+    const { transpile } = await import('typescript');
+    const { tinykeys } = await import('tinykeys');
+    const source = await readFile(
+      new URL('./NavSearch.astro', import.meta.url),
+      'utf8',
+    );
+    const script = source.slice(
+      source.lastIndexOf('<script>') + '<script>'.length,
+      source.lastIndexOf('</script>'),
+    );
+    const body = script.replace(
+      /import\s+\{\s*tinykeys\s*\}\s+from\s+'tinykeys';/,
+      '',
+    );
+    const document = Object.assign(new EventTarget(), {
+      querySelector: () => root,
+    });
+    let open = true;
+    const root = Object.assign(new EventTarget(), {
+      querySelector: () => (open ? {} : null),
+    });
+    const window = new EventTarget();
+    let dismissals = 0;
+    root.addEventListener('nav-search:escape', () => {
+      dismissals += 1;
+    });
+    const initialise = new Function(
+      'tinykeys',
+      'window',
+      'document',
+      'CustomEvent',
+      transpile(body),
+    );
+    initialise(tinykeys, window, document, CustomEvent);
+    document.dispatchEvent(new Event('astro:page-load'));
+    const pressEscape = (): Event => {
+      const event = new Event('keydown', { cancelable: true });
+      Object.assign(event, {
+        altKey: false,
+        code: 'Escape',
+        ctrlKey: false,
+        getModifierState: () => false,
+        key: 'Escape',
+        metaKey: false,
+        shiftKey: false,
+      });
+      Object.defineProperty(event, 'target', {
+        value: { matches: () => true, tagName: 'INPUT' },
+      });
+      window.dispatchEvent(event);
+      return event;
+    };
+    expect(pressEscape().defaultPrevented).toBe(true);
+    expect(dismissals).toBe(1);
+    open = false;
+    expect(pressEscape().defaultPrevented).toBe(false);
+    expect(dismissals).toBe(1);
+    open = true;
+    document.dispatchEvent(new Event('astro:before-swap'));
+    expect(pressEscape().defaultPrevented).toBe(false);
+    expect(dismissals).toBe(1);
+  });
+});

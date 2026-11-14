@@ -51,19 +51,19 @@ The header system is responsible for:
   * The compact site title shown in the top navigation area after the main site title placeholder scrolls out of view
 
 * "main navigation"
-  * The primary nav landmark rendered inside `TopNavigation.astro`
+  * The primary navigation landmark rendered inside `TopNavigation.astro`
 
 * "mobile navigation open"
-  * The mobile nav section is visible and interactive
+  * The mobile navigation section is visible and interactive
 
 * "mobile navigation closed"
-  * The mobile nav section is hidden on small viewports
+  * The mobile navigation section is hidden on small viewports
 
 * "desktop"
-  * Viewport width at or above the component's medium breakpoint
+  * Header container width at or above 48rem at the current text size
 
 * "mobile"
-  * Viewport width below the component's medium breakpoint
+  * Header container width below 48rem at the current text size
 
 ## Invariants
 
@@ -114,9 +114,14 @@ The header system is responsible for:
 * On mobile, navigation can be toggled open and closed
 * On first mobile render, the mobile menu is closed
 * Activating the mobile menu toggle changes the mobile-open state
-* Opening the mobile menu makes the nav section visible
-* Closing the mobile menu hides the nav section again
-* On desktop, the nav is visible without requiring mobile toggle interaction
+* Opening the mobile menu makes the navigation section visible
+* Closing the mobile menu hides the navigation section again and makes it inert
+* The toggle reports the current expanded state
+* Escape closes the menu and restores focus to its toggle
+* Opening search closes the mobile menu
+* Controls wrap below the brand only when the row does not fit
+* The menu follows the measured header height, and search follows the controls row
+* On desktop, the navigation is visible without requiring mobile toggle interaction
 
 ### Theme selector
 

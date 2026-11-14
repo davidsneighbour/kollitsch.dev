@@ -474,7 +474,7 @@ The sticky header (`Header.astro`) is a frosted-glass overlay: `background-color
 
 The mobile nav dropdown is **opaque**, not glass: it uses the `--popover` surface, the same as the desktop nav dropdown and the breadcrumb switchers, with its border, shadow, and rounded bottom corners. It overlays arbitrary page content, and because it is nested inside the header's own `backdrop-filter`, its blur cannot reach the page, so a translucent panel let page text show through sharply behind the menu items.
 
-On mobile, the nav dropdown is fixed to the viewport below the sticky header at `{spacing.header-mobile-height}` rather than absolutely positioned inside the centre navigation slot. The centre slot may shrink to zero width when the brand and action buttons fill the row, so it must not be the containing block for the mobile panel.
+On mobile, the nav dropdown is fixed to the viewport below the sticky header at its measured height (with `{spacing.header-mobile-height}` as the no-script sizing fallback) rather than absolutely positioned inside the centre navigation slot. The centre slot may shrink to zero width when the brand and action buttons fill the row, so it must not be the containing block for the mobile panel.
 
 The reading-progress bar is drawn inside the sticky header's bottom edge as an absolutely positioned overlay. It must not add height, padding, or margin to the navigation layout. The overlay is pointer-transparent (`pointer-events: none`) so hover, mouseover, and click hit-testing continue to reach the header/navigation area underneath it.
 
@@ -484,7 +484,7 @@ The "Posts" nav dropdown panel uses the `--popover` token, which in dark mode is
 
 The header search panel (`NavSearch.astro`) opens and closes on the `nav-search-panel-transition` token: `300ms`, `cubic-bezier(0.19, 1, 0.22, 1)` on `opacity`/`scale`. This is the same strong ease-out curve as `post-preview-transition`, just at a shorter duration suited to the panel's smaller size. The site no longer uses any overshoot/bounce easing anywhere.
 
-The theme toggle uses the `theme-toggle-corner` treatment from `md` up only. Below `md` it moves into the sticky nav bar as a plain 44 px icon button next to the hamburger and search buttons, so it cannot collide with the centred wordmark and stays reachable while scrolling.
+The theme toggle uses the `theme-toggle-corner` treatment in the wide header layout. In compact layouts it moves into the sticky nav bar as a plain 44 px icon button next to the hamburger and search buttons, so it cannot collide with the centred wordmark and stays reachable while scrolling.
 
 ### Wordmark Typography
 
@@ -645,3 +645,7 @@ Footer columns and fact values can shrink within their grid tracks. The portrait
 ## Footer end order
 
 Below 48rem, the footer end shows the Static.Quest web ring first, feeds on their own row second, and privacy and security links third. The pledge badge follows. At wider sizes, the existing privacy, security, feeds, web ring, and pledge arrangement remains.
+
+## Adaptive mobile header
+
+Below a 48rem header container width, evaluated at the current root text size, header regions wrap naturally when the brand and controls cannot share a row. The theme, menu, and search controls stay together below the brand when needed. Horizontal outer padding and gaps cap at 16px; the control gap caps at 8px, using the existing spacing scale. The brand can wrap at the domain separator, with emergency wrapping at enlarged text sizes, without shrinking its typography. The compact navigation trigger follows this same container condition. The menu follows the measured header height; search follows the controls row. Closed menus are inert, Escape closes the menu and restores focus, and opening search closes the menu. Keep the desktop layout and approved corner theme field unchanged.

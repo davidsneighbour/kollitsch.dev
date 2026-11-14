@@ -427,11 +427,8 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     window.addEventListener('resize', toggleNavVisibility, { signal });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && window.kdev.mobileOpen) {
-        event.preventDefault();
-        dismissMobileMenu(true);
-      }
+    document.addEventListener('nav-search:escape', () => {
+      dismissMobileMenu(true);
     }, { signal });
     document.addEventListener('nav-search:layout', toggleNavVisibility, { signal });
     document.addEventListener('nav-search:toggle', (event) => {

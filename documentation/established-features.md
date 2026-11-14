@@ -99,3 +99,9 @@ Date: 14 November 2026. Decision: Use dots as thousands separators in author upt
 Date: 14 November 2026. Decision: Failed GitHub activity requests reveal a direct link to the canonical GitHub profile inside the reserved area, outside the decorative grid (issue #2241). Reason: A secondary activity failure should offer a useful destination without moving the links below it. Change rule: Keep the fallback accessible and preserve the reserved geometry.
 
 The phrase `White Lotus'ses third season` is deliberate Patrick-style wording: an exaggerated genitive of the television show title. The owner confirmed it on 14 November 2026. Preserve it rather than treating it as a typo.
+
+## Adaptive header controls
+
+Date: 14 November 2026. Decision: Use compact navigation below a 48rem header container width at the current text size, and let its controls wrap below the brand when they cannot share a row (issue #2237). The menu follows the measured header height, and search follows the controls row. Reason: Enlarged text must not push navigation actions off screen. Change rule: Preserve the full brand, control targets, and wide-layout theme corner field. The compact theme control remains separate from the large site title on first paint, resolving the original concern in issue #1867.
+
+The menu reports its expanded state, makes closed content inert, supports Escape with focus restoration, and closes when search opens. Preserve these interaction and accessibility states during future layout work.

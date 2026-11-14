@@ -2,7 +2,7 @@
 title: NavSearch
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-11-14T20:00:00+07:00
 ---
 
 A generic, slot-driven three-region navigation bar (left, centre, right) with a built-in, accessible search-toggle panel that any consumer can replace or leave as a placeholder.
@@ -20,7 +20,7 @@ A generic, slot-driven three-region navigation bar (left, centre, right) with a 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `title` | `string` | `"Placeholder title"` | Fallback title text, used only when no `title` or `left` slot is provided |
-| `navItems` | `{ href: string; label: string }[]` | three placeholder items | Fallback nav items, used only when no `nav` or `center` slot is provided |
+| `navItems` | `{ href: string; label: string }[]` | three placeholder items | Fallback navigation items, used only when no `nav` or `center` slot is provided |
 | `navLabel` | `string` | `"Primary navigation"` | Accessible label for the `<nav>` element |
 | `searchPlaceholder` | `string` | `"Search..."` | Placeholder text for the fallback search input |
 | `openSearchLabel` | `string` | `"Open search"` | Accessible label and text for the toggle button when the search panel is closed |
@@ -96,8 +96,10 @@ An inline script (scoped per instance via a random `data-component-id`) manages 
 
 ### Accessibility
 
-`aria-expanded` and `aria-controls` on the toggle button, `role="search"` on the panel, `aria-hidden`/`inert` on the nav while search is open, managed focus on open/close, and `Escape`/click-outside dismissal are all built in.
+`aria-expanded` and `aria-controls` on the toggle button, `role="search"` on the panel, `aria-hidden`/`inert` on the navigation while search is open, managed focus on open/close, and `Escape`/click-outside dismissal are all built in.
 
 ## Extending
 
 To change what the search panel actually searches (for example wiring in [`PageFind`](page-find.md)), replace the `search` slot content; the open/close mechanics, focus management, and accessibility attributes are handled by `NavSearch` itself and do not need to be reimplemented. Do not add a second close control — the component assumes a single toggle button drives the open/closed state.
+
+The resize measurement also exposes `--nav-search-height` and `--nav-search-actions-top` on the root. The header uses these to place compact navigation below its actual height and align search with a wrapped controls row. A covered brand becomes inert while search is open; an uncovered brand above a wrapped search row remains available. The shell emits bubbling `nav-search:layout` and `nav-search:toggle` events so the header can synchronise its menu. Page swaps abort event listeners and disconnect the resize observer.

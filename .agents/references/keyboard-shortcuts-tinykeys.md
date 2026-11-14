@@ -1,11 +1,11 @@
-# Keyboard shortcuts: Tinykeys
+# Keyboard shortcuts: `tinykeys`
 
 Read this when adding, changing, or removing a keyboard shortcut.
 
-All keyboard shortcut bindings in this project use **tinykeys** (v4, named export).
+All keyboard shortcut bindings in this project use **`tinykeys`** (v4, named export).
 
 * **npm package**: `tinykeys` (in `devDependencies`)
-* **Documentation**: [github.com/jamiebuilds/tinykeys](https://github.com/jamiebuilds/tinykeys)
+* **Documentation**: [github.com/jamiebuilds/`tinykeys`](https://github.com/jamiebuilds/`tinykeys`)
 
 ## Usage pattern
 
@@ -51,7 +51,7 @@ document.addEventListener("astro:page-load", () => {
 | Key sequence | `'Shift+Y a'` | Shift+Y then A (within ~400 ms) |
 | Key sequence (chords) | `'Shift+Y Shift+A'` | Shift+Y then Shift+A |
 
-`$mod` resolves to `Meta` (Cmd) on macOS and `Control` on other platforms.
+`$mod` resolves to `Meta` (Command) on macOS and `Control` on other platforms.
 
 Keys are matched against `KeyboardEvent.key` and `KeyboardEvent.code`. Use `code` values
 (for example `KeyA`) for layout-independent bindings.
@@ -60,17 +60,18 @@ Keys are matched against `KeyboardEvent.key` and `KeyboardEvent.code`. Use `code
 
 | Shortcut | Action | Defined in |
 | --- | --- | --- |
+| `Escape` | Dismiss header search or compact navigation and restore focus | `src/components/layout/header/search/NavSearch.astro` (`NAV_DISMISS_KEY` constant) |
 | `Shift+A` | Restore hidden dev bar | `src/components/devtools/Breakpoints.astro` (`DEVBAR_SHOW_KEY` constant at top of file) |
 
 ### Changing a shortcut
 
 Each shortcut is defined as a named constant at the top of its file. Change the constant
-value using the same tinykeys syntax shown above. The `Breakpoints.astro` key is also
+value using the same `tinykeys` syntax shown above. The `Breakpoints.astro` key is also
 passed to the DOM via `data-show-key` so the HTML tooltip stays in sync automatically.
 
 ## Adding a new shortcut
 
-1. Import tinykeys in the relevant `.ts` or `.astro` `<script>` block.
+1. Import `tinykeys` in the relevant `.ts` or `.astro` `<script>` block.
 2. Define a named constant for the key string at the top of the file.
 3. Register it inside `astro:page-load` (for Astro) or after DOM ready (for plain TS).
 4. Store the returned unsubscribe function and call it on teardown.

@@ -53,6 +53,17 @@ colors:
   colophon-watermark-hover: "oklch(93% 0.007 106.5deg)"
   colophon-watermark-dark: "oklch(22.8% 0.013 107.4deg)"
   colophon-watermark-dark-hover: "oklch(28.6% 0.016 107.4deg)"
+  # Colophon hover spectrum - the only non-primary hues outside semantic
+  # states, allowed solely in the footer colophon hover (see "Footer
+  # Colophon Watermark"). Values are Tailwind red-500, orange-500,
+  # yellow-400, primary-500, sky-500, blue-500, and violet-500.
+  colophon-spectrum-red: "oklch(63.7% 0.237 25.331deg)"
+  colophon-spectrum-orange: "oklch(70.5% 0.213 47.604deg)"
+  colophon-spectrum-yellow: "oklch(85.2% 0.199 91.936deg)"
+  colophon-spectrum-green: "oklch(72.3% 0.219 149.579deg)"
+  colophon-spectrum-sky: "oklch(68.5% 0.169 237.323deg)"
+  colophon-spectrum-blue: "oklch(62.3% 0.214 259.815deg)"
+  colophon-spectrum-violet: "oklch(60.6% 0.25 292.717deg)"
 typography:
   h1:
     fontFamily: "Changa One"
@@ -335,7 +346,7 @@ The overriding aesthetic is **engineered lightness**: generous line heights, min
 
 ## Colors
 
-The palette keeps its emotional range narrow on purpose. Two token families cover everything: `primary-*` (green, brand/interactive) and `grey-*` (blue-leaning neutral, structure and text). Every component reaches for one of these two semantic families - never a raw Tailwind color name, and never orange or red as an accent.
+The palette keeps its emotional range narrow on purpose. Two token families cover everything: `primary-*` (green, brand/interactive) and `grey-*` (blue-leaning neutral, structure and text). Every component reaches for one of these two semantic families - never a raw Tailwind color name, and never orange or red as an accent. The only exception is the hover spectrum of the footer colophon (see "Footer Colophon Watermark").
 
 Local visual decisions stay local. Global design decisions are tokens. Use `primary-*` and `grey-*` directly at the lowest practical component or element level. Create an additional semantic token only when the value represents a genuinely site-wide semantic role, is deliberately shared by multiple independent consumers, or must cross a boundary where Tailwind classes cannot be used. Do not create a global CSS variable merely to avoid writing a Tailwind utility in a component.
 
@@ -586,6 +597,44 @@ The footer (`src/components/layout/footer/Footer.astro`) is styled as a terminal
 
 The oversized footer colophon in `src/components/layout/footer/Colophon.astro`
 is decorative display texture, not content. It must stay `aria-hidden="true"`
+and carry `data-dnb-design-exception="decorative-low-contrast"`. At rest it must
+stay visually low contrast: `olive-100` in light mode and `olive-900` in dark
+mode. This is an intentional exception to the site's general text contrast
+rule, so assistants must not replace it with accessible text colours. The outer
+wrapper uses a height derived from `--colophon-title-size` and clips overflow,
+while the word itself is absolutely anchored slightly below the frame's bottom
+edge. This keeps the watermark visibly cut off instead of sitting fully inside
+the document flow.
+
+On hover, a full spectrum floods into the word from the side where the pointer
+enters, and drains out to the side where it leaves: the `colophon-spectrum-*`
+tokens from red through orange, yellow, the brand green (`primary-500`), sky,
+and blue to violet, at full strength. The spectrum is a `::after` copy of the
+word (`content: attr(data-text)`) clipped to the text, on top of the olive word.
+A mask with a 24% soft edge reveals it; the edge position
+(`--colophon-front`, a registered `@property`) moves from -15% at rest to 115%
+at full hover. The side only sets the mask angle (90deg from the left, 270deg
+from the right). A small script in the component sets the side on
+`pointerenter` and `pointerleave`, and keeps the current side while a flood or
+drain is still running, so the edge never jumps. At rest the mask hides the
+copy completely, so no colour shows at the glyph edges. The flood takes 900ms
+with the site's link curve, `cubic-bezier(0.25, 0.46, 0.45, 0.94)`, so the
+front stays visible as it travels. The drain takes 450ms with an accelerating
+`cubic-bezier(0.4, 0, 1, 1)`. While the pointer stays, the spectrum keeps
+swaying: the 106%-wide spectrum drifts across its full range over 7s
+(alternating), and its angle (`--colophon-angle`, a registered `@property`)
+tilts between 84deg and 96deg over 5s. Both use `ease-in-out`, start 900ms
+after hover, run only while hovered, and need
+`prefers-reduced-motion: no-preference`. Under reduced motion, the colours
+change at once without the sweep or the sway. Browsers without
+`background-clip: text` or `mask-image` keep the olive colours, with the
+`olive-200` / `olive-800` hover; without the script, the spectrum floods from
+the left. Touch devices show the spectrum after a tap. This hover is the only
+place where non-primary hues (including orange and red) and a colour
+transition other than `transition-colors duration-300 ease-in-out` are allowed.
+
+The oversized footer colophon in `src/components/layout/footer/Colophon.astro`
+is decorative display texture, not content. It must stay `aria-hidden="true"`
 and carry `data-dnb-design-exception="decorative-low-contrast"`. It must stay
 visually low contrast: `text-olive-100 hover:text-olive-200` in light mode,
 `dark:text-olive-900 dark:hover:text-olive-800` in dark mode. This is an
@@ -605,7 +654,7 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Don't** apply the contrast rule to elements marked `data-dnb-design-exception="decorative-low-contrast"` - they are hidden from assistive technology and intentionally fail contrast as decorative background texture.
 * **Don't** use `rounded-xl` on outer containers - it belongs only to images inside cards.
 * **Don't** introduce font weights above 400 for Changa One - no bold weight exists in the loaded font file.
-* **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm.
+* **Do** use `transition-colors duration-300 ease-in-out` for all color-based hover transitions to maintain consistent motion rhythm. The footer colophon hover spectrum is the only exception (see "Footer Colophon Watermark").
 * **Don't** add decorative gradient backgrounds or overlapping color layers to page sections - depth comes from tonal step-ups, not color mixing.
 * **Do** respect `prefers-reduced-motion` - the LetterGlitch canvas animation, view transitions, all keyframe animations, and the Lenis smooth-scroll instance (`src/layouts/Site.astro`) must be gated behind the `no-preference` media query. Under `reduce`, Lenis is not constructed at all and the page falls back to the native `scroll-smooth` class already on `<html>`.
 * **Do** prefix any temporary debugging class with `debug` (for example
@@ -618,8 +667,8 @@ the watermark visibly cut off instead of sitting fully inside the document flow.
 * **Don't** extend the `olive` surface scale into structural neutrals - text, borders, and muted-foreground stay on `gray`. `olive` is reserved for `--background` and things derived from it.
 * **Do** use the shadcn primitives (`Input`/`Textarea` in `src/components/forms/`, `Button`/`Card` in `src/components/shared/elements/`) as the canonical class recipe for form-like elements, even when the actual markup is a native, vanilla-JS-driven element rather than a hydrated React island.
 * **Don't** rely on `@tailwindcss/forms`' class-strategy names like `form-input` - this project runs the plugin in `base` strategy, so that class doesn't exist and silently does nothing.
-* **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the primary CTA shade or the green link pair.
-* **Don't** use `orange` for anything - it is unused legacy, present only in devtools tooling and retired prototypes. **Don't** use `red` as an accent or brand colour either - it is reserved for `destructive`/`danger`/error states only.
+* **Don't** introduce off-brand accent hues (indigo, blue, etc.) left over from a copied template - map every interactive/active/focus state to the primary CTA shade or the green link pair. The footer colophon hover spectrum is decorative, not an accent, and is the only exception.
+* **Don't** use `orange` for anything - it is unused legacy, present only in devtools tooling and retired prototypes. **Don't** use `red` as an accent or brand colour either - it is reserved for `destructive`/`danger`/error states only. The only exception for both is the footer colophon hover spectrum.
 * **Don't** reintroduce a per-theme override of the `grey`/`gray-*` scale - it maps to `mist` once, in the shared `@theme inline` block in `src/styles/theme.css`, and must stay identical in light and dark mode.
 
 ## Footer portrait eyes

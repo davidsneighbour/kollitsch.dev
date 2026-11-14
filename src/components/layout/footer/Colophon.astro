@@ -15,12 +15,188 @@ export interface Props {}
   style={`--colophon-title-size: ${titleFontSize}vw;`}
 >
   <span
-    class="absolute bottom-[-0.22em] left-1/2 block -translate-x-1/2
+    class="colophon-word absolute bottom-[-0.22em] left-1/2 block -translate-x-1/2
     transition-colors duration-300 ease-in-out
     text-olive-100 hover:text-olive-200
     dark:text-olive-900 dark:hover:text-olive-800"
     style="font-size: var(--colophon-title-size);"
+    data-text={setup.title}
   >
     {setup.title}
   </span>
 </div>
+
+<script>
+  import {
+    type ColophonPhase,
+    colophonDirection,
+    colophonSettled,
+    colophonSide,
+  } from '@utils/colophon-direction.pure.ts';
+
+  let controller: AbortController | undefined;
+
+  /**
+   * Sets the side the hover spectrum floods in from (pointer entry) and
+   * drains out to (pointer exit). CSS does the rest; without this script,
+   * the spectrum floods from the left.
+   */
+  function initColophon(): void {
+    controller?.abort();
+    const word = document.querySelector<HTMLElement>('.colophon-word');
+    if (!word) return;
+    controller = new AbortController();
+    const { signal } = controller;
+
+    const update = (event: PointerEvent, phase: ColophonPhase): void => {
+      const rect = word.getBoundingClientRect();
+      const front = Number.parseFloat(
+        getComputedStyle(word, '::after').getPropertyValue('--colophon-front'),
+      );
+      const current =
+        word.dataset['colophonSide'] === 'right' ? 'right' : 'left';
+      word.dataset['colophonSide'] = colophonDirection(
+        current,
+        colophonSide(event.clientX, rect.left, rect.width),
+        colophonSettled(front, phase),
+      );
+    };
+
+    word.addEventListener('pointerenter', (event) => update(event, 'enter'), {
+      signal,
+    });
+    word.addEventListener('pointerleave', (event) => update(event, 'leave'), {
+      signal,
+    });
+  }
+
+  initColophon();
+  document.addEventListener('astro:page-load', initColophon);
+  document.addEventListener('astro:before-swap', () => controller?.abort());
+</script>
+
+<style>
+  /*
+   * Hover easter egg (DESIGN.md "Footer Colophon Watermark"): a spectrum
+   * floods into the faint watermark from the side where the pointer enters,
+   * sways while the pointer stays, and drains out to the side where it
+   * leaves. This is the only place where red, orange, and other non-primary
+   * hues are allowed. Without text clipping, only the olive utility colours
+   * above apply.
+   *
+   * The spectrum is a copy of the word (`::after`, from `data-text`) on top
+   * of the olive word. A mask with a soft edge shows it: `--colophon-front`
+   * moves from -15% at rest to 115% at full hover. The side only sets the
+   * mask's angle (90deg from the left, 270deg from the right), which makes no
+   * visible difference at rest or at full hover, so switching never jumps.
+   * At rest, the mask hides the copy completely, so no colour shows at the
+   * glyph edges.
+   */
+  @property --colophon-front {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: -15%;
+  }
+
+  /* Registered so the spectrum angle can sway smoothly. */
+  @property --colophon-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 90deg;
+  }
+
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) and
+    (mask-image: linear-gradient(black, transparent)) {
+    .colophon-word::after {
+      --colophon-angle: 90deg;
+      --colophon-front: -15%;
+      --colophon-side: 90deg;
+
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      color: transparent;
+      background-image: linear-gradient(
+        var(--colophon-angle),
+        oklch(63.7% 0.237 25.331deg) 0%,
+        oklch(70.5% 0.213 47.604deg) 16.7%,
+        oklch(85.2% 0.199 91.936deg) 33.3%,
+        oklch(72.3% 0.219 149.579deg) 50%,
+        oklch(68.5% 0.169 237.323deg) 66.7%,
+        oklch(62.3% 0.214 259.815deg) 83.3%,
+        oklch(60.6% 0.25 292.717deg) 100%
+      );
+      background-repeat: no-repeat;
+      /* 6% wider than the word, so the sway can drift it. */
+      background-size: 106% 100%;
+      background-position: 0 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      mask-image: linear-gradient(
+        var(--colophon-side),
+        black calc(var(--colophon-front) - 12%),
+        transparent calc(var(--colophon-front) + 12%)
+      );
+      pointer-events: none;
+
+      /* Drain: shorter than the flood, accelerating away. */
+      transition: --colophon-front 450ms cubic-bezier(0.4, 0, 1, 1);
+    }
+
+    .colophon-word[data-colophon-side="right"]::after {
+      --colophon-side: 270deg;
+    }
+
+    .colophon-word:hover::after {
+      --colophon-front: 115%;
+
+      /* Flood: starts at once, and the gentle deceleration (the site's link
+         curve) keeps the wave front visible as it crosses the word. */
+      transition: --colophon-front 900ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* After the flood, the spectrum keeps swaying while hovered: a slow
+       drift and a small tilt with different periods, so the movement does
+       not repeat visibly. Both start where the flood ends. */
+    @media (prefers-reduced-motion: no-preference) {
+      .colophon-word:hover::after {
+        animation:
+          colophon-drift 7s ease-in-out 900ms infinite alternate,
+          colophon-tilt 5s ease-in-out 900ms infinite;
+      }
+    }
+
+    @keyframes colophon-drift {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: 100% 0;
+      }
+    }
+
+    @keyframes colophon-tilt {
+      0%,
+      100% {
+        --colophon-angle: 90deg;
+      }
+
+      25% {
+        --colophon-angle: 96deg;
+      }
+
+      75% {
+        --colophon-angle: 84deg;
+      }
+    }
+
+    /* Reduced motion: the colours change at once, without the sweep. */
+    @media (prefers-reduced-motion: reduce) {
+      .colophon-word::after,
+      .colophon-word:hover::after {
+        transition: none;
+      }
+    }
+  }
+</style>

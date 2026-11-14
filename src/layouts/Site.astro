@@ -49,10 +49,10 @@ const IS_DEV = import.meta.env.DEV;
       bottom of this file. It has no z-index (see its own stylesheet for
       why), so it relies on being painted before everything else in
       document order to stay behind real content. Moving it would put it
-      visually on top of the whole page. Confirmed not a loading-perf
-      concern either: its script is type="module" (deferred regardless of
-      DOM position) and does not appear in Lighthouse's render-blocking
-      list; a production trace measured 0ms attributable LCP/FCP impact.
+      visually on top of the whole page. Not a loading-perf concern
+      either: its script is type="module" (deferred regardless of DOM
+      position) and only observes the activation sentinel; the renderer
+      chunk loads on the first trigger crossing (mesh-bootstrap.ts).
     */}
     <Mesh
       nodeOpacity={0.4}

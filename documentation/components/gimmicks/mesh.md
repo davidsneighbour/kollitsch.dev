@@ -2,7 +2,7 @@
 title: Mesh
 tags: []
 created: 2026-09-21T00:00:00+07:00
-updated: 2026-09-21T00:00:00+07:00
+updated: 2026-11-14T00:00:00+07:00
 ---
 
 Renders a fixed, bottom-anchored Canvas 2D field of small glowing dots connected by thin lines ("the mesh"), fading in once the visitor scrolls past the site title and fading out again near the top of the page. Every visual and physics property is a prop, tuned from a single call site rather than by editing the renderer.
@@ -13,12 +13,14 @@ This document is intentionally more thorough than a typical entry in this tree: 
 
 | Field | Value |
 | --- | --- |
-| Component | `src/components/gimmicks/Mesh.astro` |
+| Component | `src/components/gimmicks/Mesh.astro` (markup, styles, and a two-line script that starts the bootstrap) |
+| Bootstrap | `src/components/gimmicks/mesh-bootstrap.ts` (always loaded: observes the sentinel, loads the renderer on first activation, view-transition lifecycle) |
+| Renderer | `src/components/gimmicks/mesh-renderer.ts` (loaded on demand: canvas, particles, physics, pointer, Lenis, theme, animation loop) |
 | Global mount point | `src/layouts/Site.astro` (first child of `<body>` — see [Why it has to stay first](#why-it-has-to-stay-first-in-siteastro)) |
 | Activation sentinel | `src/components/layout/header/Header.astro` (`<div data-mesh-trigger>`, right after `<SiteTitle />`) |
 | Opaque boxes that hide the mesh from the pointer | `src/components/content/article/Post.astro`, `src/components/content/article/Preview.astro` (both carry `data-obscures-mesh`) |
 | Data | none |
-| Tests | `src/test/gimmicks/Mesh.spec.ts` (`prefers-reduced-motion` behaviour: fade duration, single static frame, no pointer reactivity) |
+| Tests | `src/components/gimmicks/Mesh.test.ts` (unit: activation, reuse, pause, reduced motion, theme, cleanup, view-transition reinitialisation), `src/test/gimmicks/Mesh.spec.ts` (e2e: renderer not requested before the trigger, `prefers-reduced-motion` fade duration, static frame, no pointer reactivity) |
 
 ## Props
 
@@ -89,14 +91,21 @@ There is no gravity in this system. The bottom-heavy look could easily read as "
 
 ### Trigger and lifecycle
 
-Nothing initialises at page load: no canvas context, no particles, no animation loop — only the empty markup, an `IntersectionObserver` on the sentinel, and a few cheap event listeners (`resize`, `visibilitychange`, `theme-changed`, and — only on devices with a real mouse — `pointermove`).
+The mesh is progressive enhancement and stays out of the initial loading path (see `.agents/instructions/src-gimmicks.instructions.md`). The code is split in two modules:
+
+- `mesh-bootstrap.ts` is the only Mesh code that runs at page load. It creates one `IntersectionObserver` on the sentinel and nothing else: no canvas context, no particles, no animation loop, no pointer, resize, theme, or visibility listeners, and no Lenis subscription.
+- `mesh-renderer.ts` is a separate chunk that the bootstrap loads with a dynamic `import()` the first time the sentinel scrolls above the viewport. The renderer attaches its listeners only when it is created. Later crossings reuse the same renderer instance, so the module loads once per page.
+
+If the renderer fails to load (for example offline), the bootstrap logs the error, the mesh stays hidden, and the next crossing tries again. If the visitor scrolls back up before the module has loaded, the renderer is created but not shown.
 
 ```text
 sentinel visible (near top)         -> box stays hidden
-sentinel's top edge scrolls above 0 -> show(): first time only, canvas + particles created; box fades in; rAF loop starts
+sentinel's top edge scrolls above 0 -> first time only: renderer module loaded, canvas + particles created; box fades in; rAF loop starts
 scroll back up, sentinel visible    -> hide(): box fades out, rAF loop stops entirely
 scroll down again                   -> show() again, SAME particle field resumes, not regenerated
 ```
+
+View transitions: `astro:before-swap` destroys every renderer and disconnects every observer (listeners, timers, Lenis subscription, and animation frames included). `astro:page-load` creates one activation per new `[data-mesh]` root; repeated calls (Astro also fires `astro:page-load` on the initial load) keep the existing activation instead of creating a duplicate.
 
 Two independent pauses: the rAF loop stops immediately when the tab is backgrounded (`visibilitychange`), and under `prefers-reduced-motion: reduce` the loop never starts at all — the box still fades in/out and still shows the bottom-biased dots and connections, but nothing drifts, nothing responds to the pointer or to scroll velocity, and a single static frame is drawn per state change instead.
 
@@ -227,7 +236,7 @@ Step 3's nested search only ever runs when needed, and typically only over a han
 | Minimum dot spacing / declustering strength | `particleMinDistance`, `particleSeparationForce` props | |
 | Fade duration / shape | `fadeDuration`, `fadeEasing` props | Any CSS `<easing-function>`, including `linear(...)` for a multi-phase shape |
 | Scroll responsiveness | `scrollInfluence`, `scrollDamping` props | |
-| Bowl depth | `CONCAVE_DEPTH` constant | **Not a prop** — edit directly near the top of the `<script>` block |
+| Bowl depth | `CONCAVE_DEPTH` constant | **Not a prop** — edit directly near the top of `mesh-renderer.ts` |
 | Edge push-back strength/margin, damping factor | The `0.0006`/`margin`/`0.94` constants in `updateParticles()` | **Not props** — edit directly |
 | Where the fade-in trigger sits | The sentinel `<div>` in `Header.astro` | Move it to change what "past the hero" means |
 | Which boxes suppress the pointer | `data-obscures-mesh` attribute | Add/remove on any component |
@@ -238,7 +247,7 @@ Step 3's nested search only ever runs when needed, and typically only over a han
 
 `.mesh` deliberately has no `z-index`. A `position: fixed` element with no `z-index` paints in document order, in the same layer as ordinary content — so being the *first* child of `<body>` means it paints right after `<body>`'s own background and before every real piece of content that follows (header, article, footer), which is exactly the "behind content, above the page background" layering it needs. Moving it to the end of the file (grouped with other "extras") was considered and rejected: it would flip that order, putting the mesh visually on top of the whole page. A real structural fix exists (an explicit low `z-index` on the mesh plus a higher one on a wrapper around the actual content) but was judged not worth the complexity for a pure organisational preference.
 
-Also checked and ruled out: page-load performance. The component's script compiles as `<script type="module">`, which defers execution until after parsing regardless of DOM position; a real Chrome performance trace against a production build measured this page's Largest Contentful Paint (LCP — how long the biggest visible piece of content takes to render) at 40ms, with 0ms attributable render-blocking impact from anything related to the mesh.
+Also checked and ruled out: page-load performance. The component's script compiles as `<script type="module">`, which defers execution until after parsing regardless of DOM position, and it contains only the bootstrap. The renderer chunk is not requested until the first trigger crossing (see [Trigger and lifecycle](#trigger-and-lifecycle)).
 
 ### Why these two boxes are opaque
 
@@ -261,10 +270,13 @@ Also checked and ruled out: page-load performance. The component's script compil
 13. Moving the mesh to the bottom of `Site.astro` (pure code-organisation preference) considered and rejected — see [Why it has to stay first](#why-it-has-to-stay-first-in-siteastro); also confirmed, via a real Lighthouse/Chrome trace, not a loading-performance concern either way.
 14. Full connectivity guaranteed via Union-Find plus greedy nearest-component bridging (see [Guaranteeing full connectivity](#guaranteeing-full-connectivity-union-find-and-bridging)) — discussed as a design question first, implemented once approved, explicitly prioritising near-zero added per-frame cost.
 15. Pointer "spotlight" glow added for both dots and connections (see [Pointer glow](#pointer-glow)), sharing the repulsion force's distance model and easing curve so the two read as one effect.
+16. Split into an always-loaded bootstrap and a lazily imported renderer, so the renderer code is absent from the initial execution path until the first trigger crossing, and lifecycle unit tests added (GitHub issues #2045 and #2046).
 
 ### How this was tested
 
 The automated browser used during this component's development reports `window.matchMedia('(pointer: fine)').matches` as `false` (no real pointing device), so the `pointermove` listener is never attached there, by design. Several pointer-behaviour fixes were verified instead by calling the relevant private methods directly on the live controller instance, via a small temporary debug hook added to `ensureStarted()` and removed once each check was done. A real mouse, on a real desktop browser, is the only way to see the pointer effects end to end.
+
+`Mesh.test.ts` covers the lifecycle without a browser: it replaces `window`, `document`, `IntersectionObserver`, the canvas, and `requestAnimationFrame` with small fakes and checks activation, reuse, pausing, reduced motion, theme redraws, and cleanup. It does not check particle positions, physics values, or canvas output.
 
 ### Current limitations
 

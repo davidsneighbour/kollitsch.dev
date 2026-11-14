@@ -34,7 +34,9 @@ for the rules that keep it that way.
   see note below.
 * `gimmicks/` - visual novelties and canvas/animation experiments (for example
   `TvHead.astro`, `LetterGlitch.astro`, `glitch.tsx`) that are not part of the
-  core UI.
+  core UI. Gimmicks are progressive enhancement only: they initialise lazily,
+  load expensive code on first use, and fail without breaking the page (see
+  `.agents/instructions/src-gimmicks.instructions.md`).
 * `devtools/` - development only utilities that assist during implementation.
 * `seo/` - structured data helpers and related head metadata fragments, grouped
   under `schema/` (JSON-LD building blocks).

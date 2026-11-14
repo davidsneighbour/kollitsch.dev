@@ -13,6 +13,33 @@ async function revealMesh(page: Page): Promise<void> {
   await expect(page.locator('.mesh')).toHaveClass(/is-visible/);
 }
 
+test.describe('Mesh lazy loading', () => {
+  test('loads the renderer module only after the trigger is crossed', async ({
+    page,
+  }) => {
+    // Dev serves `mesh-renderer.ts`; a production build emits a
+    // `mesh-renderer.<hash>.js` chunk. Both match.
+    const rendererRequests: string[] = [];
+    page.on('request', (request) => {
+      if (/mesh-renderer/.test(request.url())) {
+        rendererRequests.push(request.url());
+      }
+    });
+
+    await page.goto('/');
+    await page.locator('[data-mesh-trigger]').waitFor();
+    await page.waitForLoadState('networkidle');
+    expect(rendererRequests).toEqual([]);
+    await expect(page.locator('.mesh')).not.toHaveClass(/is-visible/);
+
+    await page.evaluate(() =>
+      window.scrollTo(0, document.documentElement.scrollHeight),
+    );
+    await expect(page.locator('.mesh')).toHaveClass(/is-visible/);
+    expect(rendererRequests).toHaveLength(1);
+  });
+});
+
 test.describe('Mesh reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
 

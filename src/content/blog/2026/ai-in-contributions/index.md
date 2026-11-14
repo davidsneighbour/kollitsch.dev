@@ -18,7 +18,7 @@ Over the past two years I looked into use cases for AI and slowly got acclimated
 
 The following is a short notice for my CONTRIBUTING.md in various projects where I state some things about AI usage in contributions and communication on these projects. I think that is something that will become common sense in many open source projects and will make it easier to deal with sloppy contributions without opening up a flame war each time it happens.
 
-**Update, 20 October 2026:** I have since compared this policy with the ready-made options on ai-policy.dev. The [follow-up explains what I kept, what I changed, and why the AI may submit a contribution but cannot be responsible for it](/blog/2026/the-ai-can-submit-it-you-still-own-it/).
+**Update, 20 October 2026:** I have since compared this policy with the ready-made options on ai-policy.dev. The [follow-up explains what I kept, what I changed, and why the AI may submit a contribution but cannot be responsible for it](/blog/2026/ai-submits-it-you-still-own-it/).
 
 ---
 
@@ -26,7 +26,7 @@ This document is based on a proposed guideline introduced in a pull request to N
 
 ## Terminology
 
-* **AI** refers to any generative tool used to produce code or text (e.g. LLM-based systems).
+* **AI** refers to any generative tool used to produce code or text (for example LLM-based systems).
 * **LLM** refers specifically to large language models.
 * **Tool** refers to any software used to assist development, including AI.
 

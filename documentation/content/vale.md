@@ -80,12 +80,11 @@ The accepted baseline is: no errors except the exceptions below. Warnings and su
 
 On 14 November 2026, a full run against `src/content/blog` reported 10,174 alerts in 191 files: 27 errors, 8,516 warnings, and 1,631 suggestions. The highest-volume rules are `DNB.Hedging`, `DNB.AgenticCommunal`, `Microsoft.Contractions`, `DNB.OpenlySentenceLength`, and `DNB.OpenlyFutureTense`. They stay active as warnings or suggestions on purpose: they point to passages to review, and not every hit needs a change.
 
-The 27 errors are these known items:
+The two `ai-in-contributions` errors from that run are fixed. The remaining 25 errors are these known items:
 
 * `2023/pantones-color-of-the-year-peach-fuzz-in-css/index.mdx` and `2025/kurzschnitte-ii-10/index.mdx` (`DNB.Spelling`): American `color` in Pantone's `Color of the Year` branding and in CSS colour tool names. This is intentional.
 * `2026/kurzschnitte-ii-11/index.md` (`proselint.Spelling`): the product name `Kigen Color` next to British "colour" in the same post.
 * `2023/prevent-jsbuild-from-removing-un-unused-javascript-functionality/index.md` (`Microsoft.Spacing`, `Google.Spacing`) and `2024/swiss-made-2069/index.mdx` (`Google.OptionalPlurals`, `Microsoft.Plurals`): the alerts are in the frontmatter `title`. Vale comments cannot suppress frontmatter, and a title change also changes the social image.
-* `2026/ai-in-contributions/index.md` (`Google.Latin`, `Microsoft.Foreign`): "e.g." on line 29 is not replaced yet. The post links to an unpublished draft, and the link check in the commit hook fails until that is fixed ([#2233](https://github.com/davidsneighbour/kollitsch.dev/issues/2233)).
 
 Vale comments (`<!-- vale Rule.Name = NO -->`) work in `.md` files. In `.mdx` files with the current set-up, `{/* vale ... */}` comments have no effect.
 

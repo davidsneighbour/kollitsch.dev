@@ -34,6 +34,13 @@ If several instructions apply, the most specific scope wins, but no instruction 
 
 The user's global agent instructions (for example `~/.claude/CLAUDE.md`) cover general communication and working style; this file does not repeat them. If a rule here conflicts with a global rule, ask the user. The global rule wins unless the project rule is specific to this project.
 
+## Know conventions before editing
+
+- Before creating or changing files, read the applicable scoped instructions and identify the relevant checks in `.lintstagedrc.ts` and the package scripts. Read their maintained rule sources before editing: for example `.ls-lint.yml` for new filenames, `biome.jsonc` for formatting, and `src/config/.markdownlint.jsonc` for Markdown. Read only configurations relevant to the intended files. Checks are compliance gates, not a substitute for learning the conventions.
+- If a check reveals an established convention missing from the instructions, verify the rule and its scope against the maintained configuration, then add concise, actionable guidance to the appropriate scoped instruction in the same change, before finishing the task. Include the configuration path. Merge with an existing rule where possible; create a narrowly scoped instruction only when no suitable owner exists.
+- If the convention was already documented, correct the missed reading or compliance step instead of adding duplicate instructions. Do not describe an established rule as an unexpected new requirement.
+- Do not turn transient tool failures, environment limits, generated-file noise, or upstream bugs into repository conventions. Do not weaken, disable, or bypass checks to avoid documenting or following a real rule. Keep universal coordination here and file-specific details in `.agents/instructions/`.
+
 ## Global constraints
 
 - Use strict British English and metric units.

@@ -1,5 +1,76 @@
 # Changelog
 
+## [3.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.7.0...v3.8.0) (2026-11-14)
+
+### Feat
+
+* **footer:** add a direction-aware rainbow hover to the colophon ([a33e8b8](https://github.com/davidsneighbour/kollitsch.dev/commit/a33e8b81ed24bed99c55e0654babfe50c1ac06fd)), closes [#2247](https://github.com/davidsneighbour/kollitsch.dev/issues/2247)
+* **footer:** use logarithmic levels in the contribution calendar ([1d07f7b](https://github.com/davidsneighbour/kollitsch.dev/commit/1d07f7bdc62e4e2cf1197563252321e9dda41e28)), closes [#2245](https://github.com/davidsneighbour/kollitsch.dev/issues/2245)
+* **header:** show a small scrolled brand beside mobile controls ([cab75d8](https://github.com/davidsneighbour/kollitsch.dev/commit/cab75d87a0dc579086afcf3f7945aac82b5713a1)), closes [#2244](https://github.com/davidsneighbour/kollitsch.dev/issues/2244)
+
+### Content
+
+* **about:** add a meta description to the about page ([0dbd083](https://github.com/davidsneighbour/kollitsch.dev/commit/0dbd083ee099b747d36085199e78b6891678b486)), references [#1951](https://github.com/davidsneighbour/kollitsch.dev/issues/1951)
+* **ai:** link the published contribution policy follow-up ([f8052bb](https://github.com/davidsneighbour/kollitsch.dev/commit/f8052bbde1d62f09812d80dbc9524f32b968eba8)), closes [#2233](https://github.com/davidsneighbour/kollitsch.dev/issues/2233)
+* **ai:** publish the AI contribution policy follow-up ([d2e4fd9](https://github.com/davidsneighbour/kollitsch.dev/commit/d2e4fd9f89faa35745453c13152a117bea3db71f)), references [#2135](https://github.com/davidsneighbour/kollitsch.dev/issues/2135) [#2233](https://github.com/davidsneighbour/kollitsch.dev/issues/2233)
+* **blog:** use British English spelling in posts and tags ([6969153](https://github.com/davidsneighbour/kollitsch.dev/commit/696915309acaf094c75b681643c0327fe8f6fcbc)), closes [#2243](https://github.com/davidsneighbour/kollitsch.dev/issues/2243)
+
+### Fix
+
+* **biome:** preserve Markdown frontmatter during safe fixes ([bfbfcae](https://github.com/davidsneighbour/kollitsch.dev/commit/bfbfcae5cc84347da1ce0617bb52b68b267a1002)), references [#2202](https://github.com/davidsneighbour/kollitsch.dev/issues/2202)
+* **content:** replace dead links with marked Internet Archive snapshots ([29bfe55](https://github.com/davidsneighbour/kollitsch.dev/commit/29bfe5591e2fa5dd1b502872a9192b76921b832b)), closes [#2106](https://github.com/davidsneighbour/kollitsch.dev/issues/2106)
+* **content:** settle the blog Vale baseline ([82ce66e](https://github.com/davidsneighbour/kollitsch.dev/commit/82ce66edb90abe87c7c63dfc0ae1f3c933780973)), closes [#1952](https://github.com/davidsneighbour/kollitsch.dev/issues/1952), references [#2233](https://github.com/davidsneighbour/kollitsch.dev/issues/2233)
+* **footer:** adapt layout to enlarged text ([5a635c0](https://github.com/davidsneighbour/kollitsch.dev/commit/5a635c08bfb5721a5ce580e0f3acd27f56dc1c1d)), closes [#2236](https://github.com/davidsneighbour/kollitsch.dev/issues/2236)
+* **footer:** attach sticker arrow to the final word ([713d40d](https://github.com/davidsneighbour/kollitsch.dev/commit/713d40dd891c46b86f4175b43b39ba5facf98c60)), closes [#2238](https://github.com/davidsneighbour/kollitsch.dev/issues/2238)
+* **footer:** correct comma spacing and day grouping ([dbd3ed3](https://github.com/davidsneighbour/kollitsch.dev/commit/dbd3ed3a8982d1cb43f484a6c5ed012b2ee65e5f)), closes [#2240](https://github.com/davidsneighbour/kollitsch.dev/issues/2240)
+* **footer:** offer a destination when GitHub activity fails ([7f37ee3](https://github.com/davidsneighbour/kollitsch.dev/commit/7f37ee34a59757d9887e73be62d9ebbf98d984de)), closes [#2241](https://github.com/davidsneighbour/kollitsch.dev/issues/2241)
+* **footer:** reorder mobile end links ([cce6782](https://github.com/davidsneighbour/kollitsch.dev/commit/cce678252cfbdd347fef2050975e719e0f189580)), closes [#2239](https://github.com/davidsneighbour/kollitsch.dev/issues/2239)
+* **footer:** restore colophon formatting and document its opacity ([631bdcd](https://github.com/davidsneighbour/kollitsch.dev/commit/631bdcd1873ec6c7e401565926f4c3e6f1d6352f)), references [#2247](https://github.com/davidsneighbour/kollitsch.dev/issues/2247)
+* **footer:** start the footer mark replay below the sticky header ([dadb274](https://github.com/davidsneighbour/kollitsch.dev/commit/dadb274cf78067a3944994834898fc600fc747fe)), closes [#2246](https://github.com/davidsneighbour/kollitsch.dev/issues/2246)
+* **footer:** underline links and scope decorative checks ([1d631de](https://github.com/davidsneighbour/kollitsch.dev/commit/1d631dea76771647724f9432ab844b4f752fc23a)), references [#2222](https://github.com/davidsneighbour/kollitsch.dev/issues/2222)
+* **header:** complete adaptive navigation and dismissal ([5e05621](https://github.com/davidsneighbour/kollitsch.dev/commit/5e0562122496f657de6b286d0f6c784e373b750c)), closes [#2237](https://github.com/davidsneighbour/kollitsch.dev/issues/2237) [#1867](https://github.com/davidsneighbour/kollitsch.dev/issues/1867)
+* **icons:** reject unregistered icon names at content validation ([a8a8d96](https://github.com/davidsneighbour/kollitsch.dev/commit/a8a8d96a64735083416811eaef6f14afa1af2c77)), closes [#2050](https://github.com/davidsneighbour/kollitsch.dev/issues/2050)
+* **metadata:** name the development edit link ([187bfa7](https://github.com/davidsneighbour/kollitsch.dev/commit/187bfa78017e9474ae0b9551e1e038cbc31bd234)), closes [#2229](https://github.com/davidsneighbour/kollitsch.dev/issues/2229)
+* **playground:** parse preview HTML with browser-compatible rules ([a74f31f](https://github.com/davidsneighbour/kollitsch.dev/commit/a74f31f6835e14972647309d370f7e49aff96c75)), closes [#2228](https://github.com/davidsneighbour/kollitsch.dev/issues/2228)
+* **scripts:** pass staged posts to the social-image hook unquoted ([b1e09c5](https://github.com/davidsneighbour/kollitsch.dev/commit/b1e09c528cdde51f8cc9368de336c512d6027610)), closes [#2108](https://github.com/davidsneighbour/kollitsch.dev/issues/2108)
+* **search:** restore the cascade-layer order on /find/ ([157374d](https://github.com/davidsneighbour/kollitsch.dev/commit/157374d2b31377380faebd10383e5131b4a9397d)), closes [#2032](https://github.com/davidsneighbour/kollitsch.dev/issues/2032)
+* **social:** share through the visitor's Mastodon server ([ac340b6](https://github.com/davidsneighbour/kollitsch.dev/commit/ac340b6ac12ec3d962136d771761310e12005dfd)), closes [#2205](https://github.com/davidsneighbour/kollitsch.dev/issues/2205)
+* **theme:** transparency for footer colophone ([c372a07](https://github.com/davidsneighbour/kollitsch.dev/commit/c372a074e526e3709e5f5e267c646b92f30fe06b))
+
+### Perf
+
+* **footer:** pause counters and simplify calendar access ([6076003](https://github.com/davidsneighbour/kollitsch.dev/commit/6076003f8be60a6c17ad070507e433c284898b3a)), closes [#2234](https://github.com/davidsneighbour/kollitsch.dev/issues/2234)
+* **footer:** reserve calendar loading space ([d3cc4c4](https://github.com/davidsneighbour/kollitsch.dev/commit/d3cc4c48c20e35ab4c253c76e047b02fa8bbe965)), closes [#2235](https://github.com/davidsneighbour/kollitsch.dev/issues/2235)
+* **gimmicks:** load the Mesh renderer only on first activation ([acf6850](https://github.com/davidsneighbour/kollitsch.dev/commit/acf68502703c32ea23aaf6f5f4bf0a99e7fe1bc5)), closes [#2045](https://github.com/davidsneighbour/kollitsch.dev/issues/2045)
+
+### Docs
+
+* **ai:** learn conventions before editing ([af87a57](https://github.com/davidsneighbour/kollitsch.dev/commit/af87a57f8284cb5fb3eec397cfd659c823917666)), closes [#2230](https://github.com/davidsneighbour/kollitsch.dev/issues/2230)
+* **ai:** reuse a running dev server instead of stopping it ([a369ad7](https://github.com/davidsneighbour/kollitsch.dev/commit/a369ad7843780cb1bf4fd7882c29903d3bcd9514)), closes [#2231](https://github.com/davidsneighbour/kollitsch.dev/issues/2231)
+* **deps:** explain agent-added package rationale ([cbb10c7](https://github.com/davidsneighbour/kollitsch.dev/commit/cbb10c7c3bd4765de0249536483ff65050d82dc7)), references [#2228](https://github.com/davidsneighbour/kollitsch.dev/issues/2228)
+
+### Style
+
+* **header:** colour the mobile menu icon like the other nav icons ([b2a6fb7](https://github.com/davidsneighbour/kollitsch.dev/commit/b2a6fb777f441f705eeaf86340130f30f896e0be)), references [#2244](https://github.com/davidsneighbour/kollitsch.dev/issues/2244)
+* **source:** apply Biome 2.6 formatting ([d3ebfba](https://github.com/davidsneighbour/kollitsch.dev/commit/d3ebfbaf534beb62b99c2d8860ebfa7ba5217a0d)), closes [#2202](https://github.com/davidsneighbour/kollitsch.dev/issues/2202)
+
+### Test
+
+* **gimmicks:** add lifecycle regression tests for Mesh ([0160620](https://github.com/davidsneighbour/kollitsch.dev/commit/0160620a13cfdf562822535640d13de0955c86c5)), closes [#2046](https://github.com/davidsneighbour/kollitsch.dev/issues/2046)
+
+### Build
+
+* **config:** make Vale errors block commits of staged Markdown ([90da37d](https://github.com/davidsneighbour/kollitsch.dev/commit/90da37daa2bf59e6bbfa24e07ddc4d03a6794121)), closes [#2242](https://github.com/davidsneighbour/kollitsch.dev/issues/2242)
+* **deps:** remove unused secretlint rule packages ([2585fa7](https://github.com/davidsneighbour/kollitsch.dev/commit/2585fa75e4a615bfddb74ebb80290621759bb973)), closes [#2035](https://github.com/davidsneighbour/kollitsch.dev/issues/2035)
+* **fix:** remove secretlint rule for secp256k1-privatekeyfix [#1752](https://github.com/davidsneighbour/kollitsch.dev/issues/1752) ([bce667f](https://github.com/davidsneighbour/kollitsch.dev/commit/bce667f8e9d997e01ce4bec42a450b689f58677d))
+* **scripts:** add check:ogimages and clean:dev-cache scripts ([7714350](https://github.com/davidsneighbour/kollitsch.dev/commit/77143505816aabee11daa49b86f6d55c28f84ec0)), closes [#2107](https://github.com/davidsneighbour/kollitsch.dev/issues/2107) [#2043](https://github.com/davidsneighbour/kollitsch.dev/issues/2043)
+* **search:** add npm run build:pagefind and index after pruning ([9c1d98d](https://github.com/davidsneighbour/kollitsch.dev/commit/9c1d98dc3a0a1b63a59e229d2528781712ba2cf4)), closes [#2232](https://github.com/davidsneighbour/kollitsch.dev/issues/2232)
+
+### Chore
+
+* **ai:** remove unused Copilot workspace configuration ([966654a](https://github.com/davidsneighbour/kollitsch.dev/commit/966654a603cf32195b1008a7881b0bb165448258)), references [#2198](https://github.com/davidsneighbour/kollitsch.dev/issues/2198)
+* **design:** allow gradient text in the footer colophon only ([bb38145](https://github.com/davidsneighbour/kollitsch.dev/commit/bb381455c5caeb273624524042cbe7d765bd70d1)), references [#2247](https://github.com/davidsneighbour/kollitsch.dev/issues/2247)
+
 ## [3.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.6.0...v3.7.0) (2026-11-14)
 
 ### Feat

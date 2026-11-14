@@ -3,6 +3,7 @@
   // Sandpack supplies the editor, file tabs, and file state. Its hosted preview
   // runtime is not used; previews run in a local sandboxed srcdoc iframe.
   "dependencies": {
-    "@codesandbox/sandpack-react": "2.20.0"
+    "@codesandbox/sandpack-react": "2.20.0",
+    "parse5": "7.3.0"
   }
 }

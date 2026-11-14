@@ -2,7 +2,7 @@
 title: CodePlaygroundIsland
 tags: []
 created: 2026-11-06T10:00:00+07:00
-updated: 2026-11-06T10:00:00+07:00
+updated: 2026-11-14T14:35:00+07:00
 ---
 
 React island behind [`CodePlayground`](code-playground.md) that owns an example's files and control state and renders the sandboxed preview, the controls, the layout modes, and the reset flow.
@@ -37,6 +37,8 @@ import CodePlaygroundIsland from './CodePlaygroundIsland.tsx';
 ```
 
 ## Behaviour
+
+The shared preview builder uses `parse5` in both server rendering and the browser to identify declared stylesheet links, empty external script elements, and the real head opening tag. Source locations limit replacements to those elements; unrelated authored HTML, comments, raw text, and template content are preserved. Browser-accepted malformed script closing tags are recognised. Parsed attribute values are escaped before insertion. This is resource inlining, not HTML sanitisation: reader scripts run intentionally inside the opaque-origin iframe sandbox under its content security policy.
 
 - A reducer holds the current files, the last valid state and its text, the state file error, and `externalRevision`, which increases on control changes and resets only.
 - Server rendering and the first client render produce the same preview document without a bridge origin. After hydration the preview is rebuilt once with the host origin so runtime messages can arrive; later rebuilds wait for a 200 ms pause.

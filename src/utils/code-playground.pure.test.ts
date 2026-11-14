@@ -210,6 +210,89 @@ describe('buildPreviewDocument', () => {
     expect(html).not.toContain('href="styles.css"');
   });
 
+  it.each(['</script >', '</ScRiPt foo="bar">', '</script/>'])(
+    'inlines a declared script with browser-accepted end tag %s',
+    (closingTag) => {
+      const html = buildPreviewDocument({
+        entry: '/index.html',
+        files: {
+          '/a.js': 'window.example = true;',
+          '/index.html': '<head><script src="a.js">' + closingTag + '</head>',
+        },
+        hooks: [],
+        instanceId: 'x#y',
+        parentOrigin: null,
+        revision: 0,
+      });
+      expect(html).toContain('data-playground-file="/a.js"');
+      expect(html).toContain('window.example = true;');
+      expect(html).not.toContain('src="a.js"');
+    },
+  );
+
+  it('uses parsed attributes without matching comments or raw-text content', () => {
+    const untouched =
+      '<!-- <head><script src="a.js"></script> --!><textarea><script src="a.js"></script></textarea><template><script src="a.js"></script></template>';
+    const html = buildPreviewDocument({
+      entry: '/index.html',
+      files: {
+        '/a.js': 'window.example = true;',
+        '/index.html':
+          '<html><head data-note=">">' +
+          '<script data-note=">" src="&#97;.js" type="mod&#117;le"></script >' +
+          '<link data-note=">" rel="stylesheet" href="&#115;tyles.css">' +
+          '</head><body>' +
+          untouched +
+          '<script>window.inline = true;</script></body></html>',
+        '/styles.css': 'body { color: green; }',
+      },
+      hooks: [],
+      instanceId: 'x#y',
+      parentOrigin: null,
+      revision: 0,
+    });
+    expect(html).toContain('<head data-note=">">\n<meta');
+    expect(html).toContain(
+      '<script type="module" data-playground-file="/a.js">',
+    );
+    expect(html).toContain('<style data-playground-file="/styles.css">');
+    expect(html).toContain(untouched);
+    expect(html).toContain('<script>window.inline = true;</script>');
+  });
+
+  it('escapes decoded attributes and file paths when inlining resources', () => {
+    const html = buildPreviewDocument({
+      entry: '/index.html',
+      files: {
+        '/a&quot;.js': 'window.example = true;',
+        '/index.html':
+          '<head><script src="a&amp;quot;.js" type="module&quot; data-injected=&quot;yes"></script></head>',
+      },
+      hooks: [],
+      instanceId: 'x#y',
+      parentOrigin: null,
+      revision: 0,
+    });
+    expect(html).toContain('type="module&quot; data-injected=&quot;yes"');
+    expect(html).toContain('data-playground-file="/a&amp;quot;.js"');
+    expect(html).not.toContain('type="module" data-injected="yes"');
+  });
+
+  it('leaves undeclared and non-empty script elements intact', () => {
+    const source =
+      '<script src="remote.js"></script><script src="a.js">keep me</script><script src="a.js"></scripture>';
+    const html = buildPreviewDocument({
+      entry: '/index.html',
+      files: { '/a.js': 'replacement', '/index.html': source },
+      hooks: [],
+      instanceId: 'x#y',
+      parentOrigin: null,
+      revision: 0,
+    });
+    expect(html).toContain(source);
+    expect(html).not.toContain('data-playground-file=');
+  });
+
   it('injects policy, base URL, bridge, and import map at the start of head', () => {
     const html = build();
     const head = html.indexOf('<head>');

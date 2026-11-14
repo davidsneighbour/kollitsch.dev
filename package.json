@@ -603,6 +603,7 @@
   "dependencies": {
     "@dnbhq/wordmark": "2.0.6",
     "@codesandbox/sandpack-react": "2.20.0",
+    "parse5": "7.3.0",
     "@astrojs/react": "7.1.9",
     "@radix-ui/react-slot": "1.5.0",
     "class-variance-authority": "0.7.1",

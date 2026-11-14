@@ -1,12 +1,14 @@
 /**
  * Browser-safe helpers for the editable code playground.
  *
- * Everything in this module is pure and dependency free so it can run in the
+ * Everything in this module is pure and browser safe so it can run in the
  * React island, in Astro frontmatter at build time, and in Vitest. Schema
  * validation of authored manifests (which needs zod) lives in
  * `code-playground.schema.ts`; build-time file discovery lives in
  * `code-playground.ts`.
  */
+
+import { type DefaultTreeAdapterTypes, parse } from 'parse5';
 
 /** A single control declared in an example's `controls.json`. */
 export type PlaygroundControl =
@@ -460,15 +462,6 @@ export function resolveFileReference(
   return Object.hasOwn(files, path) ? path : null;
 }
 
-function readAttribute(tag: string, name: string): string | null {
-  const match = new RegExp(
-    `\\s${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`,
-    'i',
-  ).exec(tag);
-  if (!match) return null;
-  return match[1] ?? match[2] ?? match[3] ?? null;
-}
-
 function dataUrl(mime: string, code: string): string {
   return `data:${mime};charset=utf-8,${encodeURIComponent(code)}`;
 }
@@ -531,24 +524,59 @@ export function buildPreviewDocument(options: PreviewDocumentOptions): string {
   const { files } = options;
   const entryHtml = files[options.entry] ?? '';
 
-  let html = entryHtml.replace(/<link\b[^>]*>/gi, (tag) => {
-    const rel = readAttribute(tag, 'rel');
-    const href = readAttribute(tag, 'href');
-    if (!rel || !href || !/\bstylesheet\b/i.test(rel)) return tag;
-    const path = resolveFileReference(href, files);
-    if (!path) return tag;
-    return `<style data-playground-file="${path}">\n${escapeRawText(files[path] ?? '', 'style')}\n</style>`;
-  });
+  // Match the browser's HTML parser, including malformed end tags, quoted
+  // attributes, comments, and raw-text elements. Keep unrelated source intact.
+  const document = parse(entryHtml, { sourceCodeLocationInfo: true });
+  const edits: { start: number; end: number; text: string }[] = [];
+  let headEnd: number | undefined;
+  const attribute = (
+    node: DefaultTreeAdapterTypes.Element,
+    name: string,
+  ): string | undefined => node.attrs.find((item) => item.name === name)?.value;
+  const escapeAttribute = (value: string): string =>
+    value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-  html = html.replace(/<script\b[^>]*>\s*<\/script\s*>/gi, (tag) => {
-    const src = readAttribute(tag, 'src');
-    if (!src) return tag;
-    const path = resolveFileReference(src, files);
-    if (!path) return tag;
-    const type = readAttribute(tag, 'type');
-    const typeAttribute = type ? ` type="${type}"` : '';
-    return `<script${typeAttribute} data-playground-file="${path}">\n${escapeRawText(files[path] ?? '', 'script')}\n</script>`;
-  });
+  const visit = (node: DefaultTreeAdapterTypes.Node): void => {
+    if ('tagName' in node) {
+      const location = node.sourceCodeLocation;
+      if (node.tagName === 'head') headEnd = location?.startTag?.endOffset;
+      let replacement: string | undefined;
+      if (node.tagName === 'link' && location) {
+        const rel = attribute(node, 'rel');
+        const href = attribute(node, 'href');
+        const path =
+          href && rel?.toLowerCase().split(/\s+/).includes('stylesheet')
+            ? resolveFileReference(href, files)
+            : null;
+        if (path)
+          replacement = `<style data-playground-file="${escapeAttribute(path)}">\n${escapeRawText(files[path] ?? '', 'style')}\n</style>`;
+      } else if (
+        node.tagName === 'script' &&
+        location?.endTag &&
+        node.childNodes.every(
+          (child) => 'value' in child && child.value.trim() === '',
+        )
+      ) {
+        const src = attribute(node, 'src');
+        const path = src ? resolveFileReference(src, files) : null;
+        if (path) {
+          const type = attribute(node, 'type');
+          const typeAttribute = type ? ` type="${escapeAttribute(type)}"` : '';
+          replacement = `<script${typeAttribute} data-playground-file="${escapeAttribute(path)}">\n${escapeRawText(files[path] ?? '', 'script')}\n</script>`;
+        }
+      }
+      if (replacement !== undefined && location) {
+        edits.push({
+          end: location.endOffset,
+          start: location.startOffset,
+          text: replacement,
+        });
+        return;
+      }
+    }
+    if ('childNodes' in node) for (const child of node.childNodes) visit(child);
+  };
+  visit(document);
 
   const imports: Record<string, string> = {};
   for (const [path, code] of Object.entries(files)) {
@@ -566,10 +594,17 @@ export function buildPreviewDocument(options: PreviewDocumentOptions): string {
     `<script type="importmap">${escapeRawText(inlineJson({ imports }), 'script')}</script>`,
   ].join('\n');
 
-  if (/<head\b[^>]*>/i.test(html)) {
-    return html.replace(/<head\b[^>]*>/i, (tag) => `${tag}\n${injected}`);
+  const insertion = headEnd ?? 0;
+  edits.push({
+    end: insertion,
+    start: insertion,
+    text: headEnd === undefined ? injected + '\n' : '\n' + injected,
+  });
+  let html = entryHtml;
+  for (const edit of edits.sort((a, b) => b.start - a.start)) {
+    html = html.slice(0, edit.start) + edit.text + html.slice(edit.end);
   }
-  return `${injected}\n${html}`;
+  return html;
 }
 
 /**

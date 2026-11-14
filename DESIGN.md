@@ -641,3 +641,7 @@ Below 48rem, standalone footer navigation, social links, policy links, feeds, we
 ## Footer text enlargement
 
 Footer columns and fact values can shrink within their grid tracks. The portrait keeps its square aspect ratio and caps its width at the available column width. Fact values allow emergency word wrapping. Each uptime unit stays together when it fits, and wraps internally only when it is wider than its available line. The terminal column gap grows up to 64px, the existing `2xl` spacing value, so twelve grid tracks cannot overflow solely from enlarged gaps. Feed links wrap as a group when needed. These constraints preserve the normal-size layout while supporting enlarged text.
+
+## Footer end order
+
+Below 48rem, the footer end shows the Static.Quest web ring first, feeds on their own row second, and privacy and security links third. The pledge badge follows. At wider sizes, the existing privacy, security, feeds, web ring, and pledge arrangement remains.

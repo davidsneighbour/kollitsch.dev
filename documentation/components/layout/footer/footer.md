@@ -67,3 +67,5 @@ Below 48rem, standalone navigation, social, policy, feed, web ring, and pledge l
 At enlarged text sizes, both terminal columns can shrink, the square portrait is capped at its available width, and fact values can wrap long words. Uptime units stay together when they fit and wrap internally only when necessary.
 
 The terminal column gap is capped at the existing 64px spacing value, and the feed-link group can wrap. This prevents enlarged spacing and feed text from widening the footer.
+
+Below 48rem, the footer end follows this order: Static.Quest web ring, feeds on a separate row, then privacy and security links. The pledge badge follows. The desktop order remains privacy, security, feeds, web ring, and pledge. The document order prioritises the mobile reading sequence.

@@ -85,3 +85,7 @@ The terminal column gap is capped at the existing 64px spacing value, and feed l
 ## Footer sticker arrow attachment
 
 Date: 14 November 2026. Decision: Put the arrow in the final word's inline text flow, with its last letter and the arrow kept together (issue #2238). Reason: An outer flex item detached the arrow from the final line when the text wrapped. Change rule: Keep the arrow beside the final word, while preserving wrapping, its apparent size, decoration, and finite animation.
+
+## Mobile footer end order
+
+Date: 14 November 2026. Decision: Show the web ring, feeds, then policy links below 48rem, with the pledge badge following (issue #2239). Reason: The owner requested that mobile reading order. Change rule: Preserve the existing desktop arrangement and link destinations.

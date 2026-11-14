@@ -538,36 +538,6 @@ const networkColourStyle = (fill: string): string | undefined => {
     <div
       class="flex flex-col gap-x-8 gap-y-3 md:flex-row md:flex-wrap md:items-center md:justify-between"
     >
-      <ul class="footer-strip-links flex flex-wrap items-center gap-x-5 gap-y-2">
-        <li>
-          <IconLink
-            href="/privacy-policy/"
-            icon="lucide:shield-check"
-            class="size-[1.2em]"
-          >
-            privacy
-          </IconLink>
-        </li>
-        <li>
-          <IconLink
-            href="/security-policy/"
-            icon="lucide:fingerprint-pattern"
-            class="size-[1.2em]"
-          >
-            security
-          </IconLink>
-        </li>
-        <li class="flex flex-wrap items-center gap-2">
-          <Icon
-            name="lucide:rss"
-            class="size-[1.2em]"
-          />
-          <Link href="/rss.xml">rss</Link>
-          <Link href="/atom.xml">atom</Link>
-          <Link href="/feed.json">json</Link>
-        </li>
-      </ul>
-
       <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
         <span id="webring-mention">
           A member of the <a href="https://static.quest">Static.Quest</a> web
@@ -589,6 +559,36 @@ const networkColourStyle = (fill: string): string | undefined => {
           <a href="https://static.quest/random">feeling lucky?</a>
         </span>
       </div>
+
+      <ul class="footer-strip-links flex md:order-first flex-wrap items-center gap-x-5 gap-y-2">
+        <li class="footer-feeds flex basis-full flex-wrap items-center gap-2 md:order-last md:basis-auto">
+          <Icon
+            name="lucide:rss"
+            class="size-[1.2em]"
+          />
+          <Link href="/rss.xml">rss</Link>
+          <Link href="/atom.xml">atom</Link>
+          <Link href="/feed.json">json</Link>
+        </li>
+        <li>
+          <IconLink
+            href="/privacy-policy/"
+            icon="lucide:shield-check"
+            class="size-[1.2em]"
+          >
+            privacy
+          </IconLink>
+        </li>
+        <li>
+          <IconLink
+            href="/security-policy/"
+            icon="lucide:fingerprint-pattern"
+            class="size-[1.2em]"
+          >
+            security
+          </IconLink>
+        </li>
+      </ul>
 
       <Link
         href="https://people.pledge.party/"

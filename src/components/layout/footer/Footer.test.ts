@@ -384,3 +384,18 @@ describe('Footer sticker arrow attachment', () => {
     expect(source).toMatch(/\.footer-mark-tail\s*\{\s*white-space: nowrap;/);
   });
 });
+
+describe('Footer end reading order', () => {
+  it('places the web ring before feeds and policies in the mobile document order', async () => {
+    const source = await fs.readFile(
+      new URL('./Footer.astro', import.meta.url),
+      'utf8',
+    );
+    const ring = source.indexOf('id="webring-mention"');
+    const feeds = source.indexOf('href="/rss.xml"');
+    const policies = source.indexOf('href="/privacy-policy/"');
+    expect(ring).toBeGreaterThan(0);
+    expect(feeds).toBeGreaterThan(ring);
+    expect(policies).toBeGreaterThan(feeds);
+  });
+});

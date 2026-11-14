@@ -18,6 +18,15 @@
         ],
         "createdAt": "2026-11-05T21:24:06.292Z",
         "reason": "assistant: XSS escaping fixture string inside a unit test, not rendered markup"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "src/components/layout/footer/Colophon.astro"
+        ],
+        "createdAt": "2026-11-14T15:33:08.313Z",
+        "reason": "user confirmed: Patrick requested the rainbow gradient on the footer colophon text and confirmed the colophon-only exceptions in DESIGN.md (issue #2247)"
       }
     ]
   }

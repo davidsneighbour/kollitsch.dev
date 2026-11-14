@@ -2,7 +2,7 @@
 title: Social media setup
 tags: []
 created: 2026-11-13T00:00:00+07:00
-updated: 2026-11-13T00:00:00+07:00
+updated: 2026-11-14T17:00:00+07:00
 ---
 
 All social media configuration is in the `social` section of [`src/data/setup.json`](../../src/data/setup.json). No other file holds profile URLs, handles, share templates, or brand classes.
@@ -80,7 +80,8 @@ Every network entry has every field. Use `null`, an empty string, an empty array
 | `profile.title` | `string` | Short call to action. Used as the link `title` in the footer and as the description on `/connect/`. |
 | `profile.rel` | `string[]` | Extra `rel` tokens, merged with `social.defaults.rel`. |
 | `share` | object or `null` | Share intent. `null` if the network has no share intent. |
-| `share.url` | `string` | Share URL template. Placeholders: `{url}`, `{title}`, `{description}`. Each value is URL-encoded. |
+| `share.url` | `string` | Share URL template. Placeholders: `{url}`, `{title}`, `{description}`, and `{instance}`. Each value is URL-encoded. |
+| `share.instance` | object, optional | Required with `{instance}`. Contains `default` (fallback server), `prompt` (prompt text), and `storageKey` (browser preference key). |
 | `classes.fill` | `string` | Tailwind classes for the icon colour on hover. Empty string for none. |
 | `classes.background` | `string` | Tailwind classes for the share button background. Empty string for none. |
 | `show.footer`, `show.connect`, `show.shareBar`, `show.shareMeta`, `show.socialspec` | `boolean` | Placements, see the table above. |
@@ -105,3 +106,11 @@ The brand colours in `classes` are full Tailwind class strings, so Tailwind find
 1. Add or edit the entry in `social.networks` with all fields.
 2. If the icon is new, register it in `src/utils/icon-names.ts`.
 3. Run `npx vitest run src/data/social.test.ts src/utils/social.pure.test.ts`.
+
+## Instance-aware sharing
+
+Mastodon uses `https://{instance}/share?text={title}%20{url}`. Its `share.instance` settings provide `mas.to` as the default server, the native prompt text, and the `mastodon_instance_url` storage key. Each click opens the prompt with the saved choice pre-filled, so visitors can keep or change their server. Confirmed server domains are normalised and saved in local storage. Cancellation does not save or navigate, and blocked storage does not prevent sharing.
+
+Only a small delegated click listener runs initially. The instance handler is dynamically imported after activation; it does not load on page load, hover, or viewport entry. Storage is read only after the click. There are no instance probes or server-list requests. The selected server is contacted only after confirmation. If the browser blocks the new tab, sharing continues in the current tab. Without JavaScript, or if the handler fails to load, the configured default server remains a normal link.
+
+Both share placements use `ShareIntentLink`; static networks keep their normal destinations. The previous standalone Mastodon component has been removed. [`src/content/social.schema.json`](../../src/content/social.schema.json) describes the `social` section, including the instance settings. `validateSocialConfig()` also checks the placeholder/settings pair and HTTPS template position at build time.

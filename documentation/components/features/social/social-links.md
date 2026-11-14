@@ -46,8 +46,6 @@ import SocialLinks from '@components/features/social/SocialLinks.astro';
 
 This component has no client-side behaviour. It renders one [`IconLink`](../../shared/links/icon-link.md) per item, sized `size-6` plus the network's `classes.fill` class, with `profile.title` as the link `title`. `rel` is `social.defaults.rel` (`noopener noreferrer me`; the `me` token supports [IndieAuth-style rel=me verification](https://indieweb.org/rel-me)) merged with the network's `profile.rel` tokens, without repeats.
 
-`src/components/README.md` flags this component, alongside [`ShareToMastodon`](../../../../scratch/obsolete-components.md), as a social integration that should be audited for consistency and localisation in a future pass.
-
 ## Extending
 
 To add, remove, or reorder links, edit the `social` section of [`setup.json`](../../../../src/data/setup.json); see [Social media setup](../../../content/social-setup.md). No component code changes are needed.

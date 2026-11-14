@@ -6,6 +6,7 @@ import {
   mergeRel,
   networkHoverColour,
   networksFor,
+  normalizeShareInstance,
   parseFediverseHandle,
   type SocialConfig,
   type SocialNetwork,
@@ -189,5 +190,89 @@ describe('buildWebfinger', () => {
       rel: 'http://ostatus.org/schema/1.0/subscribe',
       template: 'https://mas.to/authorize_interaction?uri={uri}',
     });
+  });
+});
+
+describe('instance-aware shares', () => {
+  const instance = {
+    default: 'mas.to',
+    prompt: 'Choose a server',
+    storageKey: 'mastodon_instance_url',
+  };
+  it('requires instance settings and the placeholder together', () => {
+    expect(() =>
+      validateSocialConfig(
+        config([
+          network({ share: { url: 'https://{instance}/share?text={title}' } }),
+        ]),
+      ),
+    ).toThrow(/configured together/);
+    expect(() =>
+      validateSocialConfig(
+        config([network({ share: { instance, url: 'https://mas.to/share' } })]),
+      ),
+    ).toThrow(/configured together/);
+    expect(() =>
+      validateSocialConfig(
+        config([
+          network({
+            share: { instance, url: 'https://{instance}/share?text={title}' },
+          }),
+        ]),
+      ),
+    ).not.toThrow();
+  });
+  it('rejects invalid defaults and unsafe instance template positions', () => {
+    expect(() =>
+      validateSocialConfig(
+        config([
+          network({
+            share: {
+              instance: { ...instance, default: 'javascript:alert(1)' },
+              url: 'https://{instance}/share',
+            },
+          }),
+        ]),
+      ),
+    ).toThrow(/invalid default/);
+    expect(() =>
+      validateSocialConfig(
+        config([
+          network({
+            share: { instance, url: 'https://other.test/{instance}' },
+          }),
+        ]),
+      ),
+    ).toThrow(/must start with/);
+  });
+  it.each(['mas.to', ' https://MAS.TO/@someone '])('normalises %s', (input) => {
+    expect(normalizeShareInstance(input)).toBe('mas.to');
+  });
+  it.each([
+    '',
+    'not a server',
+    'http://mas.to',
+    'javascript:alert(1)',
+    Object.assign(new URL('https://mas.to'), {
+      password: 'fixture',
+      username: 'fixture',
+    }).href,
+    'https://mas.to:8080',
+    'https://bad..test',
+  ])('rejects %s', (input) => {
+    expect(() => normalizeShareInstance(input)).toThrow();
+  });
+  it('uses the common placeholders and preserves the shared URL', () => {
+    const result = new URL(
+      buildShareUrl('https://{instance}/share?text={title}%20{url}', {
+        instance: 'mastodon.social',
+        title: 'A & B',
+        url: 'https://kollitsch.dev/example/?a=1&b=2',
+      }),
+    );
+    expect(result.host).toBe('mastodon.social');
+    expect(result.searchParams.get('text')).toBe(
+      'A & B https://kollitsch.dev/example/?a=1&b=2',
+    );
   });
 });

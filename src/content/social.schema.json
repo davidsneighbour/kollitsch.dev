@@ -1,78 +1,204 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Social Links / Share Targets",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": [
-      "id",
-      "label",
-      "icon",
-      "url"
-    ],
-    "additionalProperties": false,
-    "properties": {
-      "id": {
-        "type": "string",
-        "minLength": 1,
-        "pattern": "^[a-z0-9_-]+$",
-        "description": "Unique identifier for the platform"
-      },
-      "label": {
-        "type": "string",
-        "minLength": 1,
-        "description": "Human-readable name"
-      },
-      "icon": {
-        "type": "string",
-        "minLength": 1,
-        "description": "Icon identifier (e.g. icon set key or name)"
-      },
-      "url": {
-        "type": "string",
-        "minLength": 1,
-        "description": "Profile or destination URL",
-        "anyOf": [
-          {
-            "format": "uri"
-          },
-          {
-            "pattern": "^\\/"
+  "title": "Social media configuration",
+  "description": "The social section of src/data/setup.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "defaults": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rel": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
-        ]
-      },
-      "share": {
-        "type": "string",
-        "description": "Share URL template with placeholders like ${title}, ${url}, ${description}"
-      },
-      "rel": {
-        "type": "string",
-        "description": "Optional rel attribute (e.g. atproto)"
-      },
-      "background": {
-        "type": "string",
-        "description": "CSS classes for background styling"
-      },
-      "fill": {
-        "type": "string",
-        "description": "CSS classes for icon/text color styling"
-      }
-    },
-    "allOf": [
-      {
-        "if": {
-          "required": [
-            "share"
-          ]
         },
-        "then": {
-          "properties": {
-            "share": {
-              "pattern": "\\$\\{(title|url|description)\\}"
-            }
-          }
+        "target": {
+          "type": "string"
         }
+      },
+      "required": [
+        "rel",
+        "target"
+      ]
+    },
+    "networks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "label": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "profile": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "handle": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "title": {
+                "type": "string"
+              },
+              "rel": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "url",
+              "handle",
+              "title",
+              "rel"
+            ]
+          },
+          "share": {
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Template with {url}, {title}, {description}, and optional {instance}."
+                  },
+                  "instance": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "default": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "prompt": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "storageKey": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "required": [
+                      "default",
+                      "prompt",
+                      "storageKey"
+                    ]
+                  }
+                },
+                "required": [
+                  "url"
+                ],
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "url": {
+                          "pattern": "\\{instance\\}"
+                        }
+                      },
+                      "required": [
+                        "url"
+                      ]
+                    },
+                    "then": {
+                      "required": [
+                        "instance"
+                      ]
+                    },
+                    "else": {
+                      "not": {
+                        "required": [
+                          "instance"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "classes": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fill": {
+                "type": "string"
+              },
+              "background": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "fill",
+              "background"
+            ]
+          },
+          "show": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "footer": {
+                "type": "boolean"
+              },
+              "connect": {
+                "type": "boolean"
+              },
+              "shareBar": {
+                "type": "boolean"
+              },
+              "shareMeta": {
+                "type": "boolean"
+              },
+              "socialspec": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "footer",
+              "connect",
+              "shareBar",
+              "shareMeta",
+              "socialspec"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "icon",
+          "profile",
+          "share",
+          "classes",
+          "show"
+        ]
       }
-    ]
-  }
+    }
+  },
+  "required": [
+    "defaults",
+    "networks"
+  ]
 }

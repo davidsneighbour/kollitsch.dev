@@ -91,7 +91,7 @@ Last updated: July 28, 2026
 ## 4. Local storage use
 
 * `kdev-theme` stores the selected colour theme (`light`, `dark`, or `auto`).
-* `mastodon_instance_url` stores the Mastodon instance you choose when using the Mastodon share link.
+* `mastodon_instance_url` stores the Mastodon server you choose after clicking a share link. It is read only when you click, pre-fills the next server prompt, and stays in your browser. The selected server is contacted only after you confirm the share.
 * In development mode only, the breakpoint/dev toolbar may store `devBarHidden`, `devBarPosition`, and `devBarOpacity`; `hideDevBar` is an older migrated key.
 * This data is stored only in your browser and is *not sent to my server* by these preference features.
 

@@ -21,7 +21,12 @@ export type SocialPlacement = (typeof SOCIAL_PLACEMENTS)[number];
 const SHARE_PLACEMENTS: readonly SocialPlacement[] = ['shareBar', 'shareMeta'];
 
 /** Placeholders that a share URL template can use. */
-export const SHARE_PLACEHOLDERS = ['url', 'title', 'description'] as const;
+export const SHARE_PLACEHOLDERS = [
+  'url',
+  'title',
+  'description',
+  'instance',
+] as const;
 
 export type SharePlaceholder = (typeof SHARE_PLACEHOLDERS)[number];
 
@@ -38,9 +43,17 @@ export interface SocialProfile {
   rel: string[];
 }
 
+export interface SocialShareInstance {
+  default: string;
+  prompt: string;
+  storageKey: string;
+}
+
 export interface SocialShare {
-  /** Share intent URL template with `{url}`, `{title}`, `{description}`. */
+  /** Share intent URL template with `{url}`, `{title}`, `{description}`, and optional `{instance}`. */
   url: string;
+  /** Instance selection, required for templates containing {instance}. */
+  instance?: SocialShareInstance;
 }
 
 export interface SocialClasses {
@@ -113,6 +126,29 @@ export function validateSocialConfig<Icon extends string>(
     }
 
     if (network.share) {
+      const instance = network.share.instance;
+      if (network.share.url.includes('{instance}') !== Boolean(instance)) {
+        problems.push(
+          `${where}: {instance} and share.instance must be configured together`,
+        );
+      }
+      if (instance) {
+        if (!instance.prompt.trim() || !instance.storageKey.trim()) {
+          problems.push(
+            `${where}: instance prompt and storageKey must not be empty`,
+          );
+        }
+        try {
+          normalizeShareInstance(instance.default);
+        } catch {
+          problems.push(`${where}: invalid default share instance`);
+        }
+        if (!network.share.url.startsWith('https://{instance}/')) {
+          problems.push(
+            `${where}: instance share URL must start with https://{instance}/`,
+          );
+        }
+      }
       const unknown = [...network.share.url.matchAll(/\{([^}]+)\}/g)]
         .map((match) => match[1] ?? '')
         .filter(
@@ -154,6 +190,25 @@ export function buildShareUrl(template: string, values: ShareValues): string {
   return template.replace(/\{([^}]+)\}/g, (_, key: string) =>
     encodeURIComponent(values[key as SharePlaceholder] ?? ''),
   );
+}
+
+/** Accept a server domain or pasted HTTPS URL, without credentials or ports. */
+export function normalizeShareInstance(raw: string): string {
+  const value = raw.trim();
+  if (!value || /\s/.test(value)) throw new Error('Invalid instance');
+  const url = new URL(value.includes('://') ? value : `https://${value}`);
+  if (
+    url.protocol !== 'https:' ||
+    url.username ||
+    url.password ||
+    url.port ||
+    !/^[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?$/i.test(url.hostname) ||
+    !url.hostname.includes('.') ||
+    url.hostname.includes('..')
+  ) {
+    throw new Error('Invalid instance');
+  }
+  return url.hostname;
 }
 
 /** Join the default `rel` tokens with the network's own, without repeats. */

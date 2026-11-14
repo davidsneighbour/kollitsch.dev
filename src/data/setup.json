@@ -150,7 +150,12 @@
           "rel": []
         },
         "share": {
-          "url": "https://mas.to/share?text={title}&url={url}"
+          "url": "https://{instance}/share?text={title}%20{url}",
+          "instance": {
+            "default": "mas.to",
+            "prompt": "Enter your Mastodon server (for example, mastodon.social):",
+            "storageKey": "mastodon_instance_url"
+          }
         },
         "classes": {
           "fill": "hover:text-[#6364ff]",

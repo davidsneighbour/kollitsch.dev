@@ -59,3 +59,7 @@ On 14 November 2026, the calendar adopted the footer prompt pattern with `gh api
 ## Footer accessibility exceptions
 
 Date: 14 November 2026. Decision: Copyright-strip paragraph links have permanent underlines with the existing prose-link hover motion, disabled under reduced motion. The non-interactive footer sticker and its effects use the decorative low-contrast exception (issue #2222). Reason: Keep functional links identifiable without colour while preserving the approved decorative entrance. Change rule: Keep the sticker free of controls and essential information; do not extend the exception to blog cards or other functional content.
+
+## Instance-aware social sharing
+
+Date: 14 November 2026. Decision: Configured `{instance}` share links ask for a server on each activation and pre-fill the saved local-storage preference (issue #2205). Reason: Mastodon visitors need to share through their own server without loading optional code or accessing their preference before they choose to share. Change rule: Load instance-handling code only after a click, keep normal links for static networks and the default-instance no-script fallback, allow changing or cancelling the choice, and keep shared URL construction in the common social helper. Do not add page-load, hover, or viewport-triggered instance loading or requests.

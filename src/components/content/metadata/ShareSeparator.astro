@@ -1,7 +1,6 @@
 ---
-import Icon from '@components/shared/elements/Icon.astro';
+import ShareIntentLink from '@components/features/social/ShareIntentLink.astro';
 import { socialNetworksFor } from '@data/social.ts';
-import { buildShareUrl } from '@utils/social.pure.ts';
 // @todo fix the URL being the homepage URL when shown on other pages than individual ones
 
 export interface Props {
@@ -56,18 +55,19 @@ const shareValues = { description, title, url: Astro.request.url };
           `;
 
         // share is never null here: validateSocialConfig() rejects shareBar without it.
-        const href = buildShareUrl(network.share?.url ?? '', shareValues);
 
         return (
-          <a
-            href={href}
+          <ShareIntentLink
+            share={network.share!}
+            icon={network.icon}
+            aria-label={network.label}
+            values={shareValues}
             class={`${baseClass} ${extraClass}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             <span class="sr-only">{network.label}</span>
-            <Icon name={network.icon} />
-          </a>
+          </ShareIntentLink>
         );
       })}
       <span class="hidden md:inline-block md:flex-1" />

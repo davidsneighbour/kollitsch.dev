@@ -53,3 +53,5 @@ The footer portrait retains its existing size, radius, link, and layout. Eye geo
 Date: 14 November 2026. Decision: Show a full-width contribution calendar below both terminal footer columns (issue #2224). Fetch data lazily from the local Worker endpoint and retain valid browser data for at least 24 hours. Reason: Show recent activity without exposing credentials or adding a network request to initial page rendering. Change rule: Preserve the full-width placement, server-only token, keyboard labels, and minimum cache lifetime unless the owner changes these requirements.
 
 On 14 November 2026, an 8px inline calendar gutter was added to contain hover scaling and keyboard focus outlines without creating a desktop scrollbar (issue #2226). Preserve scrolling when the calendar is wider than its container.
+
+On 14 November 2026, the calendar adopted the footer prompt pattern with `gh api graphql`, a plain accessible name, and monospace output (issue #2227). Keep its typography and muted output aligned with the other terminal sections.

@@ -58,4 +58,4 @@ import Footer from '@components/layout/footer/Footer.astro';
 
 To add or reorder navigation links, edit [`footernavigation.json`](../../../../src/data/footernavigation.json). To change the greeting text, edit `setup.greetings` in [`setup.json`](../../../../src/data/setup.json). To add, change, or remove a credit line, edit the `setup.credits` list in the same file. To move a network between the featured list and the icon row, change its `show.connect` flag; see [Social media setup](../../../content/social-setup.md).
 
-The GitHub contribution calendar spans both terminal columns below their content. It loads lazily and caches valid data for at least 24 hours; see [GitHub contributions](../../gimmicks/github-contributions.md).
+The GitHub contribution calendar spans both terminal columns below their content. It starts with the shell-style label `gh api graphql`, with "GitHub activity" as its accessible name, and uses the terminal type and muted output colours. It loads lazily and caches valid data for at least 24 hours; see [GitHub contributions](../../gimmicks/github-contributions.md).

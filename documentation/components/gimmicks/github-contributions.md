@@ -19,7 +19,7 @@ The contribution calendar shows recent GitHub activity as a progressive enhancem
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `heading` | `string` | `Recent GitHub activity` | Section heading |
+| `heading` | `string` | `Recent GitHub activity` | Section accessible name and default heading |
 | `cacheHours` | `number` | `24` | Cache lifetime in hours, with a minimum of 24 |
 | `endpoint` | `string` | `/api/github-contributions` | Same-origin endpoint |
 | `class` | `string` | `undefined` | Extra root classes |
@@ -37,9 +37,11 @@ import GitHubContributions from '@components/gimmicks/GitHubContributions.astro'
 <GitHubContributions heading="GitHub activity" cacheHours={48} endpoint="/api/github-contributions" class="xl:col-span-12" />
 ```
 
+The optional `heading` slot replaces the visible heading while the `heading` prop keeps the section labelled. The footer supplies its standard shell prompt with a screen-reader-only "GitHub activity" name.
+
 ## Behaviour
 
-The footer places this component below both columns, spanning the terminal grid. An intersection observer starts loading near the viewport. Each day is a keyboard-focusable button with its date and count. Hover and focus show the same text tooltip; leave, blur, and Escape hide it. Month labels use British English and UTC dates. The grid scrolls horizontally on small screens. An 8px inline gutter contains scaled edge cells and focus outlines without adding a desktop scrollbar. Local CSS activity variables map semantic levels to the design palette, and reduced motion disables day scaling.
+The footer places this component below both columns, spanning the terminal grid. A `gh api graphql` prompt replaces the display heading. This label follows the footer shell-session design; it is not an interactive command. Output uses JetBrains Mono, with muted summary, month labels, and tooltip colours in both themes. An intersection observer starts loading near the viewport. Each day is a keyboard-focusable button with its date and count. Hover and focus show the same text tooltip; leave, blur, and Escape hide it. Month labels use British English and UTC dates. The grid scrolls horizontally on small screens. An 8px inline gutter contains scaled edge cells and focus outlines without adding a desktop scrollbar. Local CSS activity variables map semantic levels to the design palette, and reduced motion disables day scaling.
 
 The root reports its loading state with `aria-busy`, and the summary uses a polite live region. A failed request shows a short error message. Without JavaScript, a message explains how to view the calendar.
 

@@ -1,5 +1,7 @@
 // @vitest-environment node
+import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import GitHubContributions from './GitHubContributions.astro';
 import {
   cacheLifetime,
   isContributionData,
@@ -113,5 +115,23 @@ describe('contribution data and cache', () => {
     await expect(
       loadContributions('https://remote.example/api', 24),
     ).rejects.toThrow('local endpoint');
+  });
+});
+
+describe('contribution heading', () => {
+  it('keeps a plain section name when a terminal prompt replaces the heading', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(GitHubContributions, {
+      props: { heading: 'GitHub activity' },
+      slots: { heading: '<h3>gh api graphql</h3>' },
+    });
+    expect(html).toContain('aria-label="GitHub activity"');
+    expect(html).toContain('<h3>gh api graphql</h3>');
+    expect(html).not.toContain('<h3>GitHub activity</h3>');
+  });
+  it('provides a default heading outside the footer', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(GitHubContributions);
+    expect(html).toMatch(/<h3\b[^>]*>Recent GitHub activity<\/h3>/);
   });
 });

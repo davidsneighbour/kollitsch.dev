@@ -21,7 +21,7 @@ const {
   data-endpoint={endpoint}
   data-cache-hours={cacheHours}
 >
-  <h3>{heading}</h3>
+  <slot name="heading"><h3>{heading}</h3></slot>
   <p
     aria-live="polite"
     data-summary
@@ -152,7 +152,11 @@ const {
   document.addEventListener('astro:page-load', initialise);
 </script>
 <style>
+  @reference "@styles/theme.css";
+
   .github-contributions {
+    @apply font-jetbrainsmono text-sm lg:text-base;
+
     --github-activity-0: var(--color-grey-200);
     --github-activity-1: var(--color-primary-200);
     --github-activity-2: var(--color-primary-400);
@@ -162,6 +166,12 @@ const {
   :global(:where([data-theme="dark"])) .github-contributions {
     --github-activity-0: var(--color-grey-800);
   }
+  .github-contributions [data-summary],
+  .github-contributions [data-tooltip],
+  .github-contributions :global(.github-contributions__month) {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+
   .github-contributions :global(.github-contributions__grid) {
     display: grid;
     grid-template-columns: repeat(var(--weeks), minmax(0.75rem, 1fr));

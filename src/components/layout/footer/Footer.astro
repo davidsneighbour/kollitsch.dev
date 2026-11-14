@@ -483,7 +483,13 @@ const networkColourStyle = (fill: string): string | undefined => {
         <GitHubContributions
           class="min-w-0 xl:col-span-12"
           heading="GitHub activity"
-        />
+        >
+          <h3 slot="heading" class="footer-prompt">
+            <span class="footer-prompt-user" aria-hidden="true">{promptUser}:~$</span>
+            <span aria-hidden="true">gh api graphql</span>
+            <span class="sr-only">GitHub activity</span>
+          </h3>
+        </GitHubContributions>
       </div>
     </div>
   </div>

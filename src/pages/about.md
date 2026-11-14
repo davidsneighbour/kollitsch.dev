@@ -1,13 +1,14 @@
 ---
 layout: "@layouts/ContentPage.astro"
 title: "About Patrick Kollitsch"
-description: "This is the about page."
+description: >-
+  Patrick Kollitsch builds and improves websites where web development, technical problem-solving, and SEO meet. Online since 6 October 1994 and still tinkering.
 draft: true
 ---
 
 I am Patrick Kollitsch. I build websites, solve technical problems, work with SEO, and have been tinkering with the web for long enough to remember when having a personal website was simply what you did.
 
-I have been on the internet since 1994. Last century, in other words.
+I have been on the internet since 6 October 1994. Last century, in other words.
 
 Since then, browsers, search engines, programming languages, publishing systems, hosting platforms, and approximately seventeen thousand JavaScript frameworks have come and gone. I am still here, building things, taking things apart, figuring out why they broke, and writing down what I learned along the way.
 

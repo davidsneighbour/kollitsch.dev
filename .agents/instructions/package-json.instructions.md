@@ -14,6 +14,10 @@ Whenever you edit `package.json` directly (dependency, script, `overrides` entry
 
 Dependency versions are exact. Do not use `^` or `~` ranges.
 
+## Dependency rationale
+
+For every future agent-added package that the user did not explicitly request and whose purpose is not clear from the surrounding configuration, add a comment directly above its entry in the owning `src/packages/**/*.jsonc` fragment. Explain why the package is needed and link to the relevant GitHub issue. Keep the rationale in the source fragment, because generated `package.json` does not preserve comments.
+
 ## Node version
 
 `package.json` `engines.node` (currently `>=26`) is the single source of truth; `.nvmrc` mirrors it. Even-numbered (LTS) majors are preferred.

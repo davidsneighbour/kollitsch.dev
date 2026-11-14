@@ -4,6 +4,7 @@
   // runtime is not used; previews run in a local sandboxed srcdoc iframe.
   "dependencies": {
     "@codesandbox/sandpack-react": "2.20.0",
+    // Browser-compatible preview HTML parsing replaces unsafe tag regexes: https://github.com/davidsneighbour/kollitsch.dev/issues/2228
     "parse5": "7.3.0"
   }
 }

@@ -6,13 +6,13 @@ description: >-
   you to structure and manage your website's components efficiently. A **GoHugo
   Module** is a self-contained package of resources, such as themes, content,
   layouts, or even custom features like shortcodes. These modules can be shared
-  across projects, versioned, and updated seamlessly.
+  across projects, versioned, and updated with little effort.
 summary: >-
   In the world of GoHugo, **modules** serve as the building blocks that allow
   you to structure and manage your website's components efficiently. A **GoHugo
   Module** is a self-contained package of resources, such as themes, content,
   layouts, or even custom features like shortcodes. These modules can be shared
-  across projects, versioned, and updated seamlessly.
+  across projects, versioned, and updated with little effort.
 date: 2024-10-13T18:10:46+07:00
 tags:
   - gohugo
@@ -30,7 +30,7 @@ publisher: rework
 
 ## What are GoHugo modules
 
-In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated seamlessly.
+In the world of GoHugo, **modules** serve as the building blocks that allow you to structure and manage your website's components efficiently. A **GoHugo Module** is a self-contained package of resources, such as themes, content, layouts, or even custom features like shortcodes. These modules can be shared across projects, versioned, and updated with little effort.
 
 GoHugo Modules leverage **Go Modules** under the hood, which is a package management system built into the Go programming language. By using Go Modules, GoHugo allows you to manage dependencies and external packages in a streamlined way, pulling resources from remote repositories (for example GitHub) or from local directories. If you want to learn about all the details, I suggest you visit [the official Go Module Reference](https://go.dev/ref/mod).
 

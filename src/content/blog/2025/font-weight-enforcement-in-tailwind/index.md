@@ -70,7 +70,7 @@ I added again a weight of 400 here, just to be sure that the resulting font is a
 
 The property [`font-synthesis`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis) (in Baseline since 2022) tells the browser not to create processed bold or italic styles, which is particularly useful for fonts that don't have those variants.
 
-This should be enough to ensure that any element with the class `.font-changa` will use the Changa One font at weight 400. However, if someone adds another font-weight utility class (e.g. `font-bold` or `font-light`) to the same element, it might override the weight set in `.font-changa`. This is prevented in the next step.
+This should be enough to ensure that any element with the class `.font-changa` will use the Changa One font at weight 400. However, if someone adds another font-weight utility class (for example `font-bold` or `font-light`) to the same element, it might override the weight set in `.font-changa`. This is prevented in the next step.
 
 ## Step 3: Override and/or neutralise other font weights
 

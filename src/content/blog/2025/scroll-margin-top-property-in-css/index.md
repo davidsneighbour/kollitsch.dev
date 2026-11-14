@@ -23,7 +23,7 @@ publisher: rework
 
 Navigating the world of CSS can be a mix of discovering creative workarounds and celebrating modern solutions. A great example is handling anchor link navigation, where overflowing content often creates frustrating visual issues. In the past, developers relied on clever hacks to fix this, but CSS has evolved to make it easier than ever.
 
-Navigation overflow occurs when clicking an anchor link (e.g., `#section`) causes the target element to scroll into view but part of it is hidden behind a fixed header or navigation bar. For instance, if your website has a header navigation that's 50 pixels high, clicking an anchor link would position the target headline right under the navigation bar, effectively hiding it or part of it from view. To solve this, adding 50 pixels of spacing above the target ensures the headline is fully visible, making the experience more user-friendly.
+Navigation overflow occurs when clicking an anchor link (for example `#section`) causes the target element to scroll into view but part of it is hidden behind a fixed header or navigation bar. For instance, if your website has a header navigation that's 50 pixels high, clicking an anchor link would position the target headline right under the navigation bar, effectively hiding it or part of it from view. To solve this, adding 50 pixels of spacing above the target ensures the headline is fully visible, making the experience more user-friendly.
 
 Here's how we used to fix this problem:
 

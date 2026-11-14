@@ -155,4 +155,4 @@ P1
 
 These topics help move from *reporting problems* to *improving systems*. Creating a well-structured bug report takes time, but it saves far more time in the long run. A strong report enables developers to understand context, assess feasibility, and act efficiently.
 
-The perfection of a great bug report does not lie in polished language, but in how effectively it enables others (i.e. the developers) to understand, reproduce, and fix the issue.
+The perfection of a great bug report does not lie in polished language, but in how effectively it enables others (in this case, the developers) to understand, reproduce, and fix the issue.

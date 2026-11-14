@@ -14,7 +14,7 @@
 [Mm]odi's
 [Mm]ontblanc's
 [Oo]k
-[Pp]antone's
+[Pp]antone(?:'s)?
 [Pp]i's
 [Pp]ushkarev's
 [Rr][Ee][Aa][Dd][Mm][Ee]
@@ -364,3 +364,8 @@ vCard
 Sandpack(?:'s)?
 [Ii]frames?
 ids
+Enpass(?:'s)?
+KeePass
+libsecret
+statuss
+Kigen Color

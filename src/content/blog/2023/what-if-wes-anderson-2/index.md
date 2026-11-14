@@ -21,11 +21,11 @@ cover:
 publisher: rework
 ---
 
-Wes Anderson is renowned in filmmaking for his distinct visual style, whimsical storytelling, and eccentric characters. Anderson has carved out a niche in indie cinema with his signature pastel colour palettes, meticulous set designs, and quirky narratives. However, what if the acclaimed director were to step out of his comfort zone and delve into the unsettling world of horror?
+Wes Anderson is renowned in filmmaking for his distinct visual style, whimsical storytelling, and eccentric characters. Anderson has carved out a niche in indie cinema with his signature pastel colour palettes, precise set designs, and quirky narratives. However, what if the acclaimed director were to step out of his comfort zone and venture into the unsettling world of horror?
 
-In this brilliant parody by Saturday Night Live, Anderson's unique cinematic universe collides with the horror genre in a hilarious and chilling short film. The parody opens with an enchanting scene reminiscent of Anderson's visually captivating films. The meticulous attention to detail is evident, as every frame exhibits the director's unmistakable style, from the symmetrical compositions to the vintage-inspired costumes. Yet, as the camera pans, viewers quickly realise something sinister is afoot.
+In this brilliant parody by Saturday Night Live, Anderson's unique cinematic universe collides with the horror genre in a hilarious and chilling short film. The parody opens with an enchanting scene reminiscent of Anderson's visually captivating films. The careful attention to detail is evident, as every frame exhibits the director's unmistakable style, from the symmetrical compositions to the vintage-inspired costumes. Yet, as the camera pans, viewers quickly realise something sinister is afoot.
 
-As the plot unfolds, Anderson's usual ensemble cast of endearing characters takes on haunting roles. The familiar faces, including Bill Murray, Tilda Swinton, and Edward Norton, embrace the darker side of their acting prowess, seamlessly blending their established personas with the horror genre's chilling tropes. In addition, Anderson's meticulous direction also amplifies the tension and suspense, creating a disconcerting ambiance that intrigues and amuses the audience.
+As the plot unfolds, Anderson's usual ensemble cast of endearing characters takes on haunting roles. The familiar faces, including Bill Murray, Tilda Swinton, and Edward Norton, embrace the darker side of their acting prowess, smoothly blending their established personas with the horror genre's chilling tropes. In addition, Anderson's exacting direction also amplifies the tension and suspense, creating a disconcerting ambiance that intrigues and amuses the audience.
 
 Simply watchable, like all of Wes Anderson's real movies.
 

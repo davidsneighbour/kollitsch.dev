@@ -71,7 +71,7 @@ Pin-Priority: -1
 
 * The PPA is allowed for all packages, but with low priority (100)
 * Firefox from the PPA gets a very high priority (1001), forcing apt to choose it
-* Firefox from Ubuntu repositories is explicitly blocked (priority -1)
+* Firefox from Ubuntu repositories is explicitly blocked (priority `-1`)
 
 You are overriding Ubuntu's defaults here.
 

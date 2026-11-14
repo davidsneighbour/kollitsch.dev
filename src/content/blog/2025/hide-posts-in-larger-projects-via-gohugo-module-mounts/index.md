@@ -66,6 +66,6 @@ If your posts are not in a year-based directory structure, don't worry! You can 
 
 ## Keep Development Separate
 
-To avoid accidentally deploying with excluded content, keep this configuration in a dedicated development-specific file (e.g., `config/development/modules.toml`) and use Hugo's environment feature (`--environment development`) to load it only when needed if you deploy to a CI services like Netlify. Running `hugo server` will automatically set the development environment.
+To avoid accidentally deploying with excluded content, keep this configuration in a dedicated development-specific file (for example `config/development/modules.toml`) and use Hugo's environment feature (`--environment development`) to load it only when needed if you deploy to a CI services like Netlify. Running `hugo server` will automatically set the development environment.
 
 With this setup, managing large Hugo websites becomes not just feasible, but enjoyable. No more waiting to rebuild the whole site. Give it a try and see how much faster your workflow gets!

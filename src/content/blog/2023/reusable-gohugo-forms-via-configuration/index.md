@@ -291,7 +291,7 @@ This is an excellent way to quickly create a random string for any requirements.
 
 * calling without parameters returns 12 characters
 * call with a `limit` parameter to select the amount of characters returned
-* call with a `seed` parameter will use that string instead of the site.Title to
+* call with a `seed` parameter will use that string instead of the `site.Title` to
   create the random string
 * call with `partialCached` and a unique seed to reuse the random string
 

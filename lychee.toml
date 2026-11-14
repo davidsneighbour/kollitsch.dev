@@ -87,11 +87,11 @@ exclude = [
   # source: src/content/blog/2026/sycophancy-in-the-age-of-ai/index.md
   # checker-reason: bot-blocked
   # checked: 2026-09-14
-  '^https://www\.reuters\.com/article/world/asia-pacific/narendra-modi-appalled-by-temple-built-to-worship-him-idUSKBN0LG0RO/\?utm_source=chatgpt\.com$',
+  '^https://www\.reuters\.com/article/world/asia-pacific/narendra-modi-appalled-by-temple-built-to-worship-him-idUSKBN0LG0RO/$',
   # source: src/content/blog/2026/sycophancy-in-the-age-of-ai/index.md
   # checker-reason: bot-blocked
   # checked: 2026-09-14
-  '^https://www\.reuters\.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/\?utm_source=chatgpt\.com$',
+  '^https://www\.reuters\.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/$',
   # source: src/content/blog/2025/kurzschnitte-ii-10/index.mdx
   # checker-reason: bot-blocked
   # checked: 2026-11-14

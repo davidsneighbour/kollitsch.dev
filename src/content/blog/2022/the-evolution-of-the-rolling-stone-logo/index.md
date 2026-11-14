@@ -3,7 +3,7 @@ fmContentType: blog
 title: The evolution of the Rolling Stone logo
 description: >-
   The Rolling Stone Magazine has a new logo, which one might have overlooked due
-  to its references to its history. XYZ Type, the designer(s) behind the rework
+  to its references to its history. XYZ Type, the designers behind the rework
   give a little insight into the illustrious history of the logo through the
   decades and the reasoning behind their updates.
 date: 2022-09-08T18:49:08+07:00
@@ -18,4 +18,4 @@ cover:
 publisher: rework
 ---
 
-The [Rolling Stone Magazine](https://www.rollingstone.com/) has a new logo, which one might have overlooked due to its references to its history. XYZ Type, the designer(s) behind the rework [give a little insight](https://xyztype.com/custom/project/rolling_stone) into the illustrious history of the logo through the decades and the reasoning behind their updates. Worth your time to read!
+The [Rolling Stone Magazine](https://www.rollingstone.com/) has a new logo, which one might have overlooked due to its references to its history. XYZ Type, the designers behind the rework [give a little insight](https://xyztype.com/custom/project/rolling_stone) into the illustrious history of the logo through the decades and the reasoning behind their updates. Worth your time to read!

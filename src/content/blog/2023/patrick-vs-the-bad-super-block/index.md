@@ -144,5 +144,5 @@ After these three steps
 
 ## Next steps
 
-* How are those those superblock backups created and configured (how often, when, and where to back up)?
+* How are those superblock backups created and configured (how often, when, and where to back up)?
 * How can a LUKS partition be resized? I have a 20TB drive, and only need it some to be encrypted. Having the private data encrypted is enough.

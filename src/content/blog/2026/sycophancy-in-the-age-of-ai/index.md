@@ -236,8 +236,8 @@ Separate facts, interpretations, assumptions, and recommendations. State your co
 Prefer a direct correction over agreeable wording. Be respectful, but do not optimise for making me feel right. Your job is to help me become less wrong.
 ```
 
-[1]: https://arxiv.org/abs/2310.13548?utm_source=chatgpt.com "Towards Understanding Sycophancy in Language Models"
-[2]: https://openai.com/index/sycophancy-in-gpt-4o/?utm_source=chatgpt.com "Sycophancy in GPT-4o: What happened and what we're ..."
-[3]: https://www.scientificamerican.com/article/trumps-personality-cult-plays-a-part-in-his-political-appeal/?utm_source=chatgpt.com "Trump's Personality Cult Plays a Part in His Political Appeal"
-[4]: https://www.reuters.com/article/world/asia-pacific/narendra-modi-appalled-by-temple-built-to-worship-him-idUSKBN0LG0RO/?utm_source=chatgpt.com "Narendra Modi appalled by temple built to worship him"
-[5]: https://www.reuters.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/?utm_source=chatgpt.com "Trump supporters see his narrow escape from death as God's work"
+[1]: https://arxiv.org/abs/2310.13548 "Towards Understanding Sycophancy in Language Models"
+[2]: https://openai.com/index/sycophancy-in-gpt-4o/ "Sycophancy in GPT-4o: What happened and what we're ..."
+[3]: https://www.scientificamerican.com/article/trumps-personality-cult-plays-a-part-in-his-political-appeal/ "Trump's Personality Cult Plays a Part in His Political Appeal"
+[4]: https://www.reuters.com/article/world/asia-pacific/narendra-modi-appalled-by-temple-built-to-worship-him-idUSKBN0LG0RO/ "Narendra Modi appalled by temple built to worship him"
+[5]: https://www.reuters.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/ "Trump supporters see his narrow escape from death as God's work"

@@ -102,4 +102,4 @@ For something as fundamental and long-lived as a password database, portability 
 
 After more than a decade with Enpass, this seems like a good point to look at open-source alternatives. Enpass hasn't become useless; I'd just prefer that something as important as a password manager, its software, data formats, migration paths, and long-term availability, didn't depend entirely on one proprietary application.
 
-Enpass has served me well for a very long time. That also means any replacement has quite a high bar to clear. I remember using Keepass before.
+Enpass has served me well for a very long time. That also means any replacement has quite a high bar to clear. I remember using KeePass before.

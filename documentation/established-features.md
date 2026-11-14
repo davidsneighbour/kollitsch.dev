@@ -73,3 +73,11 @@ Clock and counter work pauses outside a 256px vertical pre-entry margin and whil
 ## Calendar loading space
 
 Date: 14 November 2026. Decision: Reserve the calendar rows and the wrapped summary error-message height in server-rendered markup and CSS across loading, success, and error (issue #2235). Reason: The lazy calendar previously moved the copyright strip by about 129px when data arrived. Change rule: Preserve that reserved geometry without introducing a loading animation or requiring JavaScript for sizing.
+
+## Footer sticker text enlargement
+
+Date: 14 November 2026. Decision: Let the sticker text flex item shrink, and allow its word spans to wrap when enlarged text would exceed the available width (issue #2236). Reason: The decorative final word and arrow must not widen the page at enlarged text sizes. Change rule: Preserve the wording, decorative accessibility exception, normal-size lettering, tilt, and finite entrance animation.
+
+The same adaptation allows terminal columns and fact values to shrink, caps the square portrait at the available width, and permits an uptime unit to wrap internally only when it cannot fit on its own line. These constraints keep the footer usable with enlarged text.
+
+The terminal column gap is capped at the existing 64px spacing value, and feed links may wrap as a group. Preserve these layout constraints at enlarged text sizes.

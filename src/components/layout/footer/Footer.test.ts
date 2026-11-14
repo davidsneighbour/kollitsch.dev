@@ -349,3 +349,23 @@ describe('Footer decorative accessibility boundary', () => {
     );
   });
 });
+
+describe('Footer enlarged-text layout', () => {
+  it('allows decorative words and narrow fact values to wrap without clipping the footer', async () => {
+    const source = await fs.readFile(
+      new URL('./Footer.astro', import.meta.url),
+      'utf8',
+    );
+    expect(source).toMatch(
+      /\.footer-mark-copy\s*\{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere;/,
+    );
+    expect(source).toMatch(/\.footer-mark-word\s*\{[^}]*max-width: 100%;/);
+    expect(source).toMatch(
+      /\.footer-fetch-facts dd\s*\{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere;/,
+    );
+    expect(source).toMatch(
+      /\.footer-uptime-unit\s*\{[^}]*max-width: 100%;[^}]*white-space: normal;/,
+    );
+    expect(source).not.toContain('overflow-x: hidden');
+  });
+});

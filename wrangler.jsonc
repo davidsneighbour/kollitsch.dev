@@ -30,7 +30,9 @@
     "required": [
       "RESEND_API_KEY",
       "RESEND_FROM",
-      "RESEND_TO"
+      "RESEND_TO",
+      "GITHUB_USERNAME",
+      "GITHUB_TOKEN"
     ]
   }
 }

@@ -139,10 +139,17 @@ const networkColourStyle = (fill: string): string | undefined => {
       <span class="footer-mark-copy">
         {'Hey look, we have a footer!!!!111One'
           .split(' ')
-          .map((word, index) => (
+          .map((word, index, words) => (
             <Fragment>
               <span class="footer-mark-word" style={`--word-index: ${index}`}>
-                {word}
+                {index === words.length - 1 ? (
+                  <>
+                    {word.slice(0, -1)}<span class="footer-mark-tail">{word.slice(-1)}<Icon
+                      name="lucide:corner-right-down"
+                      class="footer-mark-arrow"
+                    /></span>
+                  </>
+                ) : word}
               </span>{' '}
             </Fragment>
           ))}
@@ -154,10 +161,6 @@ const networkColourStyle = (fill: string): string | undefined => {
           />
         ))}
       </span>
-      <Icon
-        name="lucide:corner-right-down"
-        class="footer-mark-arrow"
-      />
     </p>
 
     <div
@@ -988,7 +991,7 @@ const networkColourStyle = (fill: string): string | undefined => {
      * when the entrance can run.
      */
     .footer-mark {
-      @apply relative mr-4 mb-6 ml-auto flex w-fit max-w-[80%] items-end gap-1 font-changa text-2xl leading-tight text-primary-700 sm:mr-12 sm:text-3xl lg:mr-24 lg:text-4xl dark:text-primary-500;
+      @apply relative mr-4 mb-6 ml-auto w-fit max-w-[80%] font-changa text-2xl leading-tight text-primary-700 sm:mr-12 sm:text-3xl lg:mr-24 lg:text-4xl dark:text-primary-500;
 
       margin-top: 5lh;
       transform: rotate(-3deg);
@@ -1000,14 +1003,18 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     .footer-mark-copy {
-      min-width: 0;
       overflow-wrap: anywhere;
     }
 
-    .footer-mark-arrow {
-      @apply size-[1.25em] shrink-0;
+    .footer-mark-tail {
+      white-space: nowrap;
+    }
 
-      translate: 0 0.5em;
+    .footer-mark-arrow {
+      @apply inline-block size-[1em];
+
+      margin-inline-start: 0.2em;
+      translate: 0 0.4em;
     }
 
     .footer-mark-word {

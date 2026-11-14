@@ -357,7 +357,7 @@ describe('Footer enlarged-text layout', () => {
       'utf8',
     );
     expect(source).toMatch(
-      /\.footer-mark-copy\s*\{[^}]*min-width: 0;[^}]*overflow-wrap: anywhere;/,
+      /\.footer-mark-copy\s*\{[^}]*overflow-wrap: anywhere;/,
     );
     expect(source).toMatch(/\.footer-mark-word\s*\{[^}]*max-width: 100%;/);
     expect(source).toMatch(
@@ -367,5 +367,20 @@ describe('Footer enlarged-text layout', () => {
       /\.footer-uptime-unit\s*\{[^}]*max-width: 100%;[^}]*white-space: normal;/,
     );
     expect(source).not.toContain('overflow-x: hidden');
+  });
+});
+
+describe('Footer sticker arrow attachment', () => {
+  it('keeps the arrow inside the final word with a non-wrapping tail', async () => {
+    const source = await fs.readFile(
+      new URL('./Footer.astro', import.meta.url),
+      'utf8',
+    );
+    const marker = source.match(/<p\s+class="footer-mark"[\s\S]*?<\/p>/)?.[0];
+    expect(marker).toMatch(/index === words.length - 1/);
+    expect(marker).toMatch(
+      /class="footer-mark-tail"[\s\S]*?class="footer-mark-arrow"[\s\S]*?<\/span>/,
+    );
+    expect(source).toMatch(/\.footer-mark-tail\s*\{\s*white-space: nowrap;/);
   });
 });

@@ -81,3 +81,7 @@ Date: 14 November 2026. Decision: Let the sticker text flex item shrink, and all
 The same adaptation allows terminal columns and fact values to shrink, caps the square portrait at the available width, and permits an uptime unit to wrap internally only when it cannot fit on its own line. These constraints keep the footer usable with enlarged text.
 
 The terminal column gap is capped at the existing 64px spacing value, and feed links may wrap as a group. Preserve these layout constraints at enlarged text sizes.
+
+## Footer sticker arrow attachment
+
+Date: 14 November 2026. Decision: Put the arrow in the final word's inline text flow, with its last letter and the arrow kept together (issue #2238). Reason: An outer flex item detached the arrow from the final line when the text wrapped. Change rule: Keep the arrow beside the final word, while preserving wrapping, its apparent size, decoration, and finite animation.

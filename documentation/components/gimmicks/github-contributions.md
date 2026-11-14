@@ -39,7 +39,7 @@ import GitHubContributions from '@components/gimmicks/GitHubContributions.astro'
 
 ## Behaviour
 
-The footer places this component below both columns, spanning the terminal grid. An intersection observer starts loading near the viewport. Each day is a keyboard-focusable button with its date and count. Hover and focus show the same text tooltip; leave, blur, and Escape hide it. Month labels use British English and UTC dates. The grid scrolls horizontally on small screens. Local CSS activity variables map semantic levels to the design palette, and reduced motion disables day scaling.
+The footer places this component below both columns, spanning the terminal grid. An intersection observer starts loading near the viewport. Each day is a keyboard-focusable button with its date and count. Hover and focus show the same text tooltip; leave, blur, and Escape hide it. Month labels use British English and UTC dates. The grid scrolls horizontally on small screens. An 8px inline gutter contains scaled edge cells and focus outlines without adding a desktop scrollbar. Local CSS activity variables map semantic levels to the design palette, and reduced motion disables day scaling.
 
 The root reports its loading state with `aria-busy`, and the summary uses a polite live region. A failed request shows a short error message. Without JavaScript, a message explains how to view the calendar.
 

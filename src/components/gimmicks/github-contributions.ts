@@ -66,6 +66,20 @@ export function isContributionData(value: unknown): value is ContributionData {
     return false;
   }
 }
+/**
+ * Maps a day's contribution count to an activity level from 0 to 4 on a
+ * logarithmic scale relative to the busiest day shown. GitHub's own
+ * `contributionLevel` splits the range linearly, so one very busy day puts
+ * almost every other day into the first level. Level 1 starts at one
+ * contribution; levels 2, 3, and 4 start above maxCount^(1/4), ^(2/4), and
+ * ^(3/4).
+ */
+export function activityLevel(count: number, maxCount: number): number {
+  if (count <= 0) return 0;
+  if (maxCount <= 1) return 1;
+  const position = Math.log(count) / Math.log(maxCount);
+  return 1 + Math.min(3, Math.floor(position * 4));
+}
 export function cacheLifetime(hours: number): number {
   return Math.max(24, Number.isFinite(hours) ? hours : 24) * 3_600_000;
 }

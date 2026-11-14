@@ -109,3 +109,7 @@ The menu reports its expanded state, makes closed content inert, supports Escape
 ## Small scrolled mobile brand
 
 Date: 14 November 2026. Decision: Use a 1rem Changa One brand without a house icon in compact navigation, shown only after the large title leaves view (issue #2244). Reason: The normal mobile sticky header should remain one row, with the title left and the three controls right. Change rule: Preserve the initial large-title view, full brand wording, minimum control targets, and enlarged-text wrapping.
+
+## Logarithmic contribution calendar levels
+
+Date: 14 November 2026. Decision: The footer contribution calendar derives its five levels from each day's count on a logarithmic scale relative to the busiest day shown, not from GitHub's linear `contributionLevel`. Dark mode keeps `primary-800` for the busiest days, although it has low contrast against the dark background. Reason: With linear levels, one very busy day put almost all other days into the first level. The day grid is a decorative, `aria-hidden` illustration of the accessible text summary, so the non-text contrast requirement (WCAG 1.4.11) does not apply to it. A continuous colour scale was tried and rejected because it looked washed out. Change rule: Keep the logarithmic levels, the five-step palette, and the dark-mode order unless Patrick decides otherwise. Do not raise the dark-mode contrast of the day cells as an accessibility fix.

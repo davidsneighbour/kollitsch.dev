@@ -57,7 +57,7 @@ const {
   >
 </section>
 <script>
-  import { levels, loadContributions } from './github-contributions';
+  import { activityLevel, loadContributions } from './github-contributions';
 
   async function render(root: HTMLElement): Promise<void> {
     const summary = root.querySelector<HTMLElement>('[data-summary]');
@@ -85,6 +85,12 @@ const {
       const grid = document.createElement('div');
       grid.className = 'github-contributions__grid';
       grid.style.setProperty('--weeks', String(data.weeks.length));
+      const maxCount = Math.max(
+        0,
+        ...data.weeks.flatMap((week) =>
+          week.contributionDays.map((day) => day.contributionCount),
+        ),
+      );
       let previousMonth = '';
       data.weeks.forEach((week, index) => {
         const date = new Date(`${week.contributionDays[0]?.date}T00:00:00Z`);
@@ -102,7 +108,7 @@ const {
           const cell = document.createElement('span');
           cell.className = 'github-contributions__day';
           cell.dataset['level'] = String(
-            levels.indexOf(day.contributionLevel),
+            activityLevel(day.contributionCount, maxCount),
           );
           cell.style.gridColumn = String(index + 1);
           cell.style.gridRow = String(day.weekday + 2);

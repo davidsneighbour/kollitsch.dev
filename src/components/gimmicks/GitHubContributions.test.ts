@@ -3,6 +3,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import GitHubContributions from './GitHubContributions.astro';
 import {
+  activityLevel,
   cacheLifetime,
   isContributionData,
   loadContributions,
@@ -118,6 +119,31 @@ describe('contribution data and cache', () => {
   });
 });
 
+describe('activity level', () => {
+  it('splits counts logarithmically relative to the busiest day', () => {
+    // Thresholds for a maximum of 446: 446^(1/4) ~ 4.6, ^(2/4) ~ 21.1, ^(3/4) ~ 97.
+    const cases: [number, number][] = [
+      [0, 0],
+      [1, 1],
+      [4, 1],
+      [5, 2],
+      [21, 2],
+      [22, 3],
+      [97, 3],
+      [98, 4],
+      [446, 4],
+    ];
+    for (const [count, level] of cases) {
+      expect(activityLevel(count, 446)).toBe(level);
+    }
+  });
+  it('handles empty and single-contribution ranges', () => {
+    expect(activityLevel(0, 0)).toBe(0);
+    expect(activityLevel(1, 1)).toBe(1);
+    expect(activityLevel(1, 2)).toBe(1);
+    expect(activityLevel(2, 2)).toBe(4);
+  });
+});
 describe('contribution heading', () => {
   it('keeps a plain section name when a terminal prompt replaces the heading', async () => {
     const container = await AstroContainer.create();

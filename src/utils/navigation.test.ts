@@ -1,5 +1,10 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
+import footerNavigation from '../data/footernavigation.json' with {
+  type: 'json',
+};
+import topNavigation from '../data/topnavigation.json' with { type: 'json' };
+import { iconNames } from './icon-names.ts';
 import { findActive, isActive, type NavItem } from './navigation.ts';
 
 const item = (overrides: Partial<NavItem> = {}): NavItem => ({
@@ -64,5 +69,25 @@ describe('findActive', () => {
       item({ label: 'Blog', link: '/blog' }),
     ];
     expect(findActive(nav, '/')?.label).toBe('Home');
+  });
+});
+
+// The navigation JSON is cast to `Navigation` where it is imported, so the
+// type system does not check its icon names. Check them here so an unknown
+// name fails in `npm test`, not when the header or footer renders (#2050).
+describe('navigation data icons', () => {
+  type RawItem = { label: string; icon: string; children?: RawItem[] };
+  const flatten = (items: RawItem[]): RawItem[] =>
+    items.flatMap((entry) => [entry, ...flatten(entry.children ?? [])]);
+
+  it.each([
+    ['src/data/topnavigation.json', topNavigation as RawItem[]],
+    ['src/data/footernavigation.json', footerNavigation as RawItem[]],
+  ])('uses only registered icons in %s', (_file, items) => {
+    const entries = flatten(items);
+    expect(entries.length).toBeGreaterThan(0);
+    for (const entry of entries) {
+      expect(iconNames, entry.label).toContain(entry.icon);
+    }
   });
 });

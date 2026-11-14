@@ -186,6 +186,22 @@ export const iconNames: IconName[] = [
   ),
 ];
 
+const iconNameSet: ReadonlySet<string> = new Set(iconNames);
+
+/**
+ * Whether a string from content or data is a registered {@link IconName}.
+ * Content schemas and data tests use this so an unknown name fails at
+ * `astro sync`, `astro check`, or `npm test`, not when a page renders.
+ */
+export function isIconName(value: string): value is IconName {
+  return iconNameSet.has(value);
+}
+
+/** Error text for a name that is not in the registry. */
+export function unknownIconMessage(value: string): string {
+  return `Unknown icon name "${value}". Register it in src/utils/icon-names.ts (see documentation/theme/icons.md).`;
+}
+
 /**
  * Resolves an {@link IconName} to its backing Lucide, Simple Icons, or local Astro component.
  */
@@ -206,5 +222,5 @@ export function getIcon(name: IconName): IconComponent {
     return localIcons[key as LocalIconName];
   }
 
-  throw new Error(`Unknown icon name: "${name}"`);
+  throw new Error(unknownIconMessage(name));
 }

@@ -16,6 +16,7 @@ import {
   type OptionsData,
   type PostData,
 } from './content/blog-schema.ts';
+import { isIconName, unknownIconMessage } from './utils/icon-names.ts';
 
 // Re-exported so existing importers (content.config.test.ts, utils/content.ts,
 // utils/cover.ts, scripts/maintenance/export-schema.ts) don't need to change.
@@ -25,6 +26,21 @@ import {
 export { blogSchema, explicitOptionTypes, optionsSchema };
 export type { OptionsData, PostData };
 export type BlogFrontmatter = PostData;
+
+// `sourcecode.*.icon` is free text in the Node-safe `blogSchema` (it must
+// not import the `.astro` icon components). The collection checks it
+// against the icon registry, so unknown names fail at `astro sync` (#2050).
+export const blogCollectionSchema = blogSchema.superRefine((data, context) => {
+  for (const [key, entry] of Object.entries(data.sourcecode ?? {})) {
+    if (typeof entry === 'string' || entry.icon === undefined) continue;
+    if (isIconName(entry.icon)) continue;
+    context.addIssue({
+      code: 'custom',
+      message: unknownIconMessage(entry.icon),
+      path: ['sourcecode', key, 'icon'],
+    });
+  }
+});
 
 const blogLoader = glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' });
 
@@ -45,7 +61,7 @@ export const blog = defineCollection({
       return blogLoader.load({ ...context, parseData: parseDataWithFormat });
     },
   },
-  schema: () => blogSchema,
+  schema: () => blogCollectionSchema,
 });
 
 // MARK: Tags
@@ -67,6 +83,10 @@ const tagIconName = z
   .transform((value) => value.trim())
   .refine((value) => value.length > 0, {
     message: '`icon` name MUST NOT be empty.',
+  })
+  // Fail at `astro sync`/`astro check`, not at render time (#2050).
+  .refine((value) => value.length === 0 || isIconName(value), {
+    error: (issue) => unknownIconMessage(String(issue.input)),
   });
 const tagIconPosition = z
   .enum(['inline-start', 'inline-end'])
@@ -110,55 +130,57 @@ const tagBadge = z
       .optional(),
   })
   .optional();
+export const tagSchema = z
+  .object({
+    aliases: z
+      .array(z.string().transform((s) => s.toLowerCase().trim()))
+      .optional(),
+    badge: tagBadge,
+    class: z.string().optional(),
+    cover: cover,
+    description: z
+      .string()
+      .optional()
+      .transform((val) => val?.trim() ?? undefined),
+    featured: z.boolean().default(false).optional(),
+    hideInTagCloud: z.boolean().default(false).optional(),
+    icon: tagIcon,
+    id: z
+      .string()
+      .transform((s) => s.toLowerCase().trim())
+      .refine((s) => idRegex.test(s), {
+        message: `Tag id must match ${idRegex}`,
+      }),
+    linktitle: z
+      .string()
+      .optional()
+      .transform((val) => val?.trim())
+      .refine((val) => (val ? val.length > 0 : true), {
+        message: '`linktitle` MUST NOT be empty if defined.',
+      })
+      .refine((val) => !val || !plainTextViolation.test(val), {
+        message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
+      }),
+    title: z.string().transform((val) => val.trim()),
+    weight: z.number().optional().default(0),
+  })
+  .transform((data) => {
+    const linktitle = data.linktitle && data.linktitle.length > 0
+      ? data.linktitle
+      : data.title;
+
+    return {
+      ...data,
+      badge: data.badge,
+      cover: data.cover,
+      label: linktitle,
+      linktitle,
+    };
+  });
+
 export const tags = defineCollection({
   loader: glob({ base: './src/content/tags', pattern: '**/*.{md,mdx}' }),
-  schema: z
-    .object({
-      aliases: z
-        .array(z.string().transform((s) => s.toLowerCase().trim()))
-        .optional(),
-      badge: tagBadge,
-      class: z.string().optional(),
-      cover: cover,
-      description: z
-        .string()
-        .optional()
-        .transform((val) => val?.trim() ?? undefined),
-      featured: z.boolean().default(false).optional(),
-      hideInTagCloud: z.boolean().default(false).optional(),
-      icon: tagIcon,
-      id: z
-        .string()
-        .transform((s) => s.toLowerCase().trim())
-        .refine((s) => idRegex.test(s), {
-          message: `Tag id must match ${idRegex}`,
-        }),
-      linktitle: z
-        .string()
-        .optional()
-        .transform((val) => val?.trim())
-        .refine((val) => (val ? val.length > 0 : true), {
-          message: '`linktitle` MUST NOT be empty if defined.',
-        })
-        .refine((val) => !val || !plainTextViolation.test(val), {
-          message: '`linktitle` MUST be plain text only, no HTML or Markdown syntax.',
-        }),
-      title: z.string().transform((val) => val.trim()),
-      weight: z.number().optional().default(0),
-    })
-    .transform((data) => {
-      const linktitle = data.linktitle && data.linktitle.length > 0
-        ? data.linktitle
-        : data.title;
-
-      return {
-        ...data,
-        badge: data.badge,
-        cover: data.cover,
-        label: linktitle,
-        linktitle,
-      };
-    }),
+  schema: tagSchema,
 });
 
 // MARK: GitHub Releases

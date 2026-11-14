@@ -4,10 +4,11 @@ import type { IconName } from '@utils/icon-names.ts';
 
 /**
  * Icon naming convention:
- *  - Brand/social icons:  "simple-icons:github", "simple-icons:gitlab"
- *  - UI/non-brand icons:  "lucide:code"
+ *  - Brand/social icons:  "simple-icons:<name>", for example "simple-icons:github"
+ *  - UI/non-brand icons:  "lucide:<name>"
  *
- * The prefix is the distinguisher — no extra flag needed.
+ * The prefix is the distinguisher — no extra flag needed. Only names
+ * registered in src/utils/icon-names.ts work; others fail `astro sync`.
  *
  * Line deep-linking:
  *  - GitHub/GitLab: appends #L{n} or #L{n}-L{m}
@@ -20,10 +21,8 @@ export interface Props {
   /** Display text; derived from the URL path when omitted */
   label?: string;
   /**
-   * Any registered icon name.
-   * Brand icons:  "simple-icons:github" | "simple-icons:gitlab"
-   * UI icons:     "lucide:code"
-   * Default:      "simple-icons:github"
+   * Any icon name registered in src/utils/icon-names.ts.
+   * Default: "simple-icons:github"
    */
   icon?: IconName;
   /** Extra CSS classes on the <a> element */

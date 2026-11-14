@@ -1,7 +1,7 @@
 // @vitest-environment node
 
 import { describe, expect, it } from 'vitest';
-import { blogSchema } from './content.config';
+import { blogCollectionSchema, blogSchema, tagSchema } from './content.config';
 
 const baseFrontmatter = {
   date: '2025-01-01',
@@ -159,5 +159,55 @@ describe('blogSchema maintenance', () => {
     });
 
     expect(result.success).toBe(false);
+  });
+});
+
+// Unknown icon names in content must fail at content validation
+// (`astro sync`/`astro check`), not when a page renders (#2050).
+describe('content icon names', () => {
+  const tag = { id: 'lab-notes', title: 'Lab Notes' };
+  const issueMessages = (result: { success: boolean; error?: { issues: { message: string }[] } }) =>
+    result.error?.issues.map((issue) => issue.message) ?? [];
+
+  it('accepts registered tag icons as a string or an object', () => {
+    expect(tagSchema.safeParse({ ...tag, icon: 'lucide:notebook-pen' }).success).toBe(true);
+    expect(
+      tagSchema.safeParse({ ...tag, icon: { name: 'simple-icons:github' } }).success,
+    ).toBe(true);
+  });
+
+  it('rejects an unregistered tag icon with a message that names the registry', () => {
+    const result = tagSchema.safeParse({ ...tag, icon: 'lucide:does-not-exist' });
+    expect(result.success).toBe(false);
+    expect(issueMessages(result).join(' ')).toContain('src/utils/icon-names.ts');
+  });
+
+  it('rejects an unregistered tag badge icon', () => {
+    const result = tagSchema.safeParse({
+      ...tag,
+      badge: { icon: { name: 'lucide:does-not-exist' } },
+    });
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0]?.path).toEqual(['badge', 'icon', 'name']);
+  });
+
+  it('checks sourcecode icons in the blog collection schema only', () => {
+    const post = {
+      ...baseFrontmatter,
+      sourcecode: {
+        repo: { icon: 'simple-icons:gitlab', source: 'https://example.com/repo' },
+      },
+    };
+    // The Node-safe schema keeps free text; the collection schema checks it.
+    expect(blogSchema.safeParse(post).success).toBe(true);
+    const result = blogCollectionSchema.safeParse(post);
+    expect(result.success).toBe(false);
+    expect(result.error?.issues[0]?.path).toEqual(['sourcecode', 'repo', 'icon']);
+
+    const registered = {
+      ...post,
+      sourcecode: { repo: { icon: 'simple-icons:github', source: 'https://example.com/repo' } },
+    };
+    expect(blogCollectionSchema.safeParse(registered).success).toBe(true);
   });
 });

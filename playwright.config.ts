@@ -5,8 +5,8 @@ import { defineConfig, devices } from '@playwright/test';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const homeEnvPath = process.env.HOME
-  ? path.resolve(process.env.HOME, '.env')
+const homeEnvPath = process.env['HOME']
+  ? path.resolve(process.env['HOME'], '.env')
   : undefined;
 
 if (homeEnvPath) {
@@ -30,7 +30,7 @@ try {
 }
 
 export default defineConfig({
-  forbidOnly: !!process.env.CI,
+  forbidOnly: !!process.env['CI'],
   fullyParallel: true,
   outputDir: 'src/test/logs/playwright',
 
@@ -67,7 +67,7 @@ export default defineConfig({
     // },
   ],
 
-  reporter: process.env.CI
+  reporter: process.env['CI']
     ? 'github'
     : [
         ['list'],
@@ -80,12 +80,12 @@ export default defineConfig({
           },
         ],
       ],
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env['CI'] ? 2 : 0,
   testDir: 'src/test',
   testIgnore: ['**/*.test.*', '**/browser/**', '**/live/**'],
 
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'https://127.0.0.1:4400',
+    baseURL: process.env['PLAYWRIGHT_BASE_URL'] || 'https://127.0.0.1:4400',
     colorScheme: 'dark',
     ignoreHTTPSErrors: true,
     locale: 'en-US',
@@ -100,7 +100,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run dev:site -- --ignore-lock --host 127.0.0.1 --port 4400',
     ignoreHTTPSErrors: true,
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !process.env['CI'],
     timeout: 120_000,
     url: 'https://127.0.0.1:4400/',
   },

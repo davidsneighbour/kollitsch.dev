@@ -47,3 +47,7 @@ Change rule: Keep the introduction in the reading face, not in mono. Keep the fe
 Date: 2026-11-13
 
 The footer portrait retains its existing size, radius, link, and layout. Eye geometry is calibrated to the 400px source: centres (144, 154) and (220, 154), 16px pupil sprites, and elliptical travel bounded by 8px horizontally and 4.5px vertically. These are image coordinates, scaled with the portrait, rather than theme spacing values. Pupils use the original portrait pixels and colours. Movement follows pointer events directly without easing or an idle animation loop, only while the portrait is visible and motion is allowed. Touch does not prevent scrolling and resets on release or cancellation. Reduced motion and the no-script path show the original static portrait. Preserve these boundaries and fallbacks when changing the portrait.
+
+## Footer GitHub calendar
+
+Date: 14 November 2026. Decision: Show a full-width contribution calendar below both terminal footer columns (issue #2224). Fetch data lazily from the local Worker endpoint and retain valid browser data for at least 24 hours. Reason: Show recent activity without exposing credentials or adding a network request to initial page rendering. Change rule: Preserve the full-width placement, server-only token, keyboard labels, and minimum cache lifetime unless the owner changes these requirements.

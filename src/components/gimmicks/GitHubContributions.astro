@@ -1,0 +1,204 @@
+---
+export interface Props {
+  endpoint?: string;
+  cacheHours?: number;
+  class?: string;
+  heading?: string;
+}
+const {
+  endpoint = '/api/github-contributions',
+  cacheHours = 24,
+  class: className,
+  heading = 'Recent GitHub activity',
+} = Astro.props;
+---
+
+<section
+  class:list={['github-contributions', className]}
+  aria-label={heading}
+  aria-busy="true"
+  data-contributions
+  data-endpoint={endpoint}
+  data-cache-hours={cacheHours}
+>
+  <h3>{heading}</h3>
+  <p
+    aria-live="polite"
+    data-summary
+  >
+    Loading GitHub activity...
+  </p>
+  <div
+    class="overflow-x-auto py-4"
+    data-calendar
+  ></div>
+  <p
+    class="min-h-6 text-sm"
+    data-tooltip
+    role="tooltip"
+    hidden
+  ></p>
+  <noscript
+    ><p>Enable JavaScript to view the contribution calendar.</p></noscript
+  >
+</section>
+<script>
+  import { levels, loadContributions } from './github-contributions';
+
+  async function render(root: HTMLElement): Promise<void> {
+    const summary = root.querySelector<HTMLElement>('[data-summary]');
+    const calendar = root.querySelector<HTMLElement>('[data-calendar]');
+    const tooltip = root.querySelector<HTMLElement>('[data-tooltip]');
+    if (!summary || !calendar || !tooltip) return;
+    try {
+      let storage: Storage | undefined;
+      try {
+        storage = window.localStorage;
+      } catch {
+        /* Storage can be blocked. */
+      }
+      const data = await loadContributions(
+        root.dataset['endpoint'] ?? '/api/github-contributions',
+        Number(root.dataset['cacheHours'] ?? 24),
+        storage,
+      );
+      const dateFormat = new Intl.DateTimeFormat('en-GB', {
+        dateStyle: 'long',
+        timeZone: 'UTC',
+      });
+      const monthFormat = new Intl.DateTimeFormat('en-GB', {
+        month: 'short',
+        timeZone: 'UTC',
+      });
+      const countFormat = new Intl.NumberFormat('en-GB');
+      summary.textContent = `${countFormat.format(data.totalContributions)} ${data.totalContributions === 1 ? 'contribution' : 'contributions'} in the last year`;
+      const grid = document.createElement('div');
+      grid.className = 'github-contributions__grid';
+      grid.style.setProperty('--weeks', String(data.weeks.length));
+      let previousMonth = '';
+      data.weeks.forEach((week, index) => {
+        const date = new Date(`${week.contributionDays[0]?.date}T00:00:00Z`);
+        const month = monthFormat.format(date);
+        if (month !== previousMonth && index < data.weeks.length - 2) {
+          const label = document.createElement('span');
+          label.className = 'github-contributions__month';
+          label.textContent = month;
+          label.style.gridColumn = `${index + 1} / span 3`;
+          label.style.gridRow = '1';
+          grid.append(label);
+          previousMonth = month;
+        }
+        for (const day of week.contributionDays) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'github-contributions__day';
+          button.dataset['level'] = String(levels.indexOf(day.contributionLevel));
+          button.style.gridColumn = String(index + 1);
+          button.style.gridRow = String(day.weekday + 2);
+          const text = `${countFormat.format(day.contributionCount)} ${day.contributionCount === 1 ? 'contribution' : 'contributions'} on ${dateFormat.format(new Date(`${day.date}T00:00:00Z`))}`;
+          button.setAttribute('aria-label', text);
+          const show = (): void => {
+            tooltip.textContent = text;
+            tooltip.hidden = false;
+          };
+          const hide = (): void => {
+            tooltip.hidden = true;
+          };
+          button.addEventListener('mouseenter', show);
+          button.addEventListener('focus', show);
+          button.addEventListener('mouseleave', hide);
+          button.addEventListener('blur', hide);
+          button.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') hide();
+          });
+          grid.append(button);
+        }
+      });
+      calendar.replaceChildren(grid);
+    } catch {
+      summary.textContent =
+        'GitHub activity is unavailable. Please try again later.';
+    } finally {
+      root.setAttribute('aria-busy', 'false');
+    }
+  }
+  function initialise(): void {
+    for (const root of document.querySelectorAll<HTMLElement>(
+      '[data-contributions]:not([data-initialised])',
+    )) {
+      root.dataset['initialised'] = 'true';
+      if (!('IntersectionObserver' in window)) {
+        void render(root);
+        continue;
+      }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            observer.disconnect();
+            void render(root);
+          }
+        },
+        { rootMargin: '200px' },
+      );
+      observer.observe(root);
+      document.addEventListener(
+        'astro:before-swap',
+        () => observer.disconnect(),
+        { once: true },
+      );
+    }
+  }
+  initialise();
+  document.addEventListener('astro:page-load', initialise);
+</script>
+<style>
+  .github-contributions {
+    --github-activity-0: var(--color-grey-200);
+    --github-activity-1: var(--color-primary-200);
+    --github-activity-2: var(--color-primary-400);
+    --github-activity-3: var(--color-primary-600);
+    --github-activity-4: var(--color-primary-800);
+  }
+  :global(:where([data-theme="dark"])) .github-contributions {
+    --github-activity-0: var(--color-grey-800);
+  }
+  .github-contributions :global(.github-contributions__grid) {
+    display: grid;
+    grid-template-columns: repeat(var(--weeks), minmax(0.75rem, 1fr));
+    grid-template-rows: auto repeat(7, 0.75rem);
+    gap: 0.25rem;
+    min-width: max-content;
+  }
+  .github-contributions :global(.github-contributions__month) {
+    font-size: 0.75rem;
+  }
+  .github-contributions :global(.github-contributions__day) {
+    min-width: 0.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background: var(--github-activity-0);
+  }
+  .github-contributions :global([data-level="1"]) {
+    background: var(--github-activity-1);
+  }
+  .github-contributions :global([data-level="2"]) {
+    background: var(--github-activity-2);
+  }
+  .github-contributions :global([data-level="3"]) {
+    background: var(--github-activity-3);
+  }
+  .github-contributions :global([data-level="4"]) {
+    background: var(--github-activity-4);
+  }
+  .github-contributions :global(button:focus-visible) {
+    outline: 2px solid var(--color-primary-600);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .github-contributions :global(button:hover),
+    .github-contributions :global(button:focus-visible) {
+      transform: scale(1.15);
+    }
+  }
+</style>

@@ -16,6 +16,7 @@ import patrickEyesBase from '@assets/images/patrick-kollitsch-eyes-base.png';
 import pupilLeft from '@assets/images/patrick-pupil-left.png';
 import pupilRight from '@assets/images/patrick-pupil-right.png';
 import PeoplePledgeBadge from '@components/features/badges/PeoplePledgeBadge.astro';
+import GitHubContributions from '@components/gimmicks/GitHubContributions.astro';
 import Colophon from '@components/layout/footer/Colophon.astro';
 import Icon from '@components/shared/elements/Icon.astro';
 import IconLink from '@components/shared/links/IconLink.astro';
@@ -125,7 +126,9 @@ const networkColourStyle = (fill: string): string | undefined => {
   data-greetings={JSON.stringify(setup.greetings)}
 >
   <div class={setup.classes.containers.wide}>
-    <h2 class="sr-only">Footer section with navigation and social media links</h2>
+    <h2 class="sr-only">
+      Footer section with navigation and social media links
+    </h2>
 
     <p
       class="footer-mark"
@@ -133,13 +136,21 @@ const networkColourStyle = (fill: string): string | undefined => {
       data-footer-mark="shown"
     >
       <span class="footer-mark-copy">
-        {'Hey look, we have a footer!!!!111One'.split(' ').map((word, index) => (
-          <Fragment><span class="footer-mark-word" style={`--word-index: ${index}`}>{word}</span>{' '}</Fragment>
-        ))}
+        {'Hey look, we have a footer!!!!111One'
+          .split(' ')
+          .map((word, index) => (
+            <Fragment>
+              <span class="footer-mark-word" style={`--word-index: ${index}`}>
+                {word}
+              </span>{' '}
+            </Fragment>
+          ))}
       </span>
       <span class="footer-mark-sparks">
         {Array.from({ length: 12 }, (_, index) => (
-          <span style={`--spark-angle: ${index * 30}deg; --spark-index: ${index % 3}`} />
+          <span
+            style={`--spark-angle: ${index * 30}deg; --spark-index: ${index % 3}`}
+          />
         ))}
       </span>
       <Icon
@@ -469,9 +480,12 @@ const networkColourStyle = (fill: string): string | undefined => {
             </p>
           </section>
         </div>
+        <GitHubContributions
+          class="min-w-0 xl:col-span-12"
+          heading="GitHub activity"
+        />
       </div>
     </div>
-
   </div>
 
   <div
@@ -481,7 +495,8 @@ const networkColourStyle = (fill: string): string | undefined => {
       class="flex flex-col gap-x-8 gap-y-2 md:flex-row md:items-baseline md:justify-between"
     >
       <p>
-        <span class="text-[1.5em] leading-none align-middle">&copy;</span> {siteSince}&ndash;<span id={footerYearId}>{currentYear}</span>
+        <span class="text-[1.5em] leading-none align-middle">&copy;</span>
+        {siteSince}&ndash;<span id={footerYearId}>{currentYear}</span>
         <a href={getHomepageUrl()}>{setup.title}</a
         ><span
           id="site-version"
@@ -888,7 +903,9 @@ const networkColourStyle = (fill: string): string | undefined => {
 
       const mark = document.querySelector<HTMLElement>('[data-footer-mark]');
       if (!mark) return;
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const reduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      );
       const canObserve = 'IntersectionObserver' in window;
 
       const state = footerMarkInitialState({
@@ -1041,7 +1058,8 @@ const networkColourStyle = (fill: string): string | undefined => {
     }
 
     @keyframes footer-arrow-kick {
-      0%, 100% {
+      0%,
+      100% {
         transform: none;
       }
 

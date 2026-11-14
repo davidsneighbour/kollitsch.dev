@@ -1,10 +1,11 @@
+import { githubContributions, type ContributionsEnv } from './github-contributions.ts';
 import { isSocialSpecPath, SOCIALSPEC_CORS_HEADERS } from './utils/socialspec.pure.ts';
 
 interface AssetFetcher {
   fetch(request: Request): Promise<Response>;
 }
 
-interface Env {
+interface Env extends ContributionsEnv {
   ASSETS: AssetFetcher;
   RESEND_API_KEY: string;
   RESEND_FROM: string;
@@ -191,6 +192,10 @@ export default {
 
     if (url.hostname === wwwHostname) {
       return redirectWwwToApex(url);
+    }
+
+    if (url.pathname === '/api/github-contributions') {
+      return githubContributions(request, env);
     }
 
     if (url.pathname === contactPath) {

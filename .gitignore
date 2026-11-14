@@ -122,3 +122,7 @@ documentation/api
 
 # Animation-plan scratch pads (improve-animations skill output) — local only
 plans/
+
+# Local Cloudflare Worker secrets
+.dev.vars
+.dev.vars.*

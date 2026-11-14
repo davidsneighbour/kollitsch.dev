@@ -380,7 +380,7 @@ Any UI chrome that needs to read as "a tint of whatever the page background is" 
 
 The payoff: if `--background` changes again later, these surfaces update automatically instead of needing another pass of manual fixes.
 
-`primary-700` is the light-mode `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, and `text-primary-700` on the header's search/close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. In dark mode, equivalent interactive text uses `primary-600` with `primary-400` hover so links retain AA contrast on `surface-dark` and dark overlay cards. See the debug-class naming convention in Do's and Don'ts.
+`primary-700` is the light-mode `link` token's underlying color and is reused deliberately across components (link text, `Badge.astro`, `Button.astro`, scrollbar thumb, and `text-primary-700` on the header's menu, search, and close icons in `Header.astro`) - it is not a leftover debugging class wherever it appears. In dark mode, equivalent interactive text uses `primary-600` with `primary-400` hover so links retain AA contrast on `surface-dark` and dark overlay cards. See the debug-class naming convention in Do's and Don'ts.
 
 Tag chips use the same link text pairs (`primary-700`/`primary-600` in light mode,
 `primary-600`/`primary-400` in dark mode) over low-opacity backgrounds. The

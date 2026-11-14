@@ -381,7 +381,7 @@ const networkColourStyle = (fill: string): string | undefined => {
               >
               ls ~/<span class="sr-only">: site navigation</span>
             </h3>
-            <ul class="flex flex-wrap gap-x-6 gap-y-2">
+            <ul class="footer-navigation flex flex-wrap gap-x-6 gap-y-2">
               {navData.map((value) => (
                 <li>
                   <a href={value.link}>{value.label.toLowerCase()}/</a>
@@ -535,7 +535,7 @@ const networkColourStyle = (fill: string): string | undefined => {
     <div
       class="flex flex-col gap-x-8 gap-y-3 md:flex-row md:flex-wrap md:items-center md:justify-between"
     >
-      <ul class="flex flex-wrap items-center gap-x-5 gap-y-2">
+      <ul class="footer-strip-links flex flex-wrap items-center gap-x-5 gap-y-2">
         <li>
           <IconLink
             href="/privacy-policy/"
@@ -570,7 +570,7 @@ const networkColourStyle = (fill: string): string | undefined => {
           A member of the <a href="https://static.quest">Static.Quest</a> web
           ring!
         </span>
-        <span class="flex items-center gap-2">
+        <span class="footer-webring-links flex flex-wrap items-center gap-2">
           <IconLink
             href="https://static.quest/previous/?host=kollitsch.dev"
             icon="lucide:chevron-left"
@@ -669,11 +669,15 @@ const networkColourStyle = (fill: string): string | undefined => {
       uptimeUnitLabel,
     } from '@utils/uptime.pure.ts';
 
+    import { startFooterTicker } from '@components/layout/footer/footer-ticker';
+
     // footer-uptime-digit-transition token (DESIGN.md).
     const DIGIT_DURATION = 400;
     const DIGIT_EASING = 'cubic-bezier(0.19, 1, 0.22, 1)';
 
-    let tickTimer: number | undefined;
+    let cleanupTicker = () => {
+      // No active instance before initialisation.
+    };
     let uptimeObserver: IntersectionObserver | undefined;
 
     function createDigit(char: string): HTMLSpanElement {
@@ -758,7 +762,7 @@ const networkColourStyle = (fill: string): string | undefined => {
      * the footer is swapped with the rest of the page.
      */
     function initFooterTerminal(): void {
-      window.clearTimeout(tickTimer);
+      cleanupTicker();
       uptimeObserver?.disconnect();
       const footer = document.querySelector<HTMLElement>(
         '[data-footer-terminal]',
@@ -881,30 +885,35 @@ const networkColourStyle = (fill: string): string | undefined => {
 
       // Animate only when a counter is on screen and motion is allowed;
       // otherwise the digits are swapped without animation.
-      const tick = (motion: boolean): void => {
+      const tick = (nearby: ReadonlySet<Element>, motion: boolean): void => {
         const now = new Date();
-        if (clock && timeZone) {
+        if (clock && timeZone && nearby.has(clock)) {
           const time = formatZoneTime(now, timeZone);
           if (clock.textContent !== time) clock.textContent = time;
         }
-        tickUptime(now, motion && !!uptime && visible.has(uptime));
-        tickAge(now, motion && !!ageCounter && visible.has(ageCounter));
+        if (uptime && nearby.has(uptime)) {
+          tickUptime(now, motion && visible.has(uptime));
+        }
+        if (ageCounter && nearby.has(ageCounter)) {
+          tickAge(now, motion && visible.has(ageCounter));
+        }
       };
 
-      const schedule = (): void => {
-        tickTimer = window.setTimeout(
-          () => {
-            tick(!reduceMotion.matches);
-            schedule();
-          },
-          1000 - (Date.now() % 1000),
-        );
-      };
-      tick(false);
-      schedule();
+      const targets = [clock, uptime, ageCounter].filter(
+        (target): target is HTMLElement => !!target,
+      );
+      // Fill once so paused counters keep complete values and their layout.
+      tick(new Set(targets), false);
+      cleanupTicker = startFooterTicker(targets, (nearby, animate) => {
+        tick(nearby, animate && !reduceMotion.matches);
+      });
     }
 
     document.addEventListener('astro:page-load', initFooterTerminal);
+    document.addEventListener('astro:before-swap', () => {
+      cleanupTicker();
+      uptimeObserver?.disconnect();
+    });
 
     let markObserver: IntersectionObserver | undefined;
 
@@ -1294,6 +1303,27 @@ const networkColourStyle = (fill: string): string | undefined => {
       .footer-network:focus-visible
       :global(.footer-network-glyph) {
       color: var(--footer-network-colour-dark, currentcolor);
+    }
+
+    @media (max-width: 47.99rem) {
+      /* Keep prose links inline; enlarge only standalone navigation targets. */
+      .footer-navigation a,
+      .footer-network,
+      .footer-network-icon,
+      .footer-strip-links :global(a),
+      .footer-webring-links :global(a),
+      .people-pledge-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+      }
+
+      .footer-network {
+        justify-content: flex-start;
+        max-width: 100%;
+      }
     }
 
     .footer-network-name {

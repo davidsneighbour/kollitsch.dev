@@ -31,13 +31,8 @@ const {
   <div
     class="overflow-x-auto py-4"
     data-calendar
+    aria-hidden="true"
   ></div>
-  <p
-    class="min-h-6 text-sm"
-    data-tooltip
-    role="tooltip"
-    hidden
-  ></p>
   <noscript
     ><p>Enable JavaScript to view the contribution calendar.</p></noscript
   >
@@ -48,8 +43,7 @@ const {
   async function render(root: HTMLElement): Promise<void> {
     const summary = root.querySelector<HTMLElement>('[data-summary]');
     const calendar = root.querySelector<HTMLElement>('[data-calendar]');
-    const tooltip = root.querySelector<HTMLElement>('[data-tooltip]');
-    if (!summary || !calendar || !tooltip) return;
+    if (!summary || !calendar) return;
     try {
       let storage: Storage | undefined;
       try {
@@ -62,10 +56,6 @@ const {
         Number(root.dataset['cacheHours'] ?? 24),
         storage,
       );
-      const dateFormat = new Intl.DateTimeFormat('en-GB', {
-        dateStyle: 'long',
-        timeZone: 'UTC',
-      });
       const monthFormat = new Intl.DateTimeFormat('en-GB', {
         month: 'short',
         timeZone: 'UTC',
@@ -89,31 +79,14 @@ const {
           previousMonth = month;
         }
         for (const day of week.contributionDays) {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.className = 'github-contributions__day';
-          button.dataset['level'] = String(
+          const cell = document.createElement('span');
+          cell.className = 'github-contributions__day';
+          cell.dataset['level'] = String(
             levels.indexOf(day.contributionLevel),
           );
-          button.style.gridColumn = String(index + 1);
-          button.style.gridRow = String(day.weekday + 2);
-          const text = `${countFormat.format(day.contributionCount)} ${day.contributionCount === 1 ? 'contribution' : 'contributions'} on ${dateFormat.format(new Date(`${day.date}T00:00:00Z`))}`;
-          button.setAttribute('aria-label', text);
-          const show = (): void => {
-            tooltip.textContent = text;
-            tooltip.hidden = false;
-          };
-          const hide = (): void => {
-            tooltip.hidden = true;
-          };
-          button.addEventListener('mouseenter', show);
-          button.addEventListener('focus', show);
-          button.addEventListener('mouseleave', hide);
-          button.addEventListener('blur', hide);
-          button.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') hide();
-          });
-          grid.append(button);
+          cell.style.gridColumn = String(index + 1);
+          cell.style.gridRow = String(day.weekday + 2);
+          grid.append(cell);
         }
       });
       calendar.replaceChildren(grid);
@@ -169,7 +142,6 @@ const {
     --github-activity-0: var(--color-grey-800);
   }
   .github-contributions [data-summary],
-  .github-contributions [data-tooltip],
   .github-contributions :global(.github-contributions__month) {
     @apply text-gray-600 dark:text-gray-400;
   }
@@ -203,15 +175,5 @@ const {
   }
   .github-contributions :global([data-level="4"]) {
     background: var(--github-activity-4);
-  }
-  .github-contributions :global(button:focus-visible) {
-    outline: 2px solid var(--color-primary-600);
-    outline-offset: 2px;
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .github-contributions :global(button:hover),
-    .github-contributions :global(button:focus-visible) {
-      transform: scale(1.15);
-    }
   }
 </style>

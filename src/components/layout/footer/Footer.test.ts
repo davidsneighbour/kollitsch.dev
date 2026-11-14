@@ -102,9 +102,9 @@ describe('Footer component (uptime counter)', () => {
     expect(src).toContain(
       "matchMedia(\n        '(prefers-reduced-motion: reduce)'",
     );
-    expect(src).toContain('tick(!reduceMotion.matches)');
-    expect(src).toContain('motion && !!uptime && visible.has(uptime)');
-    expect(src).toContain('motion && !!ageCounter && visible.has(ageCounter)');
+    expect(src).toContain('tick(nearby, animate && !reduceMotion.matches)');
+    expect(src).toContain('motion && visible.has(uptime)');
+    expect(src).toContain('motion && visible.has(ageCounter)');
   });
 });
 

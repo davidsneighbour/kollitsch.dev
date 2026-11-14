@@ -135,3 +135,19 @@ describe('contribution heading', () => {
     expect(html).toMatch(/<h3\b[^>]*>Recent GitHub activity<\/h3>/);
   });
 });
+
+describe('decorative calendar', () => {
+  it('keeps the summary accessible and the day grid out of the tab order', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(GitHubContributions);
+    expect(html).toMatch(/aria-live="polite"[^>]*data-summary/);
+    expect(html).toMatch(/data-calendar[^>]*aria-hidden="true"/);
+    const source = await (await import('node:fs/promises')).readFile(
+      new URL('./GitHubContributions.astro', import.meta.url),
+      'utf8',
+    );
+    expect(source).not.toContain("createElement('button')");
+    expect(source).not.toContain('tabindex');
+    expect(source).not.toContain('data-tooltip');
+  });
+});

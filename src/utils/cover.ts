@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import MarkdownIt from 'markdown-it';
 import type { PostData } from '../content.config';
 import { createLogger } from './logger.ts';
+import { decorateArchiveLinksInHtml } from './rehype-archive-links.ts';
 import {
   sanitizeYouTubePlayerParams,
   type YouTubePlayerParams,
@@ -145,7 +146,7 @@ export function resolveCover(
   const renderTitleInline = (title?: string): string | undefined => {
     if (!title || title.trim().length === 0) return undefined;
     try {
-      return md.renderInline(title);
+      return decorateArchiveLinksInHtml(md.renderInline(title));
     } catch (error) {
       if (debug) {
         log.error('[resolveCover] Failed to render title inline:', error);

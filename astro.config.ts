@@ -21,6 +21,7 @@ import {
   type RedirectMap,
 } from './src/utils/redirects.ts';
 import { remarkDnbTypography } from './src/utils/markdown-typography.ts';
+import { rehypeArchiveLinks } from './src/utils/rehype-archive-links.ts';
 import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
@@ -132,6 +133,8 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkKbdNested, remarkDefinitionList, remarkDnbTypography],
+      // Marks web.archive.org snapshot links with the Internet Archive icon.
+      rehypePlugins: [rehypeArchiveLinks],
       // Blank-line-separated `Term`/`: Definition` pairs stay one <dl>; a
       // definition list only ends where a non-definition block begins.
       remarkRehype: { handlers: { ...defListHastHandlers } },

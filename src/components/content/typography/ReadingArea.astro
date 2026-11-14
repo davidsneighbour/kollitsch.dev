@@ -6,6 +6,9 @@ export interface Props {
 const { class: className = '' }: Props = Astro.props;
 ---
 
-<div class:list={['typography-reading', className]}>
+{/* `relative` makes the reading column the containing block for in-text
+    tooltips (archived-link markers), so their anchor-position fallbacks
+    keep them inside the column instead of under the card's clipped edge. */}
+<div class:list={['typography-reading relative', className]}>
   <slot />
 </div>

@@ -26,3 +26,5 @@ options:
 ```
 
 The stable reason values are `redirect-loop`, `tls-error`, `timeout`, `server-error`, `temporarily-unavailable`, and `unknown`. Do not use these markers as a Lychee ignore list; Lychee synchronisation is a separate editorial workflow.
+
+Links that point to an Internet Archive snapshot do not use these markers. They are marked automatically; see `documentation/content/archived-links.md`.

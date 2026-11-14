@@ -92,6 +92,10 @@ exclude = [
   # checker-reason: bot-blocked
   # checked: 2026-09-14
   '^https://www\.reuters\.com/world/us/trump-supporters-see-his-narrow-escape-death-gods-work-2024-07-16/\?utm_source=chatgpt\.com$',
+  # source: src/content/blog/2025/kurzschnitte-ii-10/index.mdx
+  # checker-reason: bot-blocked
+  # checked: 2026-11-14
+  '^https://ronomics\.com/$',
   # source: src/content/blog/2022/simple-multi-language-pre-commit-hooks/index.md
   # reason: unknown
   # checked: 2026-09-14

@@ -390,6 +390,15 @@ When the user chooses to fix the link:
 
 Recheck the resulting URL.
 
+### Internet Archive replacements
+
+When the original page is really gone (404, dead domain, origin down, redirect loop) and an Internet Archive snapshot shows the content the post refers to, `Fix / replace` may use the snapshot URL:
+
+* use the `https://web.archive.org/web/<timestamp>/<original-url>` form, with a timestamp that contains at least the day;
+* prefer the snapshot closest to the post's publication date and state its date in the decision item;
+* write a plain link; the site adds the Internet Archive marker automatically (see `documentation/content/archived-links.md`), so do not add a broken-link marker or other annotation;
+* do not use a snapshot for a checker-blocked link.
+
 ## Action: mark currently unavailable
 
 When the user chooses this option, preserve the original external URL.

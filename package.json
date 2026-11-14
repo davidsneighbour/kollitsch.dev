@@ -115,6 +115,7 @@
     "build:image-index": "node src/scripts/build/build-image-index.ts --images src/assets/images --frontmatter-db .frontmatter/database/mediaDb.json --out src/content/_generated/image-index.json --cache .cache/image-index/cache.json --lqip-width 24 --concurrency 4",
     "build:ogimages": "node src/scripts/build/build-og-images.ts",
     "prebuild": "wireit",
+    "build:pagefind": "node src/scripts/build/build-pagefind.ts",
     "postprepare": "wireit",
     "lighthouse:run": "node src/scripts/linting/lighthouse-run.ts",
     "lighthouse:mobile": "node src/scripts/linting/lighthouse-audit.ts --config=mobile",
@@ -271,7 +272,7 @@
       ]
     },
     "build": {
-      "command": "npm run docs:api",
+      "command": "npm run build:pagefind && npm run docs:api",
       "dependencies": [
         "build:prune-prototypes"
       ]

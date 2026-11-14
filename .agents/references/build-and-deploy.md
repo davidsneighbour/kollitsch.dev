@@ -8,8 +8,8 @@ Read this when working on the build pipeline, generated assets, environment vari
 2. **Astro build hooks** (`src/scripts/build/build-hooks.ts`) run as Astro integrations:
    - `generateFeedsIntegration`: optional FreshRSS RSS feeds on `astro:build:start`. Generation failures log a warning and preserve any existing feed files without stopping the build or deployment.
    - `generateHeadersIntegration`: writes `dist/_headers` on `astro:build:done` from the rules in `src/data/headers.ts`. `Expires` is build time plus one year. Do not edit `dist/_headers`; `public/_headers` is gitignored.
-   - `pagefindIntegration` (`src/scripts/build/integrations/pagefind.ts`): Pagefind search index on `astro:build:done`.
-3. **Build**: `npm run build` is orchestrated by `wireit` and runs `astro check` before `astro build`.
+   - `pagefindIntegration`: serves `/pagefind/` from `dist` in the dev server and warns when the index is missing. It does not build the index.
+3. **Build**: `npm run build` is orchestrated by `wireit` and runs `astro check` before `astro build`, then removes `dist/test/` and `dist/prototypes/`, then builds the Pagefind search index with `npm run build:pagefind` (`src/scripts/build/build-pagefind.ts`), so removed pages are not indexed. A bare `astro build` writes no index; run `npm run build:pagefind` afterwards, or to restore a deleted `dist/pagefind/`.
 
 The pre-build step needs API tokens, which is why `AGENTS.md` forbids `npm run build` in sandboxed environments.
 

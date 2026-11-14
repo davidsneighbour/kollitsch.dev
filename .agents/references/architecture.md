@@ -59,7 +59,7 @@ TypeScript path aliases are defined in `tsconfig.json` (`@/*`, `@components/*`, 
 | Add/change site metadata | `src/data/setup.json` |
 | Change social media profiles and share buttons | `src/data/setup.json` (`social` section), see `documentation/content/social-setup.md` |
 | Change navigation | `src/data/topnavigation.json`, `src/data/footernavigation.json` |
-| Change search/indexing | `src/scripts/build/integrations/pagefind.ts`, `astro.config.ts` |
+| Change search/indexing | `src/scripts/build/pagefind-index.ts`, `src/scripts/build/build-pagefind.ts` (index), `pagefindIntegration` in `src/scripts/build/build-hooks.ts` (dev serving) |
 | Add a new blog post | `npm run create:blog` or create in `src/content/blog/` |
 | Change dev server watcher behaviour | `src/scripts/webserver.ts` (`EXTRA_WATCH_PATTERNS`, `NEW_FILE_WATCH_DIRS`, `RESTART_POLL_INTERVAL_MS`); trigger an external restart with `touch RESTART` |
 | Add a redirect | `src/data/redirects.json` |

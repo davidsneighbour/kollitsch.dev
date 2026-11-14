@@ -69,8 +69,10 @@
     "upgrade": "npx @astrojs/upgrade"
   },
   "wireit": {
+    // Pagefind indexes dist after the prune steps, so removed pages
+    // (dist/test, dist/prototypes) never reach the search index. #2232
     "build": {
-      "command": "npm run docs:api",
+      "command": "npm run build:pagefind && npm run docs:api",
       "dependencies": [
         "build:prune-prototypes"
       ]

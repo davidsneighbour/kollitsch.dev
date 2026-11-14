@@ -3,5 +3,10 @@
     "@pagefind/default-ui": "1.6.0",
     "pagefind": "1.6.0",
     "sirv": "3.0.2"
+  },
+  "scripts": {
+    // Index an existing build (dist) for search. `npm run build` runs it
+    // after the prune steps; run it alone to restore a deleted index. #2232
+    "build:pagefind": "node src/scripts/build/build-pagefind.ts"
   }
 }

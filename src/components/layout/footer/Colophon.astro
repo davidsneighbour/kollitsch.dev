@@ -1,5 +1,5 @@
 ---
-import setup from '@data/setup.json' with { type: 'json' };
+import setup from "@data/setup.json" with { type: "json" };
 
 const adjust = 1.9;
 const titleFontSize = Math.floor((100 / setup.title.length) * adjust);
@@ -18,7 +18,8 @@ export interface Props {}
     class="colophon-word absolute bottom-[-0.22em] left-1/2 block -translate-x-1/2
     transition-colors duration-300 ease-in-out
     text-olive-100 hover:text-olive-200
-    dark:text-olive-900 dark:hover:text-olive-800"
+    dark:text-olive-900 dark:hover:text-olive-800
+    opacity-50"
     style="font-size: var(--colophon-title-size);"
     data-text={setup.title}
   >
@@ -32,7 +33,7 @@ export interface Props {}
     colophonDirection,
     colophonSettled,
     colophonSide,
-  } from '@utils/colophon-direction.pure.ts';
+  } from "@utils/colophon-direction.pure.ts";
 
   let controller: AbortController | undefined;
 
@@ -43,36 +44,33 @@ export interface Props {}
    */
   function initColophon(): void {
     controller?.abort();
-    const word = document.querySelector<HTMLElement>('.colophon-word');
+    const word = document.querySelector<HTMLElement>(".colophon-word");
     if (!word) return;
     controller = new AbortController();
     const { signal } = controller;
 
     const update = (event: PointerEvent, phase: ColophonPhase): void => {
       const rect = word.getBoundingClientRect();
-      const front = Number.parseFloat(
-        getComputedStyle(word, '::after').getPropertyValue('--colophon-front'),
-      );
-      const current =
-        word.dataset['colophonSide'] === 'right' ? 'right' : 'left';
-      word.dataset['colophonSide'] = colophonDirection(
+      const front = Number.parseFloat(getComputedStyle(word, "::after").getPropertyValue("--colophon-front"));
+      const current = word.dataset["colophonSide"] === "right" ? "right" : "left";
+      word.dataset["colophonSide"] = colophonDirection(
         current,
         colophonSide(event.clientX, rect.left, rect.width),
         colophonSettled(front, phase),
       );
     };
 
-    word.addEventListener('pointerenter', (event) => update(event, 'enter'), {
+    word.addEventListener("pointerenter", (event) => update(event, "enter"), {
       signal,
     });
-    word.addEventListener('pointerleave', (event) => update(event, 'leave'), {
+    word.addEventListener("pointerleave", (event) => update(event, "leave"), {
       signal,
     });
   }
 
   initColophon();
-  document.addEventListener('astro:page-load', initColophon);
-  document.addEventListener('astro:before-swap', () => controller?.abort());
+  document.addEventListener("astro:page-load", initColophon);
+  document.addEventListener("astro:before-swap", () => controller?.abort());
 </script>
 
 <style>
@@ -127,10 +125,11 @@ export interface Props {}
         oklch(60.6% 0.25 292.717deg) 100%
       );
       background-repeat: no-repeat;
+
       /* 6% wider than the word, so the sway can drift it. */
       background-size: 106% 100%;
       background-position: 0 0;
-      -webkit-background-clip: text;
+      background-clip: text;
       background-clip: text;
       mask-image: linear-gradient(
         var(--colophon-side),

@@ -609,7 +609,8 @@ the document flow.
 On hover, a full spectrum floods into the word from the side where the pointer
 enters, and drains out to the side where it leaves: the `colophon-spectrum-*`
 tokens from red through orange, yellow, the brand green (`primary-500`), sky,
-and blue to violet, at full strength. The spectrum is a `::after` copy of the
+and blue to violet. The whole word, including the spectrum, is drawn at 50%
+opacity (`opacity-50`), which softens both the watermark and the spectrum. The spectrum is a `::after` copy of the
 word (`content: attr(data-text)`) clipped to the text, on top of the olive word.
 A mask with a 24% soft edge reveals it; the edge position
 (`--colophon-front`, a registered `@property`) moves from -15% at rest to 115%

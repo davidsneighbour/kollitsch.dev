@@ -41,9 +41,10 @@ describe('Colophon component (props contract + patterns)', () => {
     expect(src).toMatch(
       /@media \(prefers-reduced-motion: reduce\) \{[\s\S]*?transition: none;/,
     );
+    // Quote style and line breaks are formatter decisions, not contracts.
     expect(src).toContain('colophonDirection(');
-    expect(src).toContain("addEventListener('astro:before-swap'");
-    expect(src).toContain('{\n      signal,\n    }');
+    expect(src).toMatch(/addEventListener\(\s*['"]astro:before-swap['"]/);
+    expect(src).toMatch(/\{\s*signal,?\s*\}/);
   });
 
   // @todo add a test that checks that a font-size prop is defined with a number value in vw

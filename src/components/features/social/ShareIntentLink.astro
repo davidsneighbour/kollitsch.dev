@@ -38,24 +38,30 @@ const staticHref = instanceStorageKey
 ---
 
 {instanceStorageKey ? (
-    <IconLink
-      href="#"
-      icon={icon}
-      class={className}
-      data-share-intent
-      data-url-template={urlTemplate}
-      data-title={title}
-      data-description={description}
-      data-permalink={permalink}
-      data-instance-storage-key={instanceStorageKey}
-    >
-      {label}
-    </IconLink>
-  ) : (
-    <IconLink href={staticHref} icon={icon} class={className} target="_blank" rel="noopener noreferrer">
-      {label}
-    </IconLink>
-  )}
+  <IconLink
+    href="#"
+    icon={icon}
+    class={className}
+    data-share-intent
+    data-url-template={urlTemplate}
+    data-title={title}
+    data-description={description}
+    data-permalink={permalink}
+    data-instance-storage-key={instanceStorageKey}
+  >
+    {label}
+  </IconLink>
+) : (
+  <IconLink
+    href={staticHref}
+    icon={icon}
+    class={className}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {label}
+  </IconLink>
+)}
 
 <script>
   function sanitizeInstance(raw: string): string {

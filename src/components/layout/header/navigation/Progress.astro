@@ -127,10 +127,9 @@ const {
      */
     --cap-radius: calc(var(--progress-height) / 2);
 
-    border-radius: 0
-      calc(var(--cap-radius) / max(var(--scroll), 0.01))
-      calc(var(--cap-radius) / max(var(--scroll), 0.01))
-      0 / 0 var(--cap-radius) var(--cap-radius) 0;
+    border-radius: 0 calc(var(--cap-radius) / max(var(--scroll), 0.01))
+      calc(var(--cap-radius) / max(var(--scroll), 0.01)) 0 / 0 var(--cap-radius)
+      var(--cap-radius) 0;
     transition:
       var(--progress-bar-transition),
       border-radius 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);

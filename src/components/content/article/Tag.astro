@@ -1,10 +1,11 @@
 ---
 // @todo refactor and comment
-import type { TransitionAnimation } from 'astro';
+
 import type { CollectionEntry } from 'astro:content';
 import { slide } from 'astro:transitions';
 import PostImage from '@components/content/media/PostImage.astro';
 import Button from '@components/shared/elements/Button.astro';
+import type { TransitionAnimation } from 'astro';
 
 export interface Props {
   post: CollectionEntry<'tags'>;

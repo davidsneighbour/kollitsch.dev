@@ -105,7 +105,7 @@ const searchInputId = `${componentId}-search-input`;
 ---
 
 <div
-  class:list={["typography-ui w-full", className]}
+  class:list={['typography-ui w-full', className]}
   data-nav-search-root
   data-component-id={componentId}
   data-search-initially-open={String(searchInitiallyOpen)}
@@ -113,11 +113,14 @@ const searchInputId = `${componentId}-search-input`;
   data-close-search-label={closeSearchLabel}
 >
   <div
-    class:list={["relative mx-auto flex min-h-14 w-full items-center gap-4 px-4 sm:px-6 lg:px-8", innerClass]}
+    class:list={[
+      'relative mx-auto flex min-h-14 w-full items-center gap-4 px-4 sm:px-6 lg:px-8',
+      innerClass,
+    ]}
     data-nav-search-outer
   >
     <div
-      class:list={["relative z-10 flex min-w-0 items-center gap-4", leftClass]}
+      class:list={['relative z-10 flex min-w-0 items-center gap-4', leftClass]}
       data-nav-search-region-left
     >
       <slot name="left">
@@ -133,7 +136,10 @@ const searchInputId = `${componentId}-search-input`;
     </div>
 
     <div
-      class:list={["relative z-10 flex min-w-0 flex-1 items-center justify-center gap-4", centerClass]}
+      class:list={[
+        'relative z-10 flex min-w-0 flex-1 items-center justify-center gap-4',
+        centerClass,
+      ]}
       data-nav-search-region-center
     >
       <slot name="center">
@@ -146,12 +152,15 @@ const searchInputId = `${componentId}-search-input`;
           <slot name="nav">
             <ul class="flex items-center gap-4 sm:gap-6">
               {navItems.map((item) => (
-                  <li>
-                    <a href={item.href} class="inline-flex items-center transition">
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a
+                    href={item.href}
+                    class="inline-flex items-center transition"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </slot>
         </nav>
@@ -159,7 +168,10 @@ const searchInputId = `${componentId}-search-input`;
     </div>
 
     <div
-      class:list={["relative z-30 flex min-w-0 items-center justify-end gap-4", rightClass]}
+      class:list={[
+        'relative z-30 flex min-w-0 items-center justify-end gap-4',
+        rightClass,
+      ]}
       data-nav-search-region-right
     >
       <slot name="right">
@@ -179,7 +191,7 @@ const searchInputId = `${componentId}-search-input`;
             >
 
             <span
-              class:list={[searchInitiallyOpen ? "hidden" : "inline-flex"]}
+              class:list={[searchInitiallyOpen ? 'hidden' : 'inline-flex']}
               aria-hidden="true"
               data-nav-search-icon-open
             >
@@ -203,7 +215,7 @@ const searchInputId = `${componentId}-search-input`;
             </span>
 
             <span
-              class:list={[searchInitiallyOpen ? "inline-flex" : "hidden"]}
+              class:list={[searchInitiallyOpen ? 'inline-flex' : 'hidden']}
               aria-hidden="true"
               data-nav-search-icon-close
             >
@@ -222,8 +234,10 @@ const searchInputId = `${componentId}-search-input`;
     <div
       id={searchPanelId}
       class:list={[
-        "absolute inset-y-0 right-4 left-4 z-20 flex origin-right items-center transition-[opacity,scale] duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] sm:right-6 sm:left-6 lg:right-8 lg:left-8",
-        searchInitiallyOpen ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0",
+        'absolute inset-y-0 right-4 left-4 z-20 flex origin-right items-center transition-[opacity,scale] duration-300 ease-[cubic-bezier(0.19,1,0.22,1)] sm:right-6 sm:left-6 lg:right-8 lg:left-8',
+        searchInitiallyOpen
+          ? 'scale-100 opacity-100'
+          : 'pointer-events-none scale-90 opacity-0',
       ]}
       role="search"
       aria-label={searchRegionLabel}

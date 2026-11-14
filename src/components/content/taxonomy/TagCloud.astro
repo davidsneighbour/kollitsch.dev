@@ -61,9 +61,9 @@ function getFontSize(count: number, hiddenByDefault: boolean): string {
   data-tag-filter-id={props.filterId}
 >
   {items.length === 0 ? (
-      <span>(none)</span>
-    ) : (
-      items.map((tag) => (
+    <span>(none)</span>
+  ) : (
+    items.map((tag) => (
       <Tag
         href={tag.url}
         label={`#${props.showCounts ? `${tag.label} (${tag.count})` : tag.label}`}
@@ -75,6 +75,6 @@ function getFontSize(count: number, hiddenByDefault: boolean): string {
         {...(tag.badge && { badge: tag.badge })}
         {...(tag.icon && { icon: tag.icon })}
       />
-      ))
-    )}
+    ))
+  )}
 </div>

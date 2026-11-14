@@ -73,52 +73,52 @@ const mime = 'image/jpeg';
 
 <>
   {(() => {
-  const altText = alt ?? (openGraph.title || 'unknown');
-  const canonicalBase =
-    typeof openGraph.url === 'string' && openGraph.url.length > 0
-      ? openGraph.url
-      : Astro.url;
-  const abs = new URL(resolvedPath, canonicalBase).toString();
+    const altText = alt ?? (openGraph.title || 'unknown');
+    const canonicalBase =
+      typeof openGraph.url === 'string' && openGraph.url.length > 0
+        ? openGraph.url
+        : Astro.url;
+    const abs = new URL(resolvedPath, canonicalBase).toString();
 
-  return (
-    <>
-      {returnType === 'path' && resolvedPath}
+    return (
+      <>
+        {returnType === 'path' && resolvedPath}
 
-      {returnType === 'url' && abs}
+        {returnType === 'url' && abs}
 
-      {returnType === 'tag' && (
-        <img
-          src={resolvedPath}
-          alt={altText}
-          width={SOCIAL_IMAGE_WIDTH}
-          height={SOCIAL_IMAGE_HEIGHT}
-        />
-      )}
-
-      {returnType === 'twitter' && (
-        <>
-          <meta name="twitter:image" content={abs} />
-          <meta name="twitter:image:alt" content={altText} />
-        </>
-      )}
-
-      {(returnType === 'og' ||
-        !['path', 'url', 'tag', 'twitter'].includes(returnType)) && (
-        <>
-          <meta property="og:image" content={abs} />
-          <meta property="og:image:type" content={mime} />
-          <meta
-            property="og:image:width"
-            content={SOCIAL_IMAGE_WIDTH.toString()}
+        {returnType === 'tag' && (
+          <img
+            src={resolvedPath}
+            alt={altText}
+            width={SOCIAL_IMAGE_WIDTH}
+            height={SOCIAL_IMAGE_HEIGHT}
           />
-          <meta
-            property="og:image:height"
-            content={SOCIAL_IMAGE_HEIGHT.toString()}
-          />
-          <meta property="og:image:alt" content={altText} />
-        </>
-      )}
-    </>
-  );
-})()}
+        )}
+
+        {returnType === 'twitter' && (
+          <>
+            <meta name="twitter:image" content={abs} />
+            <meta name="twitter:image:alt" content={altText} />
+          </>
+        )}
+
+        {(returnType === 'og' ||
+          !['path', 'url', 'tag', 'twitter'].includes(returnType)) && (
+          <>
+            <meta property="og:image" content={abs} />
+            <meta property="og:image:type" content={mime} />
+            <meta
+              property="og:image:width"
+              content={SOCIAL_IMAGE_WIDTH.toString()}
+            />
+            <meta
+              property="og:image:height"
+              content={SOCIAL_IMAGE_HEIGHT.toString()}
+            />
+            <meta property="og:image:alt" content={altText} />
+          </>
+        )}
+      </>
+    );
+  })()}
 </>

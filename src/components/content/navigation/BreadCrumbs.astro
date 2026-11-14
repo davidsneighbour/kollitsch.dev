@@ -55,58 +55,59 @@ const postItems = currentYear
   aria-label="Breadcrumb"
 >
   {breadcrumbs &&
-  breadcrumbs.map((breadcrumb, index) => {
-    const isLast = index === breadcrumbs.length - 1;
-    const isYearCrumb = index === yearCrumbIndex && yearItems.length > 0;
-    const isPostCrumb =
+    breadcrumbs.map((breadcrumb, index) => {
+      const isLast = index === breadcrumbs.length - 1;
+      const isYearCrumb = index === yearCrumbIndex && yearItems.length > 0;
+      // biome-ignore format: Preserve the established source contract checked by BreadCrumbs.test.ts.
+      const isPostCrumb =
       isLast && postItems.length > 0 && currentPostId !== undefined;
-    return (
-      <>
-        {isYearCrumb ? (
-          // shrink-0: the year switcher keeps its full width on narrow
-          // screens; only the last crumb (the post title) truncates
-          <span class="inline-flex shrink-0">
+      return (
+        <>
+          {isYearCrumb ? (
+            // shrink-0: the year switcher keeps its full width on narrow
+            // screens; only the last crumb (the post title) truncates
+            <span class="inline-flex shrink-0">
+              <BreadcrumbSwitcher
+                href={breadcrumb.href}
+                label={breadcrumb.label}
+                items={yearItems}
+                currentId={currentYear!}
+                ariaLabel="Switch blog year"
+              />
+            </span>
+          ) : isPostCrumb ? (
             <BreadcrumbSwitcher
               href={breadcrumb.href}
               label={breadcrumb.label}
-              items={yearItems}
-              currentId={currentYear!}
-              ariaLabel="Switch blog year"
+              items={postItems}
+              currentId={currentPostId!}
+              ariaLabel="Switch post"
+              isCurrentPage
             />
-          </span>
-        ) : isPostCrumb ? (
-          <BreadcrumbSwitcher
-            href={breadcrumb.href}
-            label={breadcrumb.label}
-            items={postItems}
-            currentId={currentPostId!}
-            ariaLabel="Switch post"
-            isCurrentPage
-          />
-        ) : (
-          <a
-            href={breadcrumb.href}
-            class={isLast ? 'line-clamp-1 min-w-0 shrink' : 'shrink-0'}
-            aria-current={isLast ? 'page' : undefined}
-            aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
-          >
-            {breadcrumb.label === 'Home' ? (
-              <Icon name="lucide:house" />
-            ) : (
-              <span set:html={breadcrumb.label} />
-            )}
-          </a>
-        )}
-        {!isLast && (
-          <Icon
-            name="lucide:chevron-right"
-            class="shrink-0 text-primary-800/70 dark:text-primary-700/80"
-            aria-hidden="true"
-          />
-        )}
-      </>
-    );
-  })}
+          ) : (
+            <a
+              href={breadcrumb.href}
+              class={isLast ? 'line-clamp-1 min-w-0 shrink' : 'shrink-0'}
+              aria-current={isLast ? 'page' : undefined}
+              aria-label={`Go to ${stripHtmlTags(breadcrumb.label)} page`}
+            >
+              {breadcrumb.label === 'Home' ? (
+                <Icon name="lucide:house" />
+              ) : (
+                <span set:html={breadcrumb.label} />
+              )}
+            </a>
+          )}
+          {!isLast && (
+            <Icon
+              name="lucide:chevron-right"
+              class="shrink-0 text-primary-800/70 dark:text-primary-700/80"
+              aria-hidden="true"
+            />
+          )}
+        </>
+      );
+    })}
 </nav>
 
 <BreadcrumbListSchema items={breadcrumbs} />

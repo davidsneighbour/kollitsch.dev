@@ -64,10 +64,10 @@ const entries: Entry[] = Object.keys(modules)
     role="list"
     class="ml-0 grid list-none grid-cols-2 gap-x-4 sm:grid-cols-3 lg:grid-cols-4"
   >
-    {entries.map(e => (
-        <li>
-          <a href={e.url}>{e.label}</a>
-        </li>
-      ))}
+    {entries.map((e) => (
+      <li>
+        <a href={e.url}>{e.label}</a>
+      </li>
+    ))}
   </ul>
 </Section>

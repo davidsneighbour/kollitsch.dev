@@ -47,7 +47,7 @@ const badgeProps = {
 ---
 
 <Badge {...badgeProps}>
-  {iconName && iconPosition === "inline-start" && (
+  {iconName && iconPosition === 'inline-start' && (
     <Icon
       name={iconName}
       data-icon="inline-start"
@@ -55,7 +55,7 @@ const badgeProps = {
     />
   )}
   <span data-tag-label>{label}</span>
-  {iconName && iconPosition === "inline-end" && (
+  {iconName && iconPosition === 'inline-end' && (
     <Icon
       name={iconName}
       data-icon="inline-end"

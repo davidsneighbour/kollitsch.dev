@@ -118,22 +118,11 @@ const classes =
 ---
 
 {href ? (
-    <a
-      {...attrs}
-      href={href}
-      class={classes}
-      title={title}
-      aria-label={title}
-    >
-      <slot />
-    </a>
-  ) : (
-    <span
-      {...attrs}
-      class={classes}
-      title={title}
-      aria-label={title}
-    >
-      <slot />
-    </span>
-  )}
+  <a {...attrs} href={href} class={classes} title={title} aria-label={title}>
+    <slot />
+  </a>
+) : (
+  <span {...attrs} class={classes} title={title} aria-label={title}>
+    <slot />
+  </span>
+)}

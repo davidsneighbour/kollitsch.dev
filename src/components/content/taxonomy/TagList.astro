@@ -24,24 +24,24 @@ const { tags, showCounts = true, filterId = 'default' } = Astro.props;
   data-tag-filter-id={filterId}
 >
   {tags.length === 0 ? (
-      <span>(none)</span>
-    ) : (
-      tags.map((tag) => {
-        const labelText = showCounts ? `${tag.label} (${tag.count})` : tag.label;
-        // Lowercase once at render time (avoid locale edge cases in runtime code).
-        const labelLower = String(tag.label).toLowerCase();
+    <span>(none)</span>
+  ) : (
+    tags.map((tag) => {
+      const labelText = showCounts ? `${tag.label} (${tag.count})` : tag.label;
+      // Lowercase once at render time (avoid locale edge cases in runtime code).
+      const labelLower = String(tag.label).toLowerCase();
 
-        return (
-          <Tag
-            href={tag.url}
-            label={labelText}
-            dataLabel={labelLower}
-            {...(tag.badge && { badge: tag.badge })}
-            {...(tag.icon && { icon: tag.icon })}
-          />
-        );
-      })
-    )}
+      return (
+        <Tag
+          href={tag.url}
+          label={labelText}
+          dataLabel={labelLower}
+          {...(tag.badge && { badge: tag.badge })}
+          {...(tag.icon && { icon: tag.icon })}
+        />
+      );
+    })
+  )}
 </div>
 
 <script>

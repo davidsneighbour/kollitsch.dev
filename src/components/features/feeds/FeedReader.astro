@@ -79,5 +79,12 @@ const feeds: FeedCard[] = [
       {description}
     </p>
   </div>
-  {feeds.map((feed) => <CardLink href={feed.href} title={feed.title} image={feed.image} alt={feed.alt} />)}
+  {feeds.map((feed) => (
+    <CardLink
+      href={feed.href}
+      title={feed.title}
+      image={feed.image}
+      alt={feed.alt}
+    />
+  ))}
 </div>

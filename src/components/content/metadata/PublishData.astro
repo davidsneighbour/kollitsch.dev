@@ -27,14 +27,14 @@ const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
   <div class="flex flex-row flex-wrap items-center justify-start gap-2">
     <span>Published: {formattedPublishDate}</span>
     {post.data.lastModified && (
-        <span>(Last Modified: {post.data.lastModified})</span>
-      )}
+      <span>(Last Modified: {post.data.lastModified})</span>
+    )}
     {isDev && (
-        <IconLink
-          href={vscodeURL}
-          aria-label="Edit post in VS Code"
-          icon="lucide:pencil"
-        />
-      )}
+      <IconLink
+        href={vscodeURL}
+        aria-label="Edit post in VS Code"
+        icon="lucide:pencil"
+      />
+    )}
   </div>
 </div>

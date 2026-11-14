@@ -29,26 +29,26 @@ const post = {
   </section>
 
   {!import.meta.env.DEV && (
-      <div class="mb-6 rounded-lg border border-primary-300 bg-primary-50 px-4 py-3 text-sm text-primary-800 dark:border-primary-700 dark:bg-primary-950 dark:text-primary-200">
-        This page is a development tool. In a standard production build all
-        <code>draft: true</code> posts are excluded from listings and routes.
-        If you see posts here in production, remove the <code>draft</code> flag
-        before deploying.
-      </div>
-    )}
+    <div class="mb-6 rounded-lg border border-primary-300 bg-primary-50 px-4 py-3 text-sm text-primary-800 dark:border-primary-700 dark:bg-primary-950 dark:text-primary-200">
+      This page is a development tool. In a standard production build all
+      <code>draft: true</code> posts are excluded from listings and routes. If
+      you see posts here in production, remove the <code>draft</code> flag
+      before deploying.
+    </div>
+  )}
 
   {draftPosts.length === 0 ? (
-      <p class="py-12 text-center text-gray-500 dark:text-gray-400">
-        No draft posts found.
-        {import.meta.env.DEV
-          ? " Add draft: true to a post's frontmatter to see it here."
-          : " All posts have been published."}
-      </p>
-    ) : (
-      <div class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {draftPosts.map((draftPost) => (
-          <ArticleCard post={draftPost} />
-        ))}
-      </div>
-    )}
+    <p class="py-12 text-center text-gray-500 dark:text-gray-400">
+      No draft posts found.
+      {import.meta.env.DEV
+        ? " Add draft: true to a post's frontmatter to see it here."
+        : ' All posts have been published.'}
+    </p>
+  ) : (
+    <div class="grid-entrance grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      {draftPosts.map((draftPost) => (
+        <ArticleCard post={draftPost} />
+      ))}
+    </div>
+  )}
 </Layout>

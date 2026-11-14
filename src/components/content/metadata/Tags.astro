@@ -16,20 +16,20 @@ const tags = Array.isArray(post.data.tags)
 ---
 
 {tags.length > 0 && (
-    <div class="flex flex-row items-center justify-start gap-2">
-      <div class="w-6 flex-none">
-        <Icon name="lucide:tags" />
-      </div>
-      <div class="flex flex-row flex-wrap items-center justify-start gap-2">
-        <span>Tags: </span>
-        {tags.map((tag) => (
-          <Tag
-            href={tagUrl(tag.id)}
-            label={`#${tag.label}`}
-            dataLabel={tag.label.toLowerCase()}
-            {...(tag.badge && { badge: tag.badge })}
-          />
-        ))}
-      </div>
+  <div class="flex flex-row items-center justify-start gap-2">
+    <div class="w-6 flex-none">
+      <Icon name="lucide:tags" />
     </div>
-  )}
+    <div class="flex flex-row flex-wrap items-center justify-start gap-2">
+      <span>Tags: </span>
+      {tags.map((tag) => (
+        <Tag
+          href={tagUrl(tag.id)}
+          label={`#${tag.label}`}
+          dataLabel={tag.label.toLowerCase()}
+          {...(tag.badge && { badge: tag.badge })}
+        />
+      ))}
+    </div>
+  </div>
+)}

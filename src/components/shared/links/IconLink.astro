@@ -43,42 +43,16 @@ const buttonAttrs = {
 } satisfies HTMLAttributes<'button'>;
 ---
 
-{as === "button" ? (
-    <button
-      class={`flex items-center gap-2 ${linkClass}`}
-      {...buttonAttrs}
-    >
-      {iconPosition === "prefix" && (
-        <Icon
-          name={icon}
-          class={iconClass}
-        />
-      )}
-      {hasSlot && <slot />}
-      {iconPosition === "postfix" && (
-        <Icon
-          name={icon}
-          class={iconClass}
-        />
-      )}
-    </button>
-  ) : (
-    <a
-      class={`flex items-center gap-2 ${linkClass}`}
-      {...anchorAttrs}
-    >
-      {iconPosition === "prefix" && (
-        <Icon
-          name={icon}
-          class={iconClass}
-        />
-      )}
-      {hasSlot && <slot />}
-      {iconPosition === "postfix" && (
-        <Icon
-          name={icon}
-          class={iconClass}
-        />
-      )}
-    </a>
-  )}
+{as === 'button' ? (
+  <button class={`flex items-center gap-2 ${linkClass}`} {...buttonAttrs}>
+    {iconPosition === 'prefix' && <Icon name={icon} class={iconClass} />}
+    {hasSlot && <slot />}
+    {iconPosition === 'postfix' && <Icon name={icon} class={iconClass} />}
+  </button>
+) : (
+  <a class={`flex items-center gap-2 ${linkClass}`} {...anchorAttrs}>
+    {iconPosition === 'prefix' && <Icon name={icon} class={iconClass} />}
+    {hasSlot && <slot />}
+    {iconPosition === 'postfix' && <Icon name={icon} class={iconClass} />}
+  </a>
+)}

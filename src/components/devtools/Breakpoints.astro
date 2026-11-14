@@ -11,82 +11,99 @@ const DEVBAR_SHOW_KEY = 'Shift+A';
 ---
 
 {isDev && (
-    <div
-      id="dev-bar"
-      class="font-jetbrainsmono fixed right-0 bottom-0 left-0 z-[9999] flex items-center gap-3 border-y border-gray-200 bg-gray-100 px-3 py-2 text-sm text-gray-700 transition-opacity duration-200 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
-      data-position="bottom"
-      data-opacity="full"
-      data-show-key={DEVBAR_SHOW_KEY}
-    >
-      <div class="flex shrink-0 items-center gap-1.5 font-bold">
-        <Icon name="lucide:monitor" class="size-4" />
-        <span class="sm:hidden">XS</span>
-        <span class="hidden sm:inline md:hidden">SM</span>
-        <span class="hidden md:inline lg:hidden">MD</span>
-        <span class="hidden lg:inline xl:hidden">LG</span>
-        <span class="hidden xl:inline 2xl:hidden">XL</span>
-        <span class="hidden 2xl:inline">2XL</span>
-      </div>
-
-      <div class="max-h-[30vh] min-w-0 flex-1 overflow-auto">
-        <button
-          id="load-heading-audit"
-          class="rounded-md bg-gray-700 px-2 py-0.5 text-xs text-gray-50 transition-colors duration-300 hover:bg-gray-600 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500"
-        >
-          Audit Headings
-        </button>
-        <div
-          id="heading-audit-results"
-          class="mt-1 space-y-0.5 text-xs"
-        />
-      </div>
-
-      <div class="flex shrink-0 items-center gap-1">
-        <button
-          id="toggle-opacity"
-          type="button"
-          title="Dim bar to 20% opacity"
-          aria-pressed="false"
-          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <Icon id="opacity-icon-dim" name="lucide:sun-dim" class="size-4" aria-hidden="true" />
-          <Icon id="opacity-icon-full" name="lucide:sun" class="hidden size-4" aria-hidden="true" />
-          <span class="sr-only">Toggle bar opacity</span>
-        </button>
-
-        <button
-          id="toggle-position"
-          type="button"
-          title="Move bar to top"
-          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <Icon id="position-icon-to-top" name="lucide:panel-top" class="size-4" aria-hidden="true" />
-          <Icon id="position-icon-to-bottom" name="lucide:panel-bottom" class="hidden size-4" aria-hidden="true" />
-          <span class="sr-only">Toggle bar position</span>
-        </button>
-
-        <button
-          id="hide-devbar"
-          type="button"
-          title={`Hide until reload (${DEVBAR_SHOW_KEY} to restore)`}
-          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <Icon name="lucide:eye-off" class="size-4" aria-hidden="true" />
-          <span class="sr-only">Hide until reload</span>
-        </button>
-
-        <button
-          id="hide-devbar-permanently"
-          type="button"
-          title="Dismiss (saved to localStorage)"
-          class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <Icon name="lucide:circle-x" class="size-4" aria-hidden="true" />
-          <span class="sr-only">Dismiss permanently</span>
-        </button>
-      </div>
+  <div
+    id="dev-bar"
+    class="font-jetbrainsmono fixed right-0 bottom-0 left-0 z-[9999] flex items-center gap-3 border-y border-gray-200 bg-gray-100 px-3 py-2 text-sm text-gray-700 transition-opacity duration-200 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
+    data-position="bottom"
+    data-opacity="full"
+    data-show-key={DEVBAR_SHOW_KEY}
+  >
+    <div class="flex shrink-0 items-center gap-1.5 font-bold">
+      <Icon name="lucide:monitor" class="size-4" />
+      <span class="sm:hidden">XS</span>
+      <span class="hidden sm:inline md:hidden">SM</span>
+      <span class="hidden md:inline lg:hidden">MD</span>
+      <span class="hidden lg:inline xl:hidden">LG</span>
+      <span class="hidden xl:inline 2xl:hidden">XL</span>
+      <span class="hidden 2xl:inline">2XL</span>
     </div>
-  )}
+
+    <div class="max-h-[30vh] min-w-0 flex-1 overflow-auto">
+      <button
+        id="load-heading-audit"
+        class="rounded-md bg-gray-700 px-2 py-0.5 text-xs text-gray-50 transition-colors duration-300 hover:bg-gray-600 dark:bg-gray-600 dark:text-gray-100 dark:hover:bg-gray-500"
+      >
+        Audit Headings
+      </button>
+      <div id="heading-audit-results" class="mt-1 space-y-0.5 text-xs" />
+    </div>
+
+    <div class="flex shrink-0 items-center gap-1">
+      <button
+        id="toggle-opacity"
+        type="button"
+        title="Dim bar to 20% opacity"
+        aria-pressed="false"
+        class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        <Icon
+          id="opacity-icon-dim"
+          name="lucide:sun-dim"
+          class="size-4"
+          aria-hidden="true"
+        />
+        <Icon
+          id="opacity-icon-full"
+          name="lucide:sun"
+          class="hidden size-4"
+          aria-hidden="true"
+        />
+        <span class="sr-only">Toggle bar opacity</span>
+      </button>
+
+      <button
+        id="toggle-position"
+        type="button"
+        title="Move bar to top"
+        class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        <Icon
+          id="position-icon-to-top"
+          name="lucide:panel-top"
+          class="size-4"
+          aria-hidden="true"
+        />
+        <Icon
+          id="position-icon-to-bottom"
+          name="lucide:panel-bottom"
+          class="hidden size-4"
+          aria-hidden="true"
+        />
+        <span class="sr-only">Toggle bar position</span>
+      </button>
+
+      <button
+        id="hide-devbar"
+        type="button"
+        title={`Hide until reload (${DEVBAR_SHOW_KEY} to restore)`}
+        class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        <Icon name="lucide:eye-off" class="size-4" aria-hidden="true" />
+        <span class="sr-only">Hide until reload</span>
+      </button>
+
+      <button
+        id="hide-devbar-permanently"
+        type="button"
+        title="Dismiss (saved to localStorage)"
+        class="rounded-md p-1 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+      >
+        <Icon name="lucide:circle-x" class="size-4" aria-hidden="true" />
+        <span class="sr-only">Dismiss permanently</span>
+      </button>
+    </div>
+  </div>
+)}
 
 <script>
   import { tinykeys } from 'tinykeys';

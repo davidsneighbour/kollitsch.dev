@@ -92,7 +92,9 @@ const {
           const button = document.createElement('button');
           button.type = 'button';
           button.className = 'github-contributions__day';
-          button.dataset['level'] = String(levels.indexOf(day.contributionLevel));
+          button.dataset['level'] = String(
+            levels.indexOf(day.contributionLevel),
+          );
           button.style.gridColumn = String(index + 1);
           button.style.gridRow = String(day.weekday + 2);
           const text = `${countFormat.format(day.contributionCount)} ${day.contributionCount === 1 ? 'contribution' : 'contributions'} on ${dateFormat.format(new Date(`${day.date}T00:00:00Z`))}`;

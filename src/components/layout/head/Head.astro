@@ -87,10 +87,11 @@ const themeLight = getString(headCfg, 'themeColorLight', '#ffffff');
 const themeDark = getString(headCfg, 'themeColorDark', '#000000');
 ---
 
-<meta charset={setup.head?.defaults?.charset || "utf-8"}>
+<meta charset={setup.head?.defaults?.charset || 'utf-8'}>
 <meta
   name="viewport"
-  content={setup.head?.defaults?.viewport || "width=device-width, initial-scale=1.0"}
+  content={setup.head?.defaults?.viewport ||
+    'width=device-width, initial-scale=1.0'}
 >
 <title>{title}</title>
 
@@ -118,7 +119,9 @@ const themeDark = getString(headCfg, 'themeColorDark', '#000000');
   title={`${setup.title} JSON Feed`}
   href={jsonFeedUrl}
 >
-{markdownAlternateUrl && <link rel="alternate" type="text/markdown" href={markdownAlternateUrl} />}
+{markdownAlternateUrl && (
+  <link rel="alternate" type="text/markdown" href={markdownAlternateUrl} />
+)}
 <meta
   name="robots"
   content={robots}

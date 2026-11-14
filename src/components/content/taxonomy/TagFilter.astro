@@ -190,7 +190,8 @@ const inputId = `tag-filter-input-${safeFilterId}`;
         const spanIndex = offset + pos;
         frag.append(original.slice(cursor, spanIndex));
         const mark = document.createElement('mark');
-        mark.className = 'rounded-sm bg-primary-300/70 text-inherit dark:bg-primary-400/40';
+        mark.className =
+          'rounded-sm bg-primary-300/70 text-inherit dark:bg-primary-400/40';
         mark.textContent = original[spanIndex] ?? '';
         frag.append(mark);
         cursor = spanIndex + 1;
@@ -208,7 +209,9 @@ const inputId = `tag-filter-input-${safeFilterId}`;
         const label = (a.getAttribute('data-label') ?? '').toLowerCase();
         const hiddenByDefault =
           a.getAttribute('data-tag-filter-default-hidden') === 'true';
-        const match = isSearching ? fuzzyInOrder(label, query) : !hiddenByDefault;
+        const match = isSearching
+          ? fuzzyInOrder(label, query)
+          : !hiddenByDefault;
         a.hidden = !match;
         if (match) visible += 1;
 

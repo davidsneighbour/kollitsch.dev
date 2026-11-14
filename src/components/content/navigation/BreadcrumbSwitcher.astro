@@ -46,63 +46,63 @@ const panelId = `breadcrumb-switcher-${currentId.replace(/[^a-zA-Z0-9]+/g, '-')}
     <span set:html={label} />
   </a>
   {hasSwitcher && (
-  <>
-    <button
-      type="button"
-      data-breadcrumb-switcher-toggle
-      aria-expanded="false"
-      aria-controls={panelId}
-      aria-label={ariaLabel}
-      class="relative ml-0.5 inline-flex min-h-6 min-w-6 shrink-0 items-center justify-center rounded p-0.5 text-primary-700 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] before:absolute before:-top-2.5 before:-right-2.5 before:-bottom-2.5 before:left-0 before:content-[''] hover:bg-black/5 hover:text-primary-600 dark:text-primary-600 dark:hover:bg-white/5 dark:hover:text-primary-400"
-    >
-      <Icon
-        name="lucide:chevron-down"
-        class="size-[0.65em] text-current transition-transform duration-200 ease-[cubic-bezier(0.645,0.045,0.355,1)] group-[.open]/switcher:rotate-180"
-        aria-hidden="true"
-      />
-    </button>
-    <span id={panelId} class="contents">
-      {above.length > 0 && (
-        <ul
-          data-breadcrumb-switcher-list="above"
-          class="invisible absolute inset-x-0 bottom-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] -translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
-        >
-          {above.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                data-breadcrumb-switcher-item
-                class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
-                aria-label={`Go to ${stripHtmlTags(item.label)}`}
-              >
-                <span set:html={item.label} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-      {below.length > 0 && (
-        <ul
-          data-breadcrumb-switcher-list="below"
-          class="invisible absolute inset-x-0 top-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
-        >
-          {below.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                data-breadcrumb-switcher-item
-                class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
-                aria-label={`Go to ${stripHtmlTags(item.label)}`}
-              >
-                <span set:html={item.label} />
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </span>
-  </>
-)}
+    <>
+      <button
+        type="button"
+        data-breadcrumb-switcher-toggle
+        aria-expanded="false"
+        aria-controls={panelId}
+        aria-label={ariaLabel}
+        class="relative ml-0.5 inline-flex min-h-6 min-w-6 shrink-0 items-center justify-center rounded p-0.5 text-primary-700 transition-colors duration-150 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] before:absolute before:-top-2.5 before:-right-2.5 before:-bottom-2.5 before:left-0 before:content-[''] hover:bg-black/5 hover:text-primary-600 dark:text-primary-600 dark:hover:bg-white/5 dark:hover:text-primary-400"
+      >
+        <Icon
+          name="lucide:chevron-down"
+          class="size-[0.65em] text-current transition-transform duration-200 ease-[cubic-bezier(0.645,0.045,0.355,1)] group-[.open]/switcher:rotate-180"
+          aria-hidden="true"
+        />
+      </button>
+      <span id={panelId} class="contents">
+        {above.length > 0 && (
+          <ul
+            data-breadcrumb-switcher-list="above"
+            class="invisible absolute inset-x-0 bottom-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] -translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
+          >
+            {above.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  data-breadcrumb-switcher-item
+                  class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
+                  aria-label={`Go to ${stripHtmlTags(item.label)}`}
+                >
+                  <span set:html={item.label} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+        {below.length > 0 && (
+          <ul
+            data-breadcrumb-switcher-list="below"
+            class="invisible absolute inset-x-0 top-full z-20 flex max-h-[min(55vh,32rem)] w-max max-w-[min(90vw,24rem)] translate-y-1 flex-col overflow-y-auto rounded-sm bg-popover py-1 text-xs text-popover-foreground opacity-0 ring-1 ring-gray-900/10 pointer-events-none transition-[visibility,opacity,transform] duration-200 ease-out group-[.open]/switcher:visible group-[.open]/switcher:translate-y-0 group-[.open]/switcher:opacity-100 group-[.open]/switcher:pointer-events-auto dark:ring-gray-100/10"
+          >
+            {below.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  data-breadcrumb-switcher-item
+                  class="block px-3 py-1.5 text-wrap transition-colors duration-300 ease-in-out hover:text-primary-600 dark:hover:text-primary-400"
+                  aria-label={`Go to ${stripHtmlTags(item.label)}`}
+                >
+                  <span set:html={item.label} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </span>
+    </>
+  )}
 </span>
 
 <script>

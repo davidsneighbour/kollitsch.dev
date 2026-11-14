@@ -27,13 +27,13 @@ const Tag = `h${safeLevel}` as Tag;
 <Tag
   {...description && { title: description }}
   {...classname && { class: classname }}
-  {...transitionName && { "transition:name": transitionName }}
+  {...transitionName && { 'transition:name': transitionName }}
 >
   {link ? (
-      <a href={link}>{html ? <Fragment set:html={html} /> : <slot />}</a>
-    ) : html ? (
-      <Fragment set:html={html} />
-    ) : (
-      <slot />
-    )}
+    <a href={link}>{html ? <Fragment set:html={html} /> : <slot />}</a>
+  ) : html ? (
+    <Fragment set:html={html} />
+  ) : (
+    <slot />
+  )}
 </Tag>

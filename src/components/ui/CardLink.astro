@@ -74,26 +74,31 @@ if (image && !alt) {
   target={target}
   rel={rel}
   class:list={[
-    "flex overflow-hidden rounded-lg bg-white/5 px-4 py-5 shadow-sm transition-colors hover:bg-white/10 sm:p-6 dark:bg-black/20 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 dark:hover:bg-black/30",
-    image ? "flex-1 items-center gap-4" : "flex-1 items-start",
+    'flex overflow-hidden rounded-lg bg-white/5 px-4 py-5 shadow-sm transition-colors hover:bg-white/10 sm:p-6 dark:bg-black/20 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10 dark:hover:bg-black/30',
+    image ? 'flex-1 items-center gap-4' : 'flex-1 items-start',
     classes,
   ]}
 >
   {image && (
-      <div class:list={["relative size-24 shrink-0 overflow-hidden rounded-xl sm:size-32", imageWrapperClasses]}>
-        <Image
-          src={image}
-          alt={alt}
-          width={128}
-          height={128}
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-cover"
-        />
-      </div>
-    )}
+    <div
+      class:list={[
+        'relative size-24 shrink-0 overflow-hidden rounded-xl sm:size-32',
+        imageWrapperClasses,
+      ]}
+    >
+      <Image
+        src={image}
+        alt={alt}
+        width={128}
+        height={128}
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  )}
 
-  <span class:list={["text-2xl leading-tight sm:text-3xl", titleClasses]}>
+  <span class:list={['text-2xl leading-tight sm:text-3xl', titleClasses]}>
     {title}
   </span>
 </a>

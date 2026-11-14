@@ -123,13 +123,13 @@ const baseClasses = `
 ---
 
 {href ? (
-    <a href={href} class={`${baseClasses} ${classes}`}>
-      <slot />
-      {name && <Icon name={name} />}
-    </a>
-  ) : (
-    <button type="button" class={`${baseClasses} ${classes}`}>
-      <slot />
-      {name && <Icon name={name} />}
-    </button>
-  )}
+  <a href={href} class={`${baseClasses} ${classes}`}>
+    <slot />
+    {name && <Icon name={name} />}
+  </a>
+) : (
+  <button type="button" class={`${baseClasses} ${classes}`}>
+    <slot />
+    {name && <Icon name={name} />}
+  </button>
+)}

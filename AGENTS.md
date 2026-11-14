@@ -112,4 +112,4 @@ Build and deploy commands are in `.agents/references/build-and-deploy.md`. Do no
 
 ## Dev server
 
-AI assistants own the Astro dev-server lifecycle for every task that needs it and MUST NOT leave it running. Follow the procedure and port rules in `.agents/references/dev-server.md` every time.
+Before a task that needs the Astro dev server, check whether a server already listens on port `4321`. If one does, use it, restart it only when the work requires a restart, and MUST leave it running. If none does, start one and MUST stop it when the work is done. A separate server for the task uses a port from `4400` to `4499` and MUST be stopped afterwards. Follow the procedure and port rules in `.agents/references/dev-server.md` every time.

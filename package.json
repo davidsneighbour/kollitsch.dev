@@ -75,10 +75,12 @@
     "build:prune-test": "wireit",
     "build:verbose": "WIREIT_LOGGER=simple npm run build",
     "check": "wireit",
+    "check:ogimages": "wireit",
     "check:scripts": "tsc --noEmit --project tsconfig.scripts.json",
     "check:types": "tsc --noEmit",
     "clean:astro": "wireit",
     "clean:build-caches": "wireit",
+    "clean:dev-cache": "wireit",
     "clean:og": "wireit",
     "create:blog": "node src/scripts/content/create-blog-post.ts",
     "dev": "npm run dev:watch",
@@ -319,6 +321,9 @@
     },
     "clean:build-caches": {
       "command": "rm -rf .astro node_modules/.astro .cache/image-index .cache/social-images"
+    },
+    "clean:dev-cache": {
+      "command": "rm -rf .astro node_modules/.astro node_modules/.vite"
     },
     "clean:og": {
       "command": "rm -rf .cache/social-images"

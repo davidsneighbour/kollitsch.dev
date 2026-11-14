@@ -31,10 +31,23 @@ npm run build:ogimages -- --check                    # validate only, no writes;
 npm run build:ogimages -- --file="src/content/blog/2026/example/index.md"  # one or more specific posts
 ```
 
-`--check` is wired into `npm run check` (via the `check:ogimages` wireit task), so a CI run that calls `npm run check` catches missing/stale/orphaned social images. On failure it prints a hint to run `npm run build:ogimages` and commit the result before deploying.
+`--check` is wired into `npm run check` (via the `check:ogimages` wireit task), and `npm run check:ogimages` runs the same check on its own, so a CI run that calls `npm run check` catches missing/stale/orphaned social images. On failure it prints a hint to run `npm run build:ogimages` and commit the result before deploying.
 
 Staleness is tracked in a fingerprint manifest at `.cache/social-images/manifest.json` (not tracked in Git) rather than in the filename, since filenames are deterministic. The fingerprint covers title, publish/modified date, resolved background image, dimensions, format, and a `TEMPLATE_VERSION` constant in `src/utils/social-image/template.ts` — bump that constant after any visual change to invalidate every existing image.
 
 lint-staged runs `build-og-images.ts --file=<staged post>` for staged `src/content/blog/**/*.{md,mdx}` changes and stages the resulting image additions/deletions (`git add public/images/social`) so the image ships in the same commit as the content change — including cleanup when a post is renamed or deleted.
 
 lint-staged runs commands without a shell and splits them with `string-argv`, which removes quotes only when they wrap a whole token. `.lintstagedrc.ts` therefore quotes the complete `"--file=<path>"` token. As a second safeguard, `parseArgs` removes one pair of quotes around a `--file` value, and the script prints a warning for each `--file` path that matches no blog post (path outside `src/content/blog/`, invalid frontmatter, or wrong quoting).
+
+## Clearing caches
+
+These scripts delete local caches only. None of them touches tracked files.
+
+| Script | Deletes | Use it when |
+| --- | --- | --- |
+| `npm run clean:dev-cache` | `.astro`, `node_modules/.astro`, `node_modules/.vite` | the dev server shows stale state after many edits or restarts. Restart `npm run dev` afterwards. The next start pre-bundles dependencies again, which takes a few seconds more. |
+| `npm run clean:astro` | `.astro`, `dist`, `node_modules/.astro` | you want to remove the build output too. |
+| `npm run clean:build-caches` | `.astro`, `node_modules/.astro`, `.cache/image-index`, `.cache/social-images` | processed images must be built again from source (`build:clean` runs it first). |
+| `npm run clean:og` | `.cache/social-images` | the social-image fingerprint manifest must be built again. |
+
+`node_modules/.vite` is the Vite dependency pre-bundling cache. It is separate from the Astro caches, so only `clean:dev-cache` removes it without a full reinstall.

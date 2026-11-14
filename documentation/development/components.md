@@ -63,3 +63,7 @@ When a component script uses `define:vars`, add `is:inline` explicitly:
 ```
 
 For keyboard shortcuts, use `tinykeys` and store the unsubscribe function. In Astro components with view transitions, unsubscribe on `astro:before-swap` and register again on `astro:page-load`. The current registered project shortcut is `Shift+A` for restoring the hidden dev breakpoint bar in `src/components/devtools/Breakpoints.astro`.
+
+## Source formatting
+
+Run `npm run biome:check` to check the configured source scope and `npm run biome:lint` to apply safe fixes. Biome's Markdown formatter is disabled because version 2.6 rewrites nested YAML frontmatter as Markdown, which can make Astro pages invalid. Markdown remains checked by markdownlint, Vale, and typos through lint-staged. The validation gate remains `npm test`, `npx astro check`, and lint-staged; Biome's full check is a separate command.

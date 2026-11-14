@@ -146,6 +146,12 @@
   },
   "overrides": [
     {
+      "formatter": { "enabled": false },
+      // Biome 2.6 rewrites YAML frontmatter as Markdown and breaks Astro pages.
+      // Keep Markdown with markdownlint and Vale instead (issue #2202).
+      "includes": ["**/*.md", "**/*.mdx"]
+    },
+    {
       "includes": ["**/*.html"]
     },
     {

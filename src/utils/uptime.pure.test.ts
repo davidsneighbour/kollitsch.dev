@@ -133,8 +133,9 @@ describe('day count helpers', () => {
   });
 
   it('formats the day count and the time of day', () => {
-    expect(formatDayCount(18759)).toBe('18,759');
+    expect(formatDayCount(18759)).toBe('18.759');
     expect(formatDayCount(999)).toBe('999');
+    expect(formatDayCount(1234567)).toBe('1.234.567');
     expect(
       formatDayClockTime({ days: 1, hours: 7, minutes: 5, seconds: 9 }),
     ).toBe('07:05:09');
@@ -152,7 +153,7 @@ describe('day count helpers', () => {
     expect(next.date.toISOString()).toBe('2027-07-12T04:25:00.000Z');
   });
 
-  it('matches day 17,000 from the 2022 post and reports it on the day', () => {
+  it('matches day 17.000 from the 2022 post and reports it on the day', () => {
     const onTheDay = nextDayMilestone(born, new Date('2022-01-19T10:00:00Z'));
     expect(onTheDay).toEqual({
       date: new Date('2022-01-19T04:25:00.000Z'),
@@ -176,7 +177,7 @@ describe('formatDayMilestone', () => {
         },
         'Asia/Bangkok',
       ),
-    ).toBe('next: day 19,000, 12 July 2027');
+    ).toBe('next: day 19.000, 12 July 2027');
   });
 
   it('says so on the day itself', () => {
@@ -185,6 +186,6 @@ describe('formatDayMilestone', () => {
         { date: new Date('2022-01-19T04:25:00Z'), day: 17000, today: true },
         'Asia/Bangkok',
       ),
-    ).toBe('today: day 17,000');
+    ).toBe('today: day 17.000');
   });
 });

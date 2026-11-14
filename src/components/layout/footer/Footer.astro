@@ -263,13 +263,12 @@ const networkColourStyle = (fill: string): string | undefined => {
                         aria-hidden="true"
                         hidden
                       >
-                        {/* The ", " separator sits outside the no-wrap unit, so the line can break after each comma. */}
+                        {/* Each comma stays beside its label; only the following space sits outside the unit. */}
                         {UPTIME_UNITS.map((unit, index) => (
                           <Fragment>
                             <span class="footer-uptime-unit" data-unit={unit}>
                               <span data-uptime-value></span>{' '}
-                              <span data-uptime-label>{unit}</span>
-                              {index < UPTIME_UNITS.length - 1 && ','}
+                              <span data-uptime-label>{unit}</span>{index < UPTIME_UNITS.length - 1 && ','}
                             </span>
                             {index < UPTIME_UNITS.length - 1 && ' '}
                           </Fragment>
@@ -285,11 +284,8 @@ const networkColourStyle = (fill: string): string | undefined => {
                   </dd>
                   <dt>garden</dt>
                   <dd>
-                    <a href="/blog/">{postCount} posts</a>
-                    {tagCount > 0 && (
-                      <Fragment>
-                        , <a href="/tags/">{tagCount} tags</a>
-                      </Fragment>
+                    <a href="/blog/">{postCount} posts</a>{tagCount > 0 && (
+                      <Fragment>{', '}<a href="/tags/">{tagCount} tags</a></Fragment>
                     )}
                   </dd>
                 </dl>

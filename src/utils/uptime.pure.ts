@@ -150,9 +150,9 @@ export function dayClock(start: Date, now: Date): DayClock {
   };
 }
 
-/** Formats a day count with British digit grouping ("18,759"). */
+/** Formats a footer day count with the approved dot grouping ("18.759"). */
 export function formatDayCount(days: number): string {
-  return new Intl.NumberFormat('en-GB').format(days);
+  return new Intl.NumberFormat('de-DE').format(days);
 }
 
 /** Formats the time of day of a `DayClock` as "07:05:09". */

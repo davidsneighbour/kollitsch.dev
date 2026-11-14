@@ -89,3 +89,7 @@ Date: 14 November 2026. Decision: Put the arrow in the final word's inline text 
 ## Mobile footer end order
 
 Date: 14 November 2026. Decision: Show the web ring, feeds, then policy links below 48rem, with the pledge badge following (issue #2239). Reason: The owner requested that mobile reading order. Change rule: Preserve the existing desktop arrangement and link destinations.
+
+## Footer day-count grouping
+
+Date: 14 November 2026. Decision: Use dots as thousands separators in author uptime and milestone day counts, and remove spaces before online-counter and garden commas (issue #2240). Reason: The owner requested dot grouping and standard comma spacing. Change rule: Keep dates in British English and leave unrelated number formatting unchanged.

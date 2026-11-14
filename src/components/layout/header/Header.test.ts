@@ -148,3 +148,24 @@ describe('mobile menu state', () => {
     expect(timerCleared).toBe(true);
   });
 });
+
+describe('compact scrolled brand', () => {
+  it('keeps the mobile brand small and removes only its decorative house icon', async () => {
+    const source = await (await import('node:fs/promises')).readFile(
+      new URL('./Header.astro', import.meta.url),
+      'utf8',
+    );
+    expect(source).toContain('navbar-brand-icon');
+    expect(source).toMatch(
+      /#navbar-brand\s*\{\s*font-size: var\(--text-base\);/,
+    );
+    // @apply without @reference breaks every page in the dev server (500).
+    if (source.includes('@apply')) {
+      expect(source).toContain('@reference');
+    }
+    expect(source).toMatch(/\.navbar-brand-icon\s*\{\s*display: none;/);
+    expect(source).toContain(
+      '#site-header:not([data-scrolled]) [data-nav-search-region-left]',
+    );
+  });
+});

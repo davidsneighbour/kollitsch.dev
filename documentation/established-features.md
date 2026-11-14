@@ -105,3 +105,7 @@ The phrase `White Lotus'ses third season` is deliberate Patrick-style wording: a
 Date: 14 November 2026. Decision: Use compact navigation below a 48rem header container width at the current text size, and let its controls wrap below the brand when they cannot share a row (issue #2237). The menu follows the measured header height, and search follows the controls row. Reason: Enlarged text must not push navigation actions off screen. Change rule: Preserve the full brand, control targets, and wide-layout theme corner field. The compact theme control remains separate from the large site title on first paint, resolving the original concern in issue #1867.
 
 The menu reports its expanded state, makes closed content inert, supports Escape with focus restoration, and closes when search opens. Preserve these interaction and accessibility states during future layout work.
+
+## Small scrolled mobile brand
+
+Date: 14 November 2026. Decision: Use a 1rem Changa One brand without a house icon in compact navigation, shown only after the large title leaves view (issue #2244). Reason: The normal mobile sticky header should remain one row, with the title left and the three controls right. Change rule: Preserve the initial large-title view, full brand wording, minimum control targets, and enlarged-text wrapping.

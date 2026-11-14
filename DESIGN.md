@@ -649,3 +649,7 @@ Below 48rem, the footer end shows the Static.Quest web ring first, feeds on thei
 ## Adaptive mobile header
 
 Below a 48rem header container width, evaluated at the current root text size, header regions wrap naturally when the brand and controls cannot share a row. The theme, menu, and search controls stay together below the brand when needed. Horizontal outer padding and gaps cap at 16px; the control gap caps at 8px, using the existing spacing scale. The brand can wrap at the domain separator, with emergency wrapping at enlarged text sizes, without shrinking its typography. The compact navigation trigger follows this same container condition. The menu follows the measured header height; search follows the controls row. Closed menus are inert, Escape closes the menu and restores focus, and opening search closes the menu. Keep the desktop layout and approved corner theme field unchanged.
+
+## Compact scrolled brand
+
+The compact header shows the small brand only after the large site title leaves view. It uses Changa One at the existing `body-md` size of 1rem, with no house icon or horizontal link padding, and a minimum 2.75rem target height. At normal mobile text size, the title stays left and theme, menu, and search controls stay right in one row. The initial view retains the large title above the controls. Enlarged text may still wrap the controls to keep every action available. The wide-layout brand remains unchanged.

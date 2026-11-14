@@ -71,7 +71,7 @@ if (!activeItem && import.meta.env.DEV) {
         >
           <Icon
             name="lucide:house"
-            class="place-self-center"
+            class="navbar-brand-icon place-self-center"
           />
           <span class="min-w-0">{setup.title.split('.').map((part, index) => (
             <>{index > 0 && <><wbr />.</>}{part}</>
@@ -645,6 +645,19 @@ if (!activeItem && import.meta.env.DEV) {
     #navbar-brand {
       max-width: 100%;
       overflow-wrap: anywhere;
+    }
+
+    /* DESIGN.md body-md (1rem). Theme variables, not @apply: this style
+       block has no @reference to the Tailwind entry point. */
+    #navbar-brand {
+      font-size: var(--text-base);
+      line-height: var(--text-base--line-height);
+      min-height: 2.75rem;
+      padding: 0;
+    }
+
+    .navbar-brand-icon {
+      display: none;
     }
 
     [data-nav-search-region-center] {

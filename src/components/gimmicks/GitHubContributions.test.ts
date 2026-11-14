@@ -151,3 +151,18 @@ describe('decorative calendar', () => {
     expect(source).not.toContain('data-tooltip');
   });
 });
+
+describe('calendar loading reservation', () => {
+  it('reserves the wrapped error summary before JavaScript without announcing it twice', async () => {
+    const container = await AstroContainer.create();
+    const html = await container.renderToString(GitHubContributions);
+    expect(html).toMatch(
+      /class="github-contributions__summary-reserve"[^>]*aria-hidden="true"/,
+    );
+    expect(html).toContain(
+      'GitHub activity is unavailable. Please try again later.',
+    );
+    expect(html.match(/aria-live="polite"/g)).toHaveLength(1);
+    expect(html).toContain('Loading GitHub activity...');
+  });
+});

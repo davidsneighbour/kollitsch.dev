@@ -22,12 +22,20 @@ const {
   data-cache-hours={cacheHours}
 >
   <slot name="heading"><h3>{heading}</h3></slot>
-  <p
-    aria-live="polite"
-    data-summary
-  >
-    Loading GitHub activity...
-  </p>
+  <div class="github-contributions__summary">
+    <span
+      class="github-contributions__summary-reserve"
+      aria-hidden="true"
+    >
+      GitHub activity is unavailable. Please try again later.
+    </span>
+    <p
+      aria-live="polite"
+      data-summary
+    >
+      Loading GitHub activity...
+    </p>
+  </div>
   <div
     class="overflow-x-auto py-4"
     data-calendar
@@ -146,10 +154,32 @@ const {
     @apply text-gray-600 dark:text-gray-400;
   }
 
+  .github-contributions__summary,
+  .github-contributions [data-calendar] {
+    display: grid;
+  }
+
+  .github-contributions__summary-reserve,
+  .github-contributions [data-summary] {
+    grid-area: 1 / 1;
+  }
+
+  .github-contributions__summary-reserve {
+    visibility: hidden;
+  }
+
+  .github-contributions [data-calendar]::before {
+    content: '';
+    grid-area: 1 / 1;
+    /* Month row, seven day rows, and the seven gaps between them. */
+    block-size: calc(1.2rem + 7 * 0.75rem + 7 * 0.25rem);
+  }
+
   .github-contributions :global(.github-contributions__grid) {
+    grid-area: 1 / 1;
     display: grid;
     grid-template-columns: repeat(var(--weeks), minmax(0.75rem, 1fr));
-    grid-template-rows: auto repeat(7, 0.75rem);
+    grid-template-rows: 1.2rem repeat(7, 0.75rem);
     gap: 0.25rem;
     min-width: max-content;
     padding-inline: 0.5rem;

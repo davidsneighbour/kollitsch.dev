@@ -69,3 +69,7 @@ Date: 14 November 2026. Decision: Configured `{instance}` share links ask for a 
 Date: 14 November 2026. Decision: Keep the GitHub annual contribution total accessible, and treat the coloured day grid as a static decorative illustration without controls or tooltips, as approved by the owner (issue #2234). Reason: The calendar is a secondary activity illustration; hundreds of daily tab stops add navigation cost without serving a footer task. Change rule: Preserve the accessible total and inert, hidden-from-assistive-technology grid.
 
 Clock and counter work pauses outside a 256px vertical pre-entry margin and while the tab is hidden. Returning values catch up without animation before normal ticking resumes. Standalone mobile footer links have 44px minimum targets below 48rem; desktop and inline prose spacing remain unchanged. Preserve those boundaries when refining the footer.
+
+## Calendar loading space
+
+Date: 14 November 2026. Decision: Reserve the calendar rows and the wrapped summary error-message height in server-rendered markup and CSS across loading, success, and error (issue #2235). Reason: The lazy calendar previously moved the copyright strip by about 129px when data arrived. Change rule: Preserve that reserved geometry without introducing a loading animation or requiring JavaScript for sizing.

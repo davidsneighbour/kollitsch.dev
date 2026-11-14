@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.7.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.6.0...v3.7.0) (2026-11-14)
+
+### Feat
+
+* **footer:** add cached GitHub contribution calendar ([619a446](https://github.com/davidsneighbour/kollitsch.dev/commit/619a446a3c06b9d5b7a4bde2b103b97397a67969)), closes [#2224](https://github.com/davidsneighbour/kollitsch.dev/issues/2224)
+
+### Fix
+
+* **config:** declare GitHub contribution Worker secrets ([b617ca1](https://github.com/davidsneighbour/kollitsch.dev/commit/b617ca1cd504cf439de63ef6a62d51e7ff1120c4)), references [#2224](https://github.com/davidsneighbour/kollitsch.dev/issues/2224)
+* **config:** unblock deployment type checks ([366e8d0](https://github.com/davidsneighbour/kollitsch.dev/commit/366e8d0ffe4589d845b1712ff2ad88e2e4df8259)), closes [#2225](https://github.com/davidsneighbour/kollitsch.dev/issues/2225)
+* **footer:** contain contribution calendar hover scaling ([7354b51](https://github.com/davidsneighbour/kollitsch.dev/commit/7354b5111c54193f4b033a812d15990b5b15617d)), closes [#2226](https://github.com/davidsneighbour/kollitsch.dev/issues/2226)
+
+### Style
+
+* **footer:** match contribution calendar to terminal design ([c42b68e](https://github.com/davidsneighbour/kollitsch.dev/commit/c42b68e4a0ab26a5e549a1d2dc3957f000ffb1d5)), closes [#2227](https://github.com/davidsneighbour/kollitsch.dev/issues/2227)
+
+### Build
+
+* **deps:** update dependencies ([0f8e939](https://github.com/davidsneighbour/kollitsch.dev/commit/0f8e9394a34316aa11e50c62b0b59a092bb4ad5e))
+
 ## [3.6.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.5.1...v3.6.0) (2026-11-13)
 
 ### Feat

@@ -2,7 +2,7 @@
 title: Prose
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-07-27T00:00:00+07:00
+updated: 2026-11-26T00:00:00+07:00
 ---
 
 Renders a blog post's rendered Markdown content inside a typography wrapper.
@@ -33,4 +33,4 @@ import Prose from '@components/content/typography/Prose.astro';
 
 ## Behaviour
 
-This component has no client-side behaviour. It calls Astro's `render(post)` to obtain the post's `<Content />` component, then renders it inside a `<div class="typography-reading">`, which applies the site's reading-mode typography styles.
+This component has no client-side behaviour. It calls Astro's `render(post)` to obtain the post's `<Content />` component and its headings, renders a [`TableOfContents`](../navigation/table-of-contents.md) from the headings, then renders the content inside a `<div class="typography-reading">`, which applies the site's reading-mode typography styles.

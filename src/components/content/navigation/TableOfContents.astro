@@ -1,0 +1,30 @@
+---
+import { getTocHeadings } from '@utils/table-of-contents.ts';
+import type { MarkdownHeading } from 'astro';
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings }: Props = Astro.props;
+const entries = getTocHeadings(headings);
+---
+
+{/* Collapsed by default: the reader opens it when they want to jump. Shown
+    only for posts with enough sections (see `getTocHeadings`). */}
+{entries.length > 0 && (
+  <details class="not-prose group my-6 rounded-sm bg-black/5 px-4 py-2 font-exo2 text-base lg:text-lg dark:bg-white/5">
+    <summary class="cursor-pointer py-1 font-normal text-gray-700 marker:text-primary-700 dark:text-gray-300 dark:marker:text-primary-500">
+      On this page
+    </summary>
+    <nav aria-label="On this page">
+      <ol class="mt-2 mb-2 flex flex-col gap-1">
+        {entries.map((heading) => (
+          <li class={heading.depth === 3 ? 'pl-5 text-sm lg:text-base' : ''}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  </details>
+)}

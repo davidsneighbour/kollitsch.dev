@@ -25,7 +25,7 @@ const { post, frontmatter } = Astro.props;
 
 <Site post={post} frontmatter={frontmatter}>
   <SiteHeader />
-  <main class={setup.classes.containers.wide}>
+  <main id="main" tabindex="-1" class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">
       <slot />
 

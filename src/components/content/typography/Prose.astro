@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
+import TableOfContents from '@components/content/navigation/TableOfContents.astro';
 import ReadingArea from '@components/content/typography/ReadingArea.astro';
 
 export interface Props {
@@ -8,9 +9,10 @@ export interface Props {
 }
 
 const { post }: Props = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
+<TableOfContents headings={headings} />
 <ReadingArea>
   <Content />
 </ReadingArea>

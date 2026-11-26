@@ -37,7 +37,7 @@ const commentsPost = post ?? { id: Astro.url.pathname, data: { title: frontmatte
 
 <Site post={post} frontmatter={frontmatter}>
   <SiteHeader />
-  <main class={setup.classes.containers.wide}>
+  <main id="main" tabindex="-1" class={setup.classes.containers.wide}>
     <article class="content mx-auto max-w-5xl">
       <Heading level={1} class="mb-6" transitionName={post ? `post-title-${post.id}` : ""}>
         {frontmatter?.title ?? post?.data.title}

@@ -2,7 +2,7 @@
 title: BreadCrumbs
 tags: []
 created: 2026-07-27T00:00:00+07:00
-updated: 2026-09-21T00:00:00+07:00
+updated: 2026-11-26T00:00:00+07:00
 ---
 
 Renders a breadcrumb trail derived from a content file's path, plus its matching `BreadcrumbList` structured data. On blog post breadcrumbs, the year segment and the post (last) segment expand into a year/post switcher when siblings exist.
@@ -23,6 +23,7 @@ Renders a breadcrumb trail derived from a content file's path, plus its matching
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `path` | `string` | required | The content file's path, passed to `getBreadcrumbs()` to derive the trail |
+| `class` | `string` | `''` | Extra classes for the `nav` bar, for example spacing from the caller |
 
 `BreadcrumbSwitcher.astro`:
 
@@ -55,4 +56,4 @@ On narrow screens, Home, Blog, and the year switcher keep their full width (`shr
 
 For the year segment and the last (post) segment, `BreadCrumbs.astro` renders `BreadcrumbSwitcher` instead of a plain link, passing the full list of blog years (`getBlogYears()`) or the current year's sibling posts (`getBlogPostsForYear()`). `BreadcrumbSwitcher` degrades to the same plain link with no switcher chrome when there is only one item (no siblings to switch between).
 
-When siblings exist, `BreadcrumbSwitcher` renders the unchanged link plus a small disclosure `<button>` (`aria-expanded`/`aria-controls`) next to it — mirroring `NavItem.astro`'s link-plus-toggle composition, so the link's click-to-navigate behaviour is never overloaded with open/close semantics. Sibling items split around `currentId` into two lists, CSS-anchored directly above (`bottom-full`) and below (`top-full`) the trigger via a `position: relative` wrapper — the active item is the trigger itself, so it never moves and there is nothing to duplicate or measure. Opening: closes any other open switcher, adds a `.open` class, scrolls the "above" list to its end, and focuses the trigger link. Keyboard support inside an open switcher: `ArrowUp`/`ArrowDown` roam between the trigger and sibling links, `Home`/`End` jump to the first/last link, `Escape` closes and returns focus to the toggle button. Outside-click dismissal is a single delegated `document` listener guarded by a flag on `<body>` (auto-resets on Astro view-transition swap, same convention as `NavItem.astro`). Motion respects `prefers-reduced-motion: reduce` via a scoped `<style>` block that collapses the transition to `0.01ms` and drops the translate (the same convention as `Header.astro`'s reduced-motion overrides, not the `motion-reduce:` Tailwind variant).
+When siblings exist, `BreadcrumbSwitcher` renders the unchanged link plus a small disclosure `<button>` (`aria-expanded`/`aria-controls`) next to it — mirroring `NavItem.astro`'s link-plus-toggle composition, so the link's navigate-on-activation behaviour is never overloaded with open/close semantics. Sibling items split around `currentId` into two lists, CSS-anchored directly above (`bottom-full`) and below (`top-full`) the trigger via a `position: relative` wrapper — the active item is the trigger itself, so it never moves and there is nothing to duplicate or measure. Opening: closes any other open switcher, adds a `.open` class, scrolls the "above" list to its end, and focuses the trigger link. Keyboard support inside an open switcher: `ArrowUp`/`ArrowDown` roam between the trigger and sibling links, `Home`/`End` jump to the first/last link, `Escape` closes and returns focus to the toggle button. Dismissal when the pointer goes down outside the panel is a single delegated `document` listener guarded by a flag on `<body>` (resets automatically on Astro view-transition swap, same convention as `NavItem.astro`). Motion respects `prefers-reduced-motion: reduce` via a scoped `<style>` block that collapses the transition to `0.01ms` and drops the translate (the same convention as `Header.astro`'s reduced-motion overrides, not the `motion-reduce:` Tailwind variant).

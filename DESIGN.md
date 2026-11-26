@@ -562,6 +562,13 @@ In dark mode, headings across the site use `heading-dark` (`text-primary-500`) s
 
 In light mode, prose headings inherit the surrounding reading colour instead of forcing an independent accent, white, or black. The Changa display face already carries enough hierarchy; colour should come from the parent context unless a component has a specific semantic reason to override it.
 
+### Long-post way-finding
+
+* **Cover:** the single post cover is 2:1 and 21:9 from the `lg` breakpoint, so the first paragraph starts higher on wide screens. The breadcrumb sits between the cover and the title.
+* **Table of contents:** posts with 4 or more `h2` headings show a closed `<details>` "On this page" box above the body, styled like the breadcrumb bar (`bg-black/5`, `dark:bg-white/5`, `rounded-sm`). `h3` entries are indented and one step smaller.
+* **Section anchors:** `h2` to `h4` in post bodies carry a `#` anchor after the text: `gray-400` in light mode (`primary-500` on hover); in dark mode it follows the dark heading-link colours. It is hidden until the heading is hovered or the anchor has keyboard focus, and stays at 60% opacity on touch screens. It fades in over 150ms with the prose-link easing; reduced motion removes the transition.
+* **Skip link:** "Skip to content" is the first focusable element on every page. It is visually hidden until focused, then shows top left as a `primary-700` box with white text (`primary-500` with `gray-950` in dark mode).
+
 ### Animated Rule (heading underlines & `<hr>`)
 
 Every heading (`h1`–`h6`, site-wide, not just prose) and every prose `<hr>` draws a hairline rule using the `animated-rule` token: `{components.animated-rule.thickness}` thick, `gray-300` in light mode / `gray-700` in dark mode - the same neutral already used for `<hr>` before this system existed, kept deliberately quiet rather than tinted with `primary`. This replaces the old hand-placed `border-b` dividers on the footer's section headings and `BlogHeading.astro`'s title section - do not re-add a manual border next to a heading or `<hr>`, the animated rule already provides it.

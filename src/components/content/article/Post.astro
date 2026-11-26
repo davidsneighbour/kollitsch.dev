@@ -36,7 +36,7 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
 >
   <PostImage
     post={post}
-    classes="aspect-2/1 w-full max-w-full object-cover rounded-t-lg"
+    classes="aspect-2/1 lg:aspect-21/9 w-full max-w-full object-cover rounded-t-lg"
     figureClasses="-mx-4 -mt-4 sm:-mx-6 sm:-mt-6 lg:-mx-8 lg:-mt-8"
     widths={[640, 896, 1024, 1280, 1536, 1792, 2048]}
     sizes="(min-width: 1536px) 1024px, (min-width: 1024px) 896px, 100vw"
@@ -44,6 +44,7 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
     dateBadge
     priority
   />
+  <BreadCrumbs path={post.filePath ?? ''} class="mt-4" />
   <Heading
     level={1}
     class="heading text-4xl text-primary-700 md:text-5xl xl:text-6xl dark:text-primary-500"
@@ -55,7 +56,6 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
       set:html={post.data.subtitle}
     />
   )}
-  <BreadCrumbs path={post.filePath ?? ''} />
   <Prose post={post} />
   {post.data.sourcecode && (
     <SourceCode sourcecode={post.data.sourcecode} class="mt-8" />
@@ -65,8 +65,8 @@ const mediaTransitionName = getPostPreviewMediaTransitionName(post.id);
     title={post.data.title}
     description={post.data.description}
   />
-  <PaginationSingle post={post} />
-  <Giscus post={post} />
   <Meta post={post} />
+  <Giscus post={post} />
+  <PaginationSingle post={post} />
   <SchemaBlogPost post={post} />
 </article>

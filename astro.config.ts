@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
-import { unified } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { remarkKbdNested } from 'remark-kbd-nested';
 import { remarkDefinitionList, defListHastHandlers } from 'remark-definition-list';
@@ -22,6 +22,7 @@ import {
 } from './src/utils/redirects.ts';
 import { remarkDnbTypography } from './src/utils/markdown-typography.ts';
 import { rehypeArchiveLinks } from './src/utils/rehype-archive-links.ts';
+import { rehypeHeadingAnchors } from './src/utils/rehype-heading-anchors.ts';
 import tailwindcss from '@tailwindcss/vite';
 
 // env variables are not automatically loaded
@@ -134,7 +135,9 @@ export default defineConfig({
     processor: unified({
       remarkPlugins: [remarkKbdNested, remarkDefinitionList, remarkDnbTypography],
       // Marks web.archive.org snapshot links with the Internet Archive icon.
-      rehypePlugins: [rehypeArchiveLinks],
+      // Heading ids are added first (Astro would add them only after user
+      // plugins) so the section anchors can link to them.
+      rehypePlugins: [rehypeArchiveLinks, rehypeHeadingIds, rehypeHeadingAnchors],
       // Blank-line-separated `Term`/`: Definition` pairs stay one <dl>; a
       // definition list only ends where a non-definition block begins.
       remarkRehype: { handlers: { ...defListHastHandlers } },

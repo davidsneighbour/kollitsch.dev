@@ -13,7 +13,7 @@ const { post }: Props = Astro.props;
 const vscodeURL = getVSCodeUrlById(post.id);
 const isDev = import.meta.env.DEV;
 const date = new Date(post.data.date);
-const formattedPublishDate = formatDate(date);
+const formattedPublishDate = formatDate(date, 'D MMMM YYYY');
 const metaDate = 'date:' + formatDate(date, 'YYYY-MM-DD');
 ---
 

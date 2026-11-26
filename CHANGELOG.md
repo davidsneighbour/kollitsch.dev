@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.9.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.8.0...v3.9.0) (2026-11-26)
+
+### Content
+
+* **apt:** add post on fixing APT i386 architecture notices ([7e3e004](https://github.com/davidsneighbour/kollitsch.dev/commit/7e3e004701d9bc76b75cc918887fa1ec90f6a64e))
+* **apt:** add post on fixing APT i386 architecture notices ([55d27a9](https://github.com/davidsneighbour/kollitsch.dev/commit/55d27a97955789f26e20a34a996ca7e725ca5463)), closes [#2248](https://github.com/davidsneighbour/kollitsch.dev/issues/2248)
+* **apt:** replace cover credit with a caption on APT i386 post ([a236867](https://github.com/davidsneighbour/kollitsch.dev/commit/a236867ccdfc27d70ab3bf808421c3b12ed91bcc)), references [#2248](https://github.com/davidsneighbour/kollitsch.dev/issues/2248)
+* **apt:** set full publication timestamp on APT i386 post ([74e4e33](https://github.com/davidsneighbour/kollitsch.dev/commit/74e4e33852000469bee76c664266fdea061676c0)), references [#2248](https://github.com/davidsneighbour/kollitsch.dev/issues/2248)
+
+### Chore
+
+* update screenshot ([a44d2ce](https://github.com/davidsneighbour/kollitsch.dev/commit/a44d2ce66d7b65543569852b2ca907dca1783387))
+* update screenshot ([374d8b2](https://github.com/davidsneighbour/kollitsch.dev/commit/374d8b2691e01f094ab6305e68b1424fa1e611b6))
+
 ## [3.8.0](https://github.com/davidsneighbour/kollitsch.dev/compare/v3.7.0...v3.8.0) (2026-11-14)
 
 ### Feat

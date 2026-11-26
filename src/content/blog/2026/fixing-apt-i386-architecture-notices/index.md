@@ -141,7 +141,7 @@ Steam remains functional, 32-bit support remains available, and the terminal out
 Per-repository architecture restrictions are also a useful convention for automated workstation provisioning and dotfiles management:
 
 - Explicitly declare supported architectures when configuring third-party repositories.
-- Prefer the modern Deb822 `.sources` format.
+- Prefer [the modern Deb822 `.sources` format](https://repolib.readthedocs.io/en/latest/deb822-format.html).
 - Preserve repository-specific signing-key configurations.
 - Keep repository setup scripts idempotent.
 - Leave system-wide multiarch support independent of individual repository configurations.

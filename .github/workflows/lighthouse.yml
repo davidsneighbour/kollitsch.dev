@@ -125,4 +125,12 @@ jobs:
           git commit -m "${MSG}"
           REMOTE="https://x-access-token:${GITHUB_TOKEN}"
           REMOTE="${REMOTE}@github.com/${GITHUB_REPOSITORY}.git"
-          git push --force-with-lease "${REMOTE}" "HEAD:${LIGHTHOUSE_HISTORY_BRANCH}"
+          # The push goes to a URL, not to a remote name, so git has no
+          # remote-tracking ref to compare against and a bare
+          # --force-with-lease is always rejected as "stale info". Pass the
+          # sha fetched by "Load Lighthouse history branch" explicitly; an
+          # empty value means the branch must not exist yet.
+          tracking="refs/remotes/origin/${LIGHTHOUSE_HISTORY_BRANCH}"
+          expected="$(git rev-parse --verify --quiet "${tracking}" || true)"
+          LEASE="${LIGHTHOUSE_HISTORY_BRANCH}:${expected}"
+          git push --force-with-lease="${LEASE}" "${REMOTE}" "HEAD:${LIGHTHOUSE_HISTORY_BRANCH}"

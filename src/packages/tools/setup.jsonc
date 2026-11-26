@@ -52,6 +52,6 @@
     "secp256k1@5.0.2": true,
     "sharp@0.34.5": true,
     "simple-git-hooks@2.13.1": true,
-    "workerd@1.20261110.1": true
+    "workerd@1.20261123.1": true
   }
 }

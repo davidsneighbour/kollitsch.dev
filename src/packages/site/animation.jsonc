@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "lenis": "1.3.27",
+    "lenis": "1.3.28",
     "tinykeys": "4.0.1"
   }
 }

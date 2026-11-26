@@ -1,7 +1,6 @@
 {
   "devDependencies": {
-    "@humanwhocodes/crosspost": "1.0.4",
-    // used by the posthaste skill; should move to a global install eventually
+    "@humanwhocodes/crosspost": "1.1.0",
     "twitter-text": "3.1.0"
   },
   "overrides": {

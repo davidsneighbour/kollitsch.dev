@@ -4,6 +4,6 @@
     "firewall:cleanup": "bash -c 'sudo ufw delete allow from 192.168.1.0/24 to any port 1313 proto tcp || true'"
   },
   "devDependencies": {
-    "@vitejs/plugin-basic-ssl": "2.3.0",
+    "@vitejs/plugin-basic-ssl": "2.3.0"
   }
 }

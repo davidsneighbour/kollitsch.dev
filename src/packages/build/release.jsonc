@@ -2,10 +2,10 @@
   "devDependencies": {
     "@commitlint/cli": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
-    "@humanwhocodes/social-changelog": "0.6.0",
+    "@humanwhocodes/social-changelog": "0.6.3",
     "@release-it/conventional-changelog": "12.0.2",
     "cz-git": "1.14.0",
-    "release-it": "21.1.2",
+    "release-it": "21.1.3",
     "@dnbhq/release-config": "2.0.1"
   },
   "scripts": {

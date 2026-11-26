@@ -6,7 +6,7 @@
     // add enabled extensions to the recommendations file and show overview
     "build:vscode:recommendations": "node --disable-warning=ExperimentalWarning src/scripts/maintenance/vscode/vscode-extensions.ts --fix",
     "ci:check:vscode": "wireit",
-    "postinstall:vscode": "wireit",
+    "postinstall:vscode": "wireit"
   },
   "wireit": {
     "ci:check:vscode": {

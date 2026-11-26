@@ -21,7 +21,7 @@ Renders the large header title as the brand combination mark. On pointer hover t
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `siteTitleId` | `string` | required | `id` applied to the outer `<header>`, used as a scroll or navigation anchor |
-| `compact` | `boolean` | `false` | Smaller masthead for reading pages: logo `min(72vw, 30rem)` wide instead of `min(88vw, 64rem)`, padding `py-4 md:py-6` instead of `py-6 md:py-10`. Single post pages turn it on so the post title starts above the fold. |
+| `compact` | `boolean` | `false` | Less vertical padding for reading pages: `py-4 md:py-6` instead of `py-6 md:py-10`. The logo width does not change. |
 
 ## Usage
 
@@ -35,7 +35,7 @@ import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 
 ## Behaviour
 
-The link to the homepage (`getHomepageUrl()`) contains the inline SVG combination mark with the accessible name `KOLLITSCH.dev`. The logo takes its colours from the `--logo-*` theme tokens. It never gets an image fill, tint, or per-glyph animation (brand guide, section 12.2). The width is set and the height follows from the `viewBox`.
+The link to the homepage (`getHomepageUrl()`) contains the inline SVG combination mark with the accessible name `KOLLITSCH.dev`. The logo takes its colours from the `--logo-*` theme tokens. It never gets an image fill, tint, or per-glyph animation (brand guide, section 12.2). It fills the `wide` container (the same width as the footer); the height follows from the `viewBox`.
 
 ### Scroll exit
 

@@ -2,6 +2,7 @@
 import { getImage } from 'astro:assets';
 import BrandLogo from '@components/ui/BrandLogo.astro';
 import { wordmarkArtwork } from '@data/brand-artwork.ts';
+import setup from '@data/setup.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
 
 export interface Props {
@@ -27,12 +28,14 @@ const headlineImage = await getImage(wordmarkArtwork.image);
   ]}
   style={`--headline-bg: url("${headlineImage.src}");`}
 >
-  <a
-    href={homepageUrl}
-    class="site-title-link inline-block"
-  >
-    <BrandLogo class="site-title-logo" />
-  </a>
+  <div class={setup.classes.containers.wide}>
+    <a
+      href={homepageUrl}
+      class="site-title-link block"
+    >
+      <BrandLogo class="site-title-logo" />
+    </a>
+  </div>
 </header>
 
 <style>
@@ -54,6 +57,7 @@ const headlineImage = await getImage(wordmarkArtwork.image);
 
   /*
    * Combination mark from src/brand/kollitsch-brand (see BrandLogo.astro).
+   * It fills the same `wide` container as the footer, so both line up.
    * Proportional scaling only: the height follows from the viewBox. The
    * logo itself carries no fill, blur, or per-glyph effects (brand guide,
    * section 12.2); its colours come from the --logo-* theme tokens.
@@ -61,13 +65,8 @@ const headlineImage = await getImage(wordmarkArtwork.image);
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
   .site-title-link :global(.site-title-logo) {
     display: block;
-    width: min(88vw, 64rem);
+    width: 100%;
     height: auto;
-  }
-
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  .site-title-compact .site-title-link :global(.site-title-logo) {
-    width: min(72vw, 30rem);
   }
 
   /*

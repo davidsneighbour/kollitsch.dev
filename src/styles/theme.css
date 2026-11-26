@@ -676,7 +676,12 @@
 
   .typography-reading {
     @apply prose prose-dnb;
-    @apply prose-sm md:prose lg:prose-xl xl:prose-2xl;
+
+    /*
+     * Reading text starts at 18px (`prose-lg`), not 14px (`prose-sm`):
+     * Exo 2 at weight 300 on a dark surface is too thin to read below that.
+     */
+    @apply prose-lg lg:prose-xl xl:prose-2xl;
     @apply dark:prose-invert;
     @apply max-w-none;
 

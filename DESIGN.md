@@ -421,7 +421,7 @@ part of the site while the video poster still carries the platform content.
 Three families, three roles. No substitutions.
 
 * **Changa One** (`--font-changa`): Headlines only. A condensed display face with strong weight presence at large sizes. Only the 400 weight is available - let the letterforms do the work. Applied to all h1–h6, the site title, and any large display text.
-* **Exo 2 Variable** (`--font-exo2`): Body text, UI copy, captions. Used at `font-light` (300) for reading; 400 for labels and metadata. The variable axis allows subtle weight shifts for emphasis. Responsive sizing: 14px (mobile) → 16px → 20px → 24px (large desktop) using Tailwind's `text-sm/base/xl/2xl` scale.
+* **Exo 2 Variable** (`--font-exo2`): Body text, UI copy, captions. Used at `font-light` (300) for reading; 400 for labels and metadata. The variable axis allows subtle weight shifts for emphasis. Responsive reading sizing: 18px (mobile and tablet) → 20px → 24px (large desktop) using Tailwind Typography's `prose-lg/xl/2xl` scale. Do not go below 18px for reading text: light-weight Exo 2 on the dark surface becomes hard to read. The single post title (`h1`) scales with it, `text-4xl md:text-5xl xl:text-6xl` (36px → 48px → 60px), so it always stays larger than the in-text `h2`.
 * **JetBrains Mono Variable** (`--font-jetbrainsmono`): Code, inline code, and technical labels. The variable weight axis provides both regular code blocks and a slightly heavier option for emphasis within code. Expressive Code inherits this family via `--ec-codeFontFml`.
 
 Exo 2 uses OpenType feature settings `"cv02", "cv03", "cv04", "cv11"` for the title weight - these activate alternate glyph forms that reduce ambiguity between similar characters.

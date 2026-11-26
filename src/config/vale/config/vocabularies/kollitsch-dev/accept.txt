@@ -371,3 +371,5 @@ KeePass
 libsecret
 statuss
 Kigen Color
+[Mm]ultiarch
+eza

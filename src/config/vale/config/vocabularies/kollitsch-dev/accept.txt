@@ -378,3 +378,5 @@ eza
 [Uu]npushed
 [Bb]rowserslist
 Vitest
+[Pp]olkit
+pkexec

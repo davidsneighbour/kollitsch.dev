@@ -1,7 +1,7 @@
 ---
 title: "Fixing APT's i386 architecture notices without disabling multiarch"
 description: "Remove APT's unsupported i386 architecture notices by restricting individual repositories to amd64 while retaining 32-bit support for Steam and Wine."
-date: 2026-11-26
+date: 2026-11-26T07:07:46Z
 fmContentType: blog
 tags:
   - linux

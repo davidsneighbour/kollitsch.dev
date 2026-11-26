@@ -60,3 +60,5 @@ Hello, this is <wordmark/> and welcome.
 - `public/icon-512.png` (gitignored; the `icon` and `logo` of the Atom, RSS, and JSON feeds).
 
 Do not edit these files by hand.
+
+The commit hook does not run the image optimiser on `src/brand/` or on `favicon.svg` (see `.lintstagedrc.ts`): SVGO would round the master geometry and move the favicon colours into an inline style, which stops the light palette from applying.

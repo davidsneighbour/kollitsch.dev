@@ -99,6 +99,18 @@ export default {
 
   '*.y(aml|ml)': ['yamllint --config-file ./src/config/yamllint.yaml'],
 
-  "*.{png,jpeg,jpg,gif,svg}": ["imagemin-lint-staged"]
+  // Brand artwork and the favicon generated from it are not optimised:
+  // SVGO rounds the master geometry and inlines the favicon's CSS custom
+  // properties, which breaks its light-mode palette switch.
+  '*.{png,jpeg,jpg,gif,svg}': (files: string[]) => {
+    const optimisable = files.filter(
+      (file) =>
+        !file.includes('/src/brand/') &&
+        !file.endsWith('/src/assets/favicon/favicon.svg'),
+    );
+    return optimisable.length === 0
+      ? []
+      : `imagemin-lint-staged ${optimisable.map(shellQuote).join(' ')}`;
+  },
 
 };

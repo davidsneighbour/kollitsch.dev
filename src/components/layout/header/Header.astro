@@ -8,7 +8,7 @@ import ThemeSelector, {
 } from '@components/layout/header/theme/ThemeSelector.astro';
 import SiteTitle from '@components/layout/header/title/SiteTitle.astro';
 import Icon from '@components/shared/elements/Icon.astro';
-import setup from '@data/setup.json' with { type: 'json' };
+import BrandLogo from '@components/ui/BrandLogo.astro';
 import navData from '@data/topnavigation.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
 import { createLogger } from '@utils/logger.ts';
@@ -65,17 +65,14 @@ if (!activeItem && import.meta.env.DEV) {
         <a
           id="navbar-brand"
           href={getHomepageUrl()}
-          class="font-changa flex-rows flex items-center gap-2 p-1.5 text-2xl opacity-0"
+          class="flex items-center p-1.5 opacity-0"
           aria-hidden="true"
           tabindex="-1"
         >
-          <Icon
-            name="lucide:house"
-            class="navbar-brand-icon place-self-center"
+          <BrandLogo
+            class="navbar-brand-logo"
+            decorative
           />
-          <span class="min-w-0">{setup.title.split('.').map((part, index) => (
-            <>{index > 0 && <><wbr />.</>}{part}</>
-          ))}</span>
         </a>
       </span>
     </Fragment>
@@ -85,7 +82,10 @@ if (!activeItem && import.meta.env.DEV) {
         id="navigation-and-theme-select"
         class="hidden md:flex md:items-center"
       >
-        <nav aria-label="Main navigation" data-nav-search-nav>
+        <nav
+          aria-label="Main navigation"
+          data-nav-search-nav
+        >
           <ul class="flex flex-col md:flex-row md:items-center md:gap-6">
             {typedNavData
               .filter((item) => import.meta.env.DEV || !item.devOnly)
@@ -209,7 +209,9 @@ if (!activeItem && import.meta.env.DEV) {
 
     const controller = new AbortController();
     const { signal } = controller;
-    document.addEventListener('astro:before-swap', () => controller.abort(), { once: true });
+    document.addEventListener('astro:before-swap', () => controller.abort(), {
+      once: true,
+    });
     const navSection = document.querySelector('#navigation-and-theme-select');
     let pendingOpenFrame = 0;
     let closeTimer;
@@ -225,7 +227,10 @@ if (!activeItem && import.meta.env.DEV) {
      */
     function isWideLayout() {
       const toggle = document.querySelector('#hamburger-and-close');
-      return toggle instanceof HTMLElement && getComputedStyle(toggle).display === 'none';
+      return (
+        toggle instanceof HTMLElement &&
+        getComputedStyle(toggle).display === 'none'
+      );
     }
 
     function toggleIcons() {
@@ -248,7 +253,9 @@ if (!activeItem && import.meta.env.DEV) {
      */
     function toggleNavVisibility() {
       const isMdUp = isWideLayout();
-      document.querySelector('#site-header')?.toggleAttribute('data-compact', !isMdUp);
+      document
+        .querySelector('#site-header')
+        ?.toggleAttribute('data-compact', !isMdUp);
       const shouldShow = isMdUp || window.kdev.mobileOpen;
       navSection?.classList.toggle('hidden', !shouldShow);
       navSection?.classList.toggle('flex', shouldShow);
@@ -309,7 +316,10 @@ if (!activeItem && import.meta.env.DEV) {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         finish();
       } else {
-        navSection.addEventListener('transitionend', finish, { once: true, signal });
+        navSection.addEventListener('transitionend', finish, {
+          once: true,
+          signal,
+        });
         closeTimer = window.setTimeout(finish, 200);
       }
     }
@@ -341,16 +351,20 @@ if (!activeItem && import.meta.env.DEV) {
       }
 
       menuToggle.replaceWith(clone);
-      clone.addEventListener('click', () => {
-        window.kdev.mobileOpen = !window.kdev.mobileOpen;
-        toggleIcons();
+      clone.addEventListener(
+        'click',
+        () => {
+          window.kdev.mobileOpen = !window.kdev.mobileOpen;
+          toggleIcons();
 
-        if (window.kdev.mobileOpen) {
-          openMobileNav();
-        } else {
-          closeMobileNav();
-        }
-      }, { signal });
+          if (window.kdev.mobileOpen) {
+            openMobileNav();
+          } else {
+            closeMobileNav();
+          }
+        },
+        { signal },
+      );
     }
 
     /**
@@ -392,7 +406,9 @@ if (!activeItem && import.meta.env.DEV) {
       );
 
       observer.observe(placeholder);
-      signal.addEventListener('abort', () => observer.disconnect(), { once: true });
+      signal.addEventListener('abort', () => observer.disconnect(), {
+        once: true,
+      });
 
       const rect = placeholder.getBoundingClientRect();
       const isIntersecting = rect.top >= 0 && rect.bottom > 0;
@@ -427,17 +443,31 @@ if (!activeItem && import.meta.env.DEV) {
     }
 
     window.addEventListener('resize', toggleNavVisibility, { signal });
-    document.addEventListener('nav-search:escape', () => {
-      dismissMobileMenu(true);
-    }, { signal });
-    document.addEventListener('nav-search:layout', toggleNavVisibility, { signal });
-    document.addEventListener('nav-search:toggle', (event) => {
-      if (event.detail.open) dismissMobileMenu();
-    }, { signal });
-    signal.addEventListener('abort', () => {
-      cancelAnimationFrame(pendingOpenFrame);
-      window.clearTimeout(closeTimer);
-    }, { once: true });
+    document.addEventListener(
+      'nav-search:escape',
+      () => {
+        dismissMobileMenu(true);
+      },
+      { signal },
+    );
+    document.addEventListener('nav-search:layout', toggleNavVisibility, {
+      signal,
+    });
+    document.addEventListener(
+      'nav-search:toggle',
+      (event) => {
+        if (event.detail.open) dismissMobileMenu();
+      },
+      { signal },
+    );
+    signal.addEventListener(
+      'abort',
+      () => {
+        cancelAnimationFrame(pendingOpenFrame);
+        window.clearTimeout(closeTimer);
+      },
+      { once: true },
+    );
     document.addEventListener('astro:after-swap', initMobileMenu, { signal });
 
     initMobileMenu();
@@ -453,6 +483,13 @@ if (!activeItem && import.meta.env.DEV) {
 
   #site-header[data-compact] ~ .theme-corner {
     display: none;
+  }
+
+  /* Brand logo (combination mark): proportional scaling from its height. */
+  #navbar-brand .navbar-brand-logo {
+    display: block;
+    height: 2rem;
+    width: auto;
   }
 
   /* Brand name: slide in from the left as the site title scrolls away */
@@ -644,20 +681,17 @@ if (!activeItem && import.meta.env.DEV) {
     #navbar-sitetitle,
     #navbar-brand {
       max-width: 100%;
-      overflow-wrap: anywhere;
     }
 
-    /* DESIGN.md body-md (1rem). Theme variables, not @apply: this style
-       block has no @reference to the Tailwind entry point. */
+    /* Compact brand: a smaller combination mark inside a 2.75rem target. */
     #navbar-brand {
-      font-size: var(--text-base);
-      line-height: var(--text-base--line-height);
       min-height: 2.75rem;
       padding: 0;
     }
 
-    .navbar-brand-icon {
-      display: none;
+    #navbar-brand .navbar-brand-logo {
+      height: 1.75rem;
+      max-width: 100%;
     }
 
     [data-nav-search-region-center] {

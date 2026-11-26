@@ -1,6 +1,6 @@
 # Components directory
 
-This directory is organized by the primary responsibility of each component so that
+This directory is organised by the primary responsibility of each component so that
 the purpose of a file is immediately visible from its location. Folder placement is
 part of the project's structure, not a suggestion: see
 [`src-components-structure.instructions.md`](../../.agents/instructions/src-components-structure.instructions.md)
@@ -30,7 +30,7 @@ for the rules that keep it that way.
 * `shared/` - low-level UI primitives reused across multiple groups: `elements/`
   (buttons, cards, badges) and `links/` (link and icon-link wrappers).
 * `ui/` - small, self-contained presentational components (currently
-  `CardLink.astro`, `TextImageFill.astro`, `Wordmark.astro`). **Not shadcn/ui** -
+  `CardLink.astro`, `TextImageFill.astro`, `BrandLogo.astro`). **Not shadcn/ui** -
   see note below.
 * `gimmicks/` - visual novelties and canvas/animation experiments (for example
   `TvHead.astro`, `LetterGlitch.astro`, `glitch.tsx`) that are not part of the
@@ -92,7 +92,7 @@ The toolchain itself:
 * The shadcn CSS variables (`--background`, `--primary`, `--card`, `--radius`,
   etc.) are defined in `src/styles/theme.css` under `:root` /
   `[data-theme="dark"]` and map 1:1 onto the semantic color/radius tokens in
-  `DESIGN.md` - no new colors or radii were introduced. `--radius` is `0.5rem`
+  `DESIGN.md` - no new palette values or radii were introduced. `--radius` is `0.5rem`
   (DESIGN.md's `rounded-lg`, the standard container radius).
 * Generated components are not used as-is: check every new component against
   `DESIGN.md` before committing it (for example the stock `Card` primitive ships

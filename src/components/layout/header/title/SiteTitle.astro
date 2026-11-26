@@ -1,8 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
-import TextImageFill from '@components/ui/TextImageFill.astro';
+import BrandLogo from '@components/ui/BrandLogo.astro';
 import { wordmarkArtwork } from '@data/brand-artwork.ts';
-import setup from '@data/setup.json' with { type: 'json' };
 import { getHomepageUrl } from '@utils/content.ts';
 
 export interface Props {
@@ -14,71 +13,9 @@ export interface Props {
 
 const homepageUrl = getHomepageUrl();
 const { siteTitleId, compact = false }: Props = Astro.props;
-const siteTitleSize = compact
-  ? 'clamp(40px, 7vw, 120px)'
-  : 'clamp(50px, 13vw, 250px)';
 // Full-res image, used only for the hover-reveal background (desktop-only,
 // see the (hover: hover) and (pointer: fine) block below).
 const headlineImage = await getImage(wordmarkArtwork.image);
-
-// The text-fill image is `background-size: 100vw auto`, so the bitmap it
-// needs scales with viewport width, not with the text itself. Build one
-// image-set() (1x/2x) per breakpoint so narrow viewports don't pay for the
-// full-width source and wide/retina viewports still get a crisp edge on the
-// clipped text.
-async function buildResponsiveFill(minWidth: number) {
-  const retinaWidth = Math.min(minWidth * 2, wordmarkArtwork.image.width);
-  const [oneX, twoX] = await Promise.all([
-    getImage({ ...wordmarkArtwork.image, width: minWidth }),
-    getImage({ ...wordmarkArtwork.image, width: retinaWidth }),
-  ]);
-  return {
-    imageSet: `image-set(url("${oneX.src}") 1x, url("${twoX.src}") 2x)`,
-    minWidth,
-    oneXSrc: oneX.src,
-  };
-}
-
-const [smallestBreakpoint, ...largerBreakpoints] =
-  wordmarkArtwork.responsiveBreakpoints;
-const smallestFill = await buildResponsiveFill(smallestBreakpoint);
-const largerFills = await Promise.all(
-  largerBreakpoints.map(buildResponsiveFill),
-);
-const responsiveFillVars = [smallestFill, ...largerFills]
-  .map((fill) => `--site-title-fill-${fill.minWidth}: ${fill.imageSet};`)
-  .join(' ');
-
-// Shatter layer: each letter gets its own scroll-driven exit window so they
-// peel off outward from the centre instead of all moving in lockstep.
-//
-// All timings are percentages of the header's scroll-exit progress (0% =
-// header fully in view, 100% = fully scrolled past). Tune these together —
-// they're kept proportional so the dissolve -> crossfade -> fly-apart handoff
-// stays smooth as the whole sequence is shifted earlier or later.
-const fillDissolveEnd = 25; // image-filled text fully dissolved by this point
-const shatterInStart = 6; // solid-colour letters start fading in
-const shatterInEnd = fillDissolveEnd; // ...and are fully in by the time the fill is gone
-const shatterFlyStart = 20; // first letter starts flying outward
-const shatterStagger = 17; // spread of fly-start times across all letters
-const shatterWindow = 25; // how long each letter's own fly-out animation takes
-
-const letters = [...setup.title];
-const centerIndex = (letters.length - 1) / 2;
-const shatterLetters = letters.map((letter, index) => {
-  const offsetFromCenter = index - centerIndex;
-  const progress = letters.length > 1 ? index / (letters.length - 1) : 0;
-  const rangeStart = shatterFlyStart + shatterStagger * progress;
-  const rangeEnd = Math.min(rangeStart + shatterWindow, 100);
-  const tx = Math.round(offsetFromCenter * 10);
-  const ty = Math.round(-18 - Math.abs(offsetFromCenter) * 3);
-  const rotate = Math.round(offsetFromCenter * 7);
-
-  return {
-    letter: letter === ' ' ? ' ' : letter,
-    style: `--shatter-tx: ${tx}px; --shatter-ty: ${ty}px; --shatter-rot: ${rotate}deg; animation-range: exit ${rangeStart}% exit ${rangeEnd}%;`,
-  };
-});
 ---
 
 <header
@@ -86,67 +23,23 @@ const shatterLetters = letters.map((letter, index) => {
   id={siteTitleId}
   class:list={[
     'site-title-hero w-full text-center',
-    compact ? 'py-4 md:py-6' : 'py-6 md:py-10',
+    compact ? 'site-title-compact py-4 md:py-6' : 'py-6 md:py-10',
   ]}
-  style={`--headline-bg: url("${headlineImage.src}"); --fill-dissolve-end: ${fillDissolveEnd}%; --shatter-in-start: ${shatterInStart}%; --shatter-in-end: ${shatterInEnd}%; ${responsiveFillVars}`}
+  style={`--headline-bg: url("${headlineImage.src}");`}
 >
   <a
     href={homepageUrl}
     class="site-title-link inline-block"
   >
-    <span class="site-title-fill-stack">
-      <TextImageFill
-        as="span"
-        imageUrl={smallestFill.oneXSrc}
-        size={siteTitleSize}
-        classes="site-title-fill site-title-fill-sharp font-title leading-none"
-        fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
-        tintColor={wordmarkArtwork.headerFill.tintColor}
-        tintColorDark={wordmarkArtwork.headerFill.tintColorDark}
-        tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
-        tintOpacityDark={wordmarkArtwork.headerFill.tintOpacityDark}
-        backgroundSize={wordmarkArtwork.backgroundSize}
-        position={wordmarkArtwork.position}
-      >
-        {setup.title}
-      </TextImageFill>
-      <TextImageFill
-        as="span"
-        imageUrl={smallestFill.oneXSrc}
-        size={siteTitleSize}
-        classes="site-title-fill site-title-fill-blur font-title leading-none"
-        fallbackColor={wordmarkArtwork.headerFill.fallbackColor}
-        tintColor={wordmarkArtwork.headerFill.tintColor}
-        tintColorDark={wordmarkArtwork.headerFill.tintColorDark}
-        tintOpacity={wordmarkArtwork.headerFill.tintOpacity}
-        tintOpacityDark={wordmarkArtwork.headerFill.tintOpacityDark}
-        backgroundSize={wordmarkArtwork.backgroundSize}
-        position={wordmarkArtwork.position}
-        aria-hidden="true"
-      >
-        {setup.title}
-      </TextImageFill>
-    </span>
-    <span
-      class="site-title-shatter font-title leading-none"
-      style={`font-size: ${siteTitleSize}`}
-      aria-hidden="true"
-    >
-      {shatterLetters.map(({ letter, style }) => (
-        <span class="shatter-letter" style={style}>
-          {letter}
-        </span>
-      ))}
-    </span>
+    <BrandLogo class="site-title-logo" />
   </a>
 </header>
 
 <style>
   .site-title-hero {
     /* clip, not hidden: `hidden` establishes a scroll container, which would
-       make the child elements below resolve animation-timeline: view()
-       against this element's own (static) scrollport instead of the page's,
-       freezing their scroll-driven progress at whatever it starts at. */
+       make animation-timeline: view() resolve against this element's own
+       (static) scrollport instead of the page's. */
     overflow: clip;
     position: relative;
     animation: site-title-exit linear both;
@@ -160,193 +53,38 @@ const shatterLetters = letters.map((letter, index) => {
   }
 
   /*
-   * The text-fill image scales with the viewport (background-size: 100vw),
-   * so it's swapped for a wider one as the viewport grows instead of always
-   * shipping the full-width source. Each --site-title-fill-* custom property
-   * is an image-set() built in the frontmatter from
-   * wordmarkArtwork.responsiveBreakpoints — keep the breakpoints below in
-   * sync with that array if it changes. The base (640) size is set on the
-   * dissolve-animation rule below, since stylelint disallows repeating an
-   * unguarded selector.
+   * Combination mark from src/brand/kollitsch-brand (see BrandLogo.astro).
+   * Proportional scaling only: the height follows from the viewBox. The
+   * logo itself carries no fill, blur, or per-glyph effects (brand guide,
+   * section 12.2); its colours come from the --logo-* theme tokens.
    */
-  @media (min-width: 750px) {
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill) {
-      --text-fill-image: var(--site-title-fill-750);
-    }
-  }
-
-  @media (min-width: 828px) {
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill) {
-      --text-fill-image: var(--site-title-fill-828);
-    }
-  }
-
-  @media (min-width: 1080px) {
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill) {
-      --text-fill-image: var(--site-title-fill-1080);
-    }
-  }
-
-  @media (min-width: 1280px) {
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill) {
-      --text-fill-image: var(--site-title-fill-1280);
-    }
-  }
-
-  /*
-   * Scroll-exit shatter: layered inside the whole-header opacity/transform
-   * fade above (.site-title-exit), not a replacement for it. As the header
-   * exits, the image-filled text dissolves first, handing off to a duplicate
-   * layer of solid-colour letters that fly outward from the centre and fade.
-   * The outer fade still carries the animation the rest of the way to 0%.
-   */
-  .site-title-fill-stack {
-    display: inline-block;
-    position: relative;
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  .site-title-link :global(.site-title-logo) {
+    display: block;
+    width: min(88vw, 64rem);
+    height: auto;
   }
 
   /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  .site-title-link :global(.site-title-fill) {
-    --text-fill-image: var(--site-title-fill-640);
+  .site-title-compact .site-title-link :global(.site-title-logo) {
+    width: min(72vw, 30rem);
   }
 
   /*
-   * The dissolve used to animate `filter: blur()` directly, which the
-   * compositor can't run off the main thread, forcing a repaint on every
-   * frame of the scroll timeline. Instead, a second copy of the text
-   * carries a permanent, unanimated `blur(4px)` and the two layers
-   * crossfade: only `opacity` moves on either one, which the compositor
-   * handles natively, while the stack still reads as the image dissolving
-   * into blur.
-   */
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  .site-title-link :global(.site-title-fill-sharp) {
-    animation: site-title-fill-dissolve linear both;
-    animation-timeline: view();
-    animation-range: exit 0% exit var(--fill-dissolve-end);
-  }
-
-  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-  .site-title-link :global(.site-title-fill-blur) {
-    /* Explicit fallback for browsers/tools that don't establish the
-     * animation-timeline: view() below (no scroll-driven-animations
-     * support, or a headless/automated context that never scrolls) - CSS's
-     * initial `opacity` is 1, so without this the blurred duplicate would
-     * sit fully opaque on top of the sharp layer forever, muddying the
-     * whole title. .site-title-shatter (below) already needed the same
-     * explicit default for the same reason. */
-    opacity: 0%;
-    filter: blur(4px);
-    inset: 0;
-    position: absolute;
-    animation: site-title-fill-blur-fade linear both;
-    animation-timeline: view();
-    animation-range: exit 0% exit var(--fill-dissolve-end);
-  }
-
-  @keyframes site-title-fill-dissolve {
-    from {
-      opacity: 100%;
-    }
-
-    to {
-      opacity: 0%;
-    }
-  }
-
-  @keyframes site-title-fill-blur-fade {
-    0% {
-      opacity: 0%;
-    }
-
-    35% {
-      opacity: 70%;
-    }
-
-    100% {
-      opacity: 0%;
-    }
-  }
-
-  .site-title-shatter {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary-700);
-    opacity: 0%;
-    pointer-events: none;
-    white-space: nowrap;
-    animation: site-title-shatter-in linear both;
-    animation-timeline: view();
-    animation-range: exit var(--shatter-in-start) exit var(--shatter-in-end);
-  }
-
-  :global(:where([data-theme="dark"])) .site-title-shatter {
-    color: var(--color-primary-600);
-  }
-
-  @keyframes site-title-shatter-in {
-    from {
-      opacity: 0%;
-    }
-
-    to {
-      opacity: 100%;
-    }
-  }
-
-  .shatter-letter {
-    display: inline-block;
-    animation: shatter-letter-fly linear both;
-    animation-timeline: view();
-  }
-
-  @keyframes shatter-letter-fly {
-    from {
-      opacity: 100%;
-      transform: translate(0, 0) rotate(0deg) scale(1);
-    }
-
-    to {
-      opacity: 0%;
-      transform: translate(var(--shatter-tx), var(--shatter-ty))
-        rotate(var(--shatter-rot)) scale(0.6);
-    }
-  }
-
-  /*
-   * Hover animation: image grows outward from the text area while the title
-   * transitions to the accent colour before dissolving.
+   * Hover animation: the header photo grows outward from the logo area
+   * while the logo fades out, so the photo replaces it. The logo is never
+   * recoloured or filled with the photo.
    *
-   * Sequence on hover-in:
-   *   0–0.35s   text colour pops: transparent → accent red
-   *   0.35–0.85s link opacity fades out, only after the red has fully landed,
-   *              so the pop reads clearly before it dissolves into the image
-   *   0–0.9s    ::after clip-path expands from text region to full header
+   *   0–0.9s    ::after clip-path expands from the logo region to the header
    *   0.1–0.45s ::after opacity fades in
+   *   0.35–0.85s logo link fades out
    *
-   * Two curve families are used on purpose, not by oversight: the colour
-   * pop and both opacity fades use --ease-out-expo (steep, front-loaded —
-   * gives the colour switch its "pop"), while the clip-path reveal uses
-   * --ease-in-out-circ (gentler, spreads the visible motion across the
-   * whole duration) so a full-bleed reveal this large doesn't read as
-   * front-loaded/rushed the way expo would make it feel.
+   * On hover-out the link settles back first (0.6s); the ::after clip-path
+   * takes longer to close (0.75s), so the photo keeps shrinking a beat
+   * after the logo has returned.
    *
-   * On hover-out, color (0.35s) and link opacity (0.4s) settle back first;
-   * the ::after clip-path takes longer to close (0.55s) so the image keeps
-   * shrinking a beat after everything else has already returned to rest,
-   * instead of all three collapsing back at once.
-   *
-   * Gated on (hover: hover) and (pointer: fine) so touch devices — including
-   * hybrid touch+mouse ones reporting hover: hover — are unaffected.
-   * background-size: 100vw auto on both layers keeps them pixel-matched
-   * (background-attachment: fixed would break under the scroll-driven animation).
+   * Gated on (hover: hover) and (pointer: fine) so touch devices are
+   * unaffected.
    */
   @media (hover: hover) and (pointer: fine) {
     .site-title-hero::after {
@@ -370,8 +108,7 @@ const shatterLetters = letters.map((letter, index) => {
      * The theme toggle sits in its own fixed corner overlay, outside this
      * header's DOM subtree, so plain `:hover` on an ancestor can't see it.
      * `.is-toggle-hover` (set by the toggle's own listeners, see Header.astro)
-     * keeps the reveal alive while the pointer is over the toggle, so crossing
-     * from the title onto the toggle icon doesn't read as a hover-out/in flicker.
+     * keeps the reveal alive while the pointer is over the toggle.
      */
     .site-title-hero:hover::after,
     .site-title-hero.is-toggle-hover::after {
@@ -380,25 +117,6 @@ const shatterLetters = letters.map((letter, index) => {
       transition:
         clip-path 0.9s cubic-bezier(0.785, 0.135, 0.15, 0.86),
         opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1) 0.1s;
-    }
-
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.text-image-fill) {
-      color: transparent;
-      transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-hero:hover .site-title-link :global(.text-image-fill),
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-      .site-title-hero.is-toggle-hover
-      .site-title-link
-      :global(.text-image-fill) {
-      /* --site-title-hover-color is themed in theme.css (light: red-700,
-       * dark: primary-600) so this selector doesn't need a separate
-       * dark-mode copy of itself. */
-      color: var(--site-title-hover-color);
-      transition: color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     .site-title-link {
@@ -435,26 +153,6 @@ const shatterLetters = letters.map((letter, index) => {
 
     .site-title-link {
       transition: opacity 0.4s ease;
-    }
-
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-hero .site-title-link :global(.text-image-fill) {
-      transition: color 0.4s ease;
-    }
-
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill) {
-      animation: none;
-    }
-
-    /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
-    .site-title-link :global(.site-title-fill-blur) {
-      opacity: 0%;
-    }
-
-    .site-title-shatter {
-      animation: none;
-      display: none;
     }
   }
 </style>

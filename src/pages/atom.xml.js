@@ -20,6 +20,8 @@ export async function GET(context) {
   const site = context.site ?? new URL(setup.url);
   const feedUrl = new URL('/atom.xml', site).toString();
   const homeUrl = new URL('/', site).toString();
+  // Brand iconmark with an opaque background (src/assets/favicon/regenerate.ts).
+  const iconUrl = new URL('/icon-512.png', site).toString();
   const getPostPath = (post) => {
     const normalise = (value) => value.replace(/^\/+|\/+$/g, '');
     const id = typeof post?.id === 'string' ? post.id : '';
@@ -80,6 +82,8 @@ export async function GET(context) {
   <link href="${homeUrl}" />
   <link rel="self" type="application/atom+xml" href="${feedUrl}" />
   <id>${homeUrl}</id>
+  <icon>${iconUrl}</icon>
+  <logo>${iconUrl}</logo>
   <updated>${updated}</updated>
   <author>
     <name>${escapeXml(setup.author?.name ?? setup.title)}</name>

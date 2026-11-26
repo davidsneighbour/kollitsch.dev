@@ -60,6 +60,7 @@ src/config/vale/config/vocabularies/DNB
 # Dynamically generated files
 public/_headers
 public/favicon.ico
+public/icon-512.png
 public/dnb-*.rss.xml
 src/content/_generated
 

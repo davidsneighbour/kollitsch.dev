@@ -1,0 +1,26 @@
+---
+import { type BrandMark, renderBrandSvg } from '@utils/brand-logo.ts';
+
+export interface Props {
+  /** Official mark: the full combination mark by default. */
+  mark?: BrandMark;
+  class?: string;
+  /** Hide from assistive technology when an adjacent name says "KOLLITSCH.dev". */
+  decorative?: boolean;
+}
+
+const {
+  mark = 'combination-mark',
+  class: className,
+  decorative = false,
+}: Props = Astro.props;
+
+// Geometry comes from src/brand/kollitsch-brand/logo.master.svg; colours come
+// from the --logo-* tokens in src/styles/theme.css.
+const svg = renderBrandSvg(mark, {
+  class: ['brand-logo', className].filter(Boolean).join(' '),
+  decorative,
+});
+---
+
+<Fragment set:html={svg} />

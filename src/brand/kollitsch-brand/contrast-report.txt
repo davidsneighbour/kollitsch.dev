@@ -1,0 +1,7 @@
+dark  foreground 17.928:1 (minimum 4.5, preferred 7)
+dark  muted      7.107:1 (minimum 4.5, preferred 7)
+dark  primary    6.847:1 (minimum 3, preferred 4.5)
+light foreground 17.928:1 (minimum 4.5, preferred 7)
+light muted      4.742:1 (minimum 4.5, preferred 7)
+light primary    4.984:1 (minimum 3, preferred 4.5)
+Generated assets: /mnt/data/kollitsch-brand/dist

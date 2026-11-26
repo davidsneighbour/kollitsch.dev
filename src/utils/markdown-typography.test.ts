@@ -37,3 +37,14 @@ describe('remarkDnbTypography', () => {
     expect(result).toContain('`a -- b`');
   });
 });
+
+describe('remarkDnbTypography wordmark shorthand', () => {
+  it('replaces <wordmark/> with the inline brand combination mark', () => {
+    const output = transform('Hello <wordmark/> world');
+    expect(output).toContain('class="brand-logo-inline"');
+    expect(output).toContain('aria-label="KOLLITSCH.dev"');
+    expect(output).toContain('id="iconmark"');
+    expect(output).not.toContain('<wordmark');
+    expect(output).not.toContain('word-mark');
+  });
+});

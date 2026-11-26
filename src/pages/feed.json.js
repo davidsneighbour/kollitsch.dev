@@ -12,6 +12,8 @@ export async function GET(context) {
   const site = context.site ?? new URL(setup.url);
   const homeUrl = new URL('/', site).toString();
   const feedUrl = new URL('/feed.json', site).toString();
+  // Brand iconmark with an opaque background (src/assets/favicon/regenerate.ts).
+  const iconUrl = new URL('/icon-512.png', site).toString();
   const getPostPath = (post) => {
     const normalise = (value) => value.replace(/^\/+|\/+$/g, '');
     const id = typeof post?.id === 'string' ? post.id : '';
@@ -48,8 +50,10 @@ export async function GET(context) {
 
   const feed = {
     description: setup.description,
+    favicon: iconUrl,
     feed_url: feedUrl,
     home_page_url: homeUrl,
+    icon: iconUrl,
     items,
     title: setup.title,
     version: 'https://jsonfeed.org/version/1.1',

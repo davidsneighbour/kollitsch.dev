@@ -1,5 +1,6 @@
 import type { Html, Root, Text } from 'mdast';
 import { visit } from 'unist-util-visit';
+import { renderBrandSvg } from './brand-logo.ts';
 
 export interface TypographyReplacement {
   from: string;
@@ -31,10 +32,9 @@ function applyReplacements(
  * Restores Hugo-style typography shortcuts (`--`, `---`) in prose Markdown
  * text nodes and expands site-specific raw-HTML authoring shorthands.
  *
- * `<wordmark/>` is intentionally authoring syntax only. It is rewritten to
- * the standards-compliant custom element `<word-mark></word-mark>` because
- * Custom Elements names require a hyphen and HTML custom elements cannot be
- * self-closing.
+ * `<wordmark/>` is authoring syntax only. It is rewritten at build time to
+ * the inline SVG combination mark from `src/brand/kollitsch-brand`, so the
+ * brand name in prose uses the official logo (see `brand-logo.ts`).
  */
 export function remarkDnbTypography(
   replacements: TypographyReplacement[] = DASH_REPLACEMENTS,
@@ -45,9 +45,8 @@ export function remarkDnbTypography(
     });
 
     visit(tree, 'html', (node: Html) => {
-      node.value = node.value.replace(
-        WORDMARK_SHORTHAND,
-        '<word-mark></word-mark>',
+      node.value = node.value.replace(WORDMARK_SHORTHAND, () =>
+        renderBrandSvg('combination-mark', { class: 'brand-logo-inline' }),
       );
     });
   };

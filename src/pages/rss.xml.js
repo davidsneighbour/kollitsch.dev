@@ -39,7 +39,12 @@ export async function GET(context) {
   // const stylesheetURL = new URL('/feeds/feed.xslt', currentOrigin).href;
   // const stylesheetURL = 'https://raw.githubusercontent.com/genmon/aboutfeeds/refs/heads/main/tools/pretty-feed-v3.xsl';
 
+  // Brand iconmark with an opaque background (src/assets/favicon/regenerate.ts).
+  const iconUrl = new URL('/icon-512.png', site).toString();
+  const homeUrl = new URL('/', site).toString();
+
   return rss({
+    customData: `<image><url>${iconUrl}</url><title>${setup.title}</title><link>${homeUrl}</link></image>`,
     description: setup.description,
     // stylesheet: stylesheetURL,
     items: blog.map((post) => ({

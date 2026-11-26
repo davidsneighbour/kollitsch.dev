@@ -380,3 +380,9 @@ eza
 Vitest
 [Pp]olkit
 pkexec
+[Ii]conmarks?
+[Ww]ordmarks?
+[Oo]versizing
+shadcn
+shadcn's
+TODOs

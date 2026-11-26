@@ -373,3 +373,8 @@ statuss
 Kigen Color
 [Mm]ultiarch
 eza
+[Gg]itignored
+[Mm]ergeability
+[Uu]npushed
+[Bb]rowserslist
+Vitest

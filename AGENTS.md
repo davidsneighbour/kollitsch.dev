@@ -1,6 +1,6 @@
 # AGENTS.md — Core Rules
 
-This is the single onboarding document for every AI assistant working in this repository (Claude, Codex, Copilot, or any other agent). Read it before doing anything else. Do not add tool-specific entry files such as `CLAUDE.md`: Claude Code and Codex read this file directly, and a project `CLAUDE.md` would stop Claude Code from using it.
+This file is the single onboarding document for every AI assistant working in this repository (Claude, Codex, Copilot, or any other agent). Read it before doing anything else. Do not add tool-specific entry files such as `CLAUDE.md`: Claude Code and Codex read this file directly, and a project `CLAUDE.md` would stop Claude Code from using it.
 
 ## Protected project rules
 
@@ -14,7 +14,7 @@ This is the single onboarding document for every AI assistant working in this re
 
 Personal website at [KOLLITSCH.dev*](https://kollitsch.dev): a digital garden, blog, and web development reference. Astro 6 (static output), Tailwind CSS 4, TypeScript, and React for a few UI components. Deployed locally to Cloudflare Workers Static Assets with Wrangler.
 
-RFC 2119 keywords (MUST, SHOULD, MAY, and so on) in this repository's documentation carry their standard meanings.
+RFC 2119 keywords (such as MUST, SHOULD, and MAY) in this repository's documentation carry their standard meanings.
 
 ## Instructions, references, and skills
 
@@ -27,7 +27,7 @@ All project-specific agent assets live under `.agents/`.
   - `dev-server.md`: before you start, use, or stop the Astro dev server or any other local HTTP server.
   - `issue-and-commit-workflow.md`: before creating or updating an issue, and before committing.
   - `keyboard-shortcuts-tinykeys.md`: adding or changing a keyboard shortcut.
-- `.agents/skills/`: tracked `kdev-*` skills (`kdev-kurzschnitte` for Kurzschnitte link-collection posts, `kdev-postreview` for reviewing one blog post); skills installed with `npm run skills:add` are gitignored. `.claude/skills` and `.codex/skills` are symlinks to it; edit skills only under `.agents/skills/`. A project skill takes precedence over a global skill with the same name.
+- `.agents/skills/`: tracked `kdev-*` skills (`kdev-kurzschnitte` for Kurzschnitte link-collection posts, `kdev-postreview` for reviewing one blog post, `kdev-maintenance` for a read-only check of branches, Dependabot, and GitHub Actions); skills installed with `npm run skills:add` are gitignored. `.claude/skills` and `.codex/skills` are symlinks to it; edit skills only under `.agents/skills/`. A project skill takes precedence over a global skill with the same name.
 - Tool-local configuration such as `.claude/settings*.json` is gitignored machine configuration, not shared project policy.
 
 If several instructions apply, the most specific scope wins, but no instruction may weaken or contradict this file.
@@ -39,7 +39,7 @@ The user's global agent instructions (for example `~/.claude/CLAUDE.md`) cover g
 - Before creating or changing files, read the applicable scoped instructions and identify the relevant checks in `.lintstagedrc.ts` and the package scripts. Read their maintained rule sources before editing: for example `.ls-lint.yml` for new filenames, `biome.jsonc` for formatting, and `src/config/.markdownlint.jsonc` for Markdown. Read only configurations relevant to the intended files. Checks are compliance gates, not a substitute for learning the conventions.
 - If a check reveals an established convention missing from the instructions, verify the rule and its scope against the maintained configuration, then add concise, actionable guidance to the appropriate scoped instruction in the same change, before finishing the task. Include the configuration path. Merge with an existing rule where possible; create a narrowly scoped instruction only when no suitable owner exists.
 - If the convention was already documented, correct the missed reading or compliance step instead of adding duplicate instructions. Do not describe an established rule as an unexpected new requirement.
-- Do not turn transient tool failures, environment limits, generated-file noise, or upstream bugs into repository conventions. Do not weaken, disable, or bypass checks to avoid documenting or following a real rule. Keep universal coordination here and file-specific details in `.agents/instructions/`.
+- Do not turn transient tool failures, environment limits, generated-file noise, or upstream bugs into repository conventions. Do not weaken, disable, or bypass checks to avoid documenting or following a real rule. Keep universal coordination here and per-file details in `.agents/instructions/`.
 
 ## Global constraints
 
@@ -67,7 +67,7 @@ GitHub Issues are the source of truth for actionable work. `PROJECT.md`, `TODO.m
 
 ## Commits and documentation
 
-This is a single-developer project.
+This repository is a single-developer project.
 
 - Commit directly to `main`. Do not create branches or pull requests unless asked, and never create merge commits; rebase or squash. Do not comment on working on `main`.
 - Every committed AI-assisted change references a GitHub issue (`Closes #123` when it fully resolves it, `Refs #123` otherwise). When work starts from a plan with no issue, create the issue at the start, not at commit time. Read `.agents/references/issue-and-commit-workflow.md` before creating issues or committing.
@@ -107,7 +107,7 @@ Build and deploy commands are in `.agents/references/build-and-deploy.md`. Do no
 
 - `npm test` MUST pass after every change. Fix the source, not the test.
 - Add a co-located unit test whenever you change observable behaviour.
-- "Visible" means visible to the human eye. Before reporting a visual change as working, confirm it in a real screenshot or live view, not only through DOM presence, computed opacity, or script-read pixels.
+- The word `visible` means visible to the human eye. Before reporting a visual change as working, confirm it in a real screenshot or live view, not only through DOM presence, computed opacity, or script-read pixels.
 - When a check fails unexpectedly, read `documentation/development/known-false-positives.md` before re-diagnosing. Treat a failure as a real regression unless it is documented there; add a new entry only with hard evidence (computed values, screenshots, rasterised pixels) and a tracking issue, and never disable a check without that evidence.
 
 ## Dev server

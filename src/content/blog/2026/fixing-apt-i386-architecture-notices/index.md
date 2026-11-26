@@ -12,7 +12,7 @@ tags:
 cover:
   src: "postimages/postimage-for-fixing-apt-i386-architecture-notices.jpg"
   type: image
-  title: "Image by [Insaanu Studio](https://unsplash.com/@insaanustudio) on [Unsplash](https://unsplash.com/photos/circuit-board-with-glowing-blue-and-green-lines-EaI_VX4uqVs)"
+  title: "System architecture"
   alt: "3D render of a dark circuit board with glowing blue and green traces between processor chips"
 ---
 
